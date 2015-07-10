@@ -1,4 +1,3 @@
-#!/bin/bash
 #
 # Copyright 2015 Red Hat, Inc. and/or its affiliates
 # and other contributors as indicated by the @author tags.
@@ -15,7 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#!/bin/bash -e
 
-wget --span-hosts --content-disposition --retry-connrefused  --timeout=10 \
-     -t ${WAIT_TRIES:-1}  -w 5 --spider ${HAWKULAR_ENDPOINT:-http://localhost:8080}
-exit $?
+if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
+  mvn verify -DhawkularUrl="${HAWKULAR_ENDPOINT}" \
+             -DauthenticationKey="${SAUCELABS_AUTH_KEY}";
+else
+  mvn compile
+fi
