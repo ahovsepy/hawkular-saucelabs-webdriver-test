@@ -2,11 +2,15 @@
 <suite name="HawkularUITest">
     <test name="HawkualrAppServerTest">
         <classes>
-            <class name="org.qe.hawkular.tests.HawkularAppServerTest" >
-                <methods>
-                    <include name="hawkularURLTraitsTest"></include>
+          <!-- <class name="org.qe.hawkular.tests.HawkularAppServerTest" > 
+              <methods>
+                    <include name="hawkularURLTraitsTest"></include> 
                 </methods>
-            </class>
+            </class> -->
+                    
+          <class name="org.qe.hawkular.tests.HawkularWarActionTest" /> 
+
+            
         </classes>
     </test>
 </suite>
