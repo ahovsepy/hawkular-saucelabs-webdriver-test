@@ -10,7 +10,6 @@ public class HawkularDepoymentActionPage {
 	public final WebDriver driver;
 
 	public HawkularDepoymentActionPage(WebDriver driver) {
-
 		this.driver = driver;
 	}
 
@@ -56,20 +55,17 @@ public class HawkularDepoymentActionPage {
 	}
 
 	public void clickToEnableWar() {
-
 		HawkularUtils utils = new HawkularUtils(driver);
 		utils.navigateTo(selectEnableWar);
 	}
 
 	public void clickToDisableFirstWar() {
-
 		HawkularUtils utils = new HawkularUtils(driver);
 		utils.navigateTo(selectDisableWar);
 
 	}
 	
 	public void clickToRemoveWar() {
-
 		HawkularUtils utils = new HawkularUtils(driver);
 		utils.navigateTo(selectRemoveWar);
 	}
