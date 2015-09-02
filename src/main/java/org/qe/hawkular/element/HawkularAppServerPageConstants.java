@@ -10,7 +10,7 @@ public class HawkularAppServerPageConstants {
     public static final By appServerDeploymentsLink = By.linkText("Deployments");
     public static final By appServerDeploymentstabLocator = By.xpath("//*[text()='Deployment Status']");
     public static final By appServerWarFileLocator = By.xpath("//*[text()='hawkular-accounts.war']");
-    public static final By appServerRHALocator = By.xpath("//li[@class='dropdown']/a[text()='Red Hat Access']");
+    public static final By appServerRHALocator = By.xpath("//li[@class='dropdown']//a[contains(text(),'Red Hat Access')]");
     public static final By appServerRHASearchLocator = By.xpath("//a[@href='/hawkular-ui/access/search']");
    
 }

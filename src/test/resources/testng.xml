@@ -8,8 +8,7 @@
                 </methods>
             </class> -->
                     
-          <class name="org.qe.hawkular.tests.HawkularWarActionTest" /> 
-
+          <class name="org.qe.hawkular.tests.HawkularRHASearchTest" /> 
             
         </classes>
     </test>
