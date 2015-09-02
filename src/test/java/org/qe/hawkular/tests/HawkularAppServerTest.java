@@ -50,7 +50,7 @@ public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
         addUrlPage.navigateToAppServersMenu();
         addUrlPage.verifyAppServersMenuNavigation();
         appServerPage.verifyLocalAppServerExists();
-        appServerPage.navigateTOLocalAppServer();
+        appServerPage.navigateToLocalAppServer();
         appServerPage.verifyAppServerJVMTabNavigation();
         loginPage.logout();
         driver.quit();
@@ -76,9 +76,9 @@ public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
         addUrlPage.navigateToAppServersMenu();
         addUrlPage.verifyAppServersMenuNavigation();
         appServerPage.verifyLocalAppServerExists();
-        appServerPage.navigateTOLocalAppServer();
+        appServerPage.navigateToLocalAppServer();
         appServerPage.verifyAppServerJVMTabNavigation();
-        appServerPage.navigateTODeploymentsTab();
+        appServerPage.navigateToDeploymentsTab();
         appServerPage.verifyAppServerDeploymentsTabNavigation();
         appServerPage.verifyAppServerWarExists();
         driver.quit();

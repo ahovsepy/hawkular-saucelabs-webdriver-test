@@ -12,9 +12,10 @@ public class HawkularDepoymentActionPage {
 	public HawkularDepoymentActionPage(WebDriver driver) {
 		this.driver = driver;
 	}
-
+	
+	By checkAllWars = HawkularRedeployConstants.checkAllWars;
 	By selectAllWarsAction = HawkularRedeployConstants.selectAllWarsAction;
-	By selectFirstWarAction = HawkularRedeployConstants.selectFirstWarAction;
+	By selectWarAction = HawkularRedeployConstants.selectWarAction;
 	By selectRedeployWar = HawkularRedeployConstants.selectRedeployWar;
 	By verifySuccess = HawkularRedeployConstants.verifySuccess;
 	By verifySucceeded = HawkularRedeployConstants.verifySucceeded;
@@ -22,10 +23,9 @@ public class HawkularDepoymentActionPage {
 	By selectDisableWar = HawkularRedeployConstants.selectDisableWar;
 	By selectRemoveWar = HawkularRedeployConstants.selectRemoveWar;
 	
-	public void clickFirstWarAction() {
+	public void clickWarAction() {
 		HawkularUtils utils = new HawkularUtils(driver);
-		utils.navigateTo(selectAllWarsAction);
-		utils.waitForElementPresent(selectRedeployWar);
+		utils.navigateTo(selectWarAction);
 	}
 
 	public void clickToRedeployAllWars() {
@@ -35,11 +35,13 @@ public class HawkularDepoymentActionPage {
 
 	public void clickAllWarsAction() {
 		HawkularUtils utils = new HawkularUtils(driver);
+		utils.navigateTo(checkAllWars);
+		utils.waitForElementPresent(selectAllWarsAction);
 		utils.navigateTo(selectAllWarsAction);
 		utils.waitForElementPresent(selectRedeployWar);
 	}
 
-	public void clickToRedeployFirstWar() {
+	public void clickToRedeployWar() {
 
 		HawkularUtils utils = new HawkularUtils(driver);
 		utils.navigateTo(selectRedeployWar);
@@ -47,7 +49,6 @@ public class HawkularDepoymentActionPage {
 	}
 
 	public void verfiySuccess() {
-		// TODO - verify via Current State (the message may be generated but it doesnt necessary mean that it was successful (ex. disable all - msg OK, but server shut down and 404). 
 		HawkularUtils utils = new HawkularUtils(driver);
 		utils.waitForElementPresent(verifySuccess);
 		utils.waitForElementPresent(verifySucceeded);
@@ -59,7 +60,7 @@ public class HawkularDepoymentActionPage {
 		utils.navigateTo(selectEnableWar);
 	}
 
-	public void clickToDisableFirstWar() {
+	public void clickToDisableWar() {
 		HawkularUtils utils = new HawkularUtils(driver);
 		utils.navigateTo(selectDisableWar);
 
