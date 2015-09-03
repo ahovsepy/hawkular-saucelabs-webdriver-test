@@ -13,8 +13,6 @@ public class HawkularRedHatAccess {
 	private String username;
 	private String password;
 
-	private String originalURL;
-
 	By usernameLocator = HawkularRHAPageConstants.usernameLocator;
 	By passwordLocator = HawkularRHAPageConstants.passwordLocator;
 	By signinLocator = HawkularRHAPageConstants.signinLocator;
@@ -39,14 +37,6 @@ public class HawkularRedHatAccess {
 		return password;
 	}
 
-	public String getOriginalURL() {
-		return originalURL;
-	}
-
-	public void setOriginalURL(String originalURL) {
-		this.originalURL = originalURL;
-	}
-	
 	public void loginHere() {
 		HawkularUtils util = new HawkularUtils(driver);
 		util.sendKeysTo(usernameLocator, username);
@@ -55,7 +45,6 @@ public class HawkularRedHatAccess {
 	}
 
 	public void switchFrameFocus() {
-		originalURL = driver.getCurrentUrl();
 		WebElement frame = driver.findElement(rhaiframeLocator);
 		driver.switchTo().frame(frame);
 	}
@@ -65,7 +54,6 @@ public class HawkularRedHatAccess {
 			switchFrameFocus();
 		} else {
 			driver.switchTo().defaultContent();
-			originalURL = null;
 		}
 	}
 
