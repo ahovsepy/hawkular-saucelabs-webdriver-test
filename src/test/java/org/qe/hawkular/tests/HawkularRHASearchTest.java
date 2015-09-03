@@ -29,17 +29,17 @@ public class HawkularRHASearchTest extends HawkularSeleniumLocalWebDriver {
 	}
 
 	@Test
-	public void hawkularLoginRHASearch() throws Exception {
+	public void hawkularSearchKnowledgeBaseTest() throws Exception {
 		WebDriver driver = hawkularLogin();
-		HawkularAppServerPage rhaSearch = new HawkularAppServerPage(
-				driver);
-		
+		HawkularAppServerPage rhaSearch = new HawkularAppServerPage(driver);
+
 		rhaSearch.navigateToRHATab();
 		rhaSearch.navigateToRHASearchTab();
-		
+
 		HawkularRedHatAccess rha = new HawkularRedHatAccess(driver);
+		rha.switchFrameFocus();
 		rha.loginHere();
-		
+
 		// TODO code
 		driver.close();
 	}

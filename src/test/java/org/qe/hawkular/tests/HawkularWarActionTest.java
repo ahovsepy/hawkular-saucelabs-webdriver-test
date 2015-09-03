@@ -5,7 +5,6 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
-import org.qe.hawkular.util.HawkularUtils;
 import org.testng.annotations.Test;
 
 public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
