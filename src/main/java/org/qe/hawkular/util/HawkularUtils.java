@@ -39,9 +39,8 @@ public class HawkularUtils {
 	public void waitForElementNotPresent(By element) {
 		WebDriverWait wait = new WebDriverWait(driver, 45);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
-
 	}
-
+	
 	public void assertElementPresent(By element) {
 		Assert.assertTrue(waitForElementPresent(element));
 	}

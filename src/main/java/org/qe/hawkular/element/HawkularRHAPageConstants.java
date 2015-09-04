@@ -9,5 +9,7 @@ public class HawkularRHAPageConstants {
     public static final By signinLocator = By.xpath("//button[text()='Sign in']");
     public static final By cancelLocator = By.xpath("//button[text()='Cancel']");
     public static final By rhaiframeLocator = By.xpath("//iframe[@src='/support.html#/search']");
+    public static final By modaldialogLocator = By.id("rha-login-modal-header");
+    public static final By logoutLocator = By.xpath("//span/a[contains(text(),'Log Out')]");
     
 }

@@ -18,7 +18,9 @@ public class HawkularRedHatAccess {
 	By signinLocator = HawkularRHAPageConstants.signinLocator;
 	By rhaiframeLocator = HawkularRHAPageConstants.rhaiframeLocator;
 	By cancelLocator = HawkularRHAPageConstants.cancelLocator;
-
+	By modaldialogLocator = HawkularRHAPageConstants.modaldialogLocator;
+	By logoutLocator = HawkularRHAPageConstants.logoutLocator;
+	
 	public HawkularRedHatAccess(WebDriver driver) {
 		this.driver = driver;
 		username = System.getProperty("rhausername");
@@ -27,6 +29,14 @@ public class HawkularRedHatAccess {
 			Assert.assertTrue(false,
 					"Missing credentials for Red Hat Access, please check READEME.md");
 		}
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getUsername() {
@@ -41,7 +51,12 @@ public class HawkularRedHatAccess {
 		HawkularUtils util = new HawkularUtils(driver);
 		util.sendKeysTo(usernameLocator, username);
 		util.sendKeysTo(passwordLocator, password);
-		util.waitForElementPresent(signinLocator);
+		util.navigateTo(signinLocator);
+	}
+	
+	public void logoutHere() {
+		HawkularUtils util = new HawkularUtils(driver);
+		util.navigateTo(logoutLocator);
 	}
 
 	public void switchFrameFocus() {
@@ -54,6 +69,13 @@ public class HawkularRedHatAccess {
 			switchFrameFocus();
 		} else {
 			driver.switchTo().defaultContent();
+			try {
+				Thread.sleep(10000); // TODO nasty sleep -> elegant (iframe animation)
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				Assert.assertTrue(false,
+						"Error occured when waiting after switching frames");
+			}
 		}
 	}
 
