@@ -12,5 +12,6 @@ public class HawkularAppServerPageConstants {
     public static final By appServerWarFileLocator = By.xpath("//*[text()='hawkular-accounts.war']");
     public static final By appServerRHALocator = By.xpath("//li[@class='dropdown']//a[contains(text(),'Red Hat Access')]");
     public static final By appServerRHASearchLocator = By.xpath("//a[@href='/hawkular-ui/access/search']");
+    public static final By appServerRHASupportmyCasesLocator = By.xpath("//a[@href='/hawkular-ui/access/myCases']");
    
 }
