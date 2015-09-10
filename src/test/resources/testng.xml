@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="HawkularUITest">
-    <test name="HawkualrAppServerTest">
-        <classes>
-            <class name="org.qe.hawkular.tests.HawkularAppServerTest" >
-                <methods>
-                    <include name="hawkularURLTraitsTest"></include>
-                </methods>
-            </class>
-        </classes>
-    </test>
+	<!-- Hawkular Red Hat Access Search Knowledge Base Test -->
+	<test name="HawkularRHASearchTest">
+		<classes>
+			<class name="org.qe.hawkular.tests.HawkularRHASearchTest" />
+		</classes>
+	</test>
+	<!-- Hawkular Application Server Deployments Actions Tests -->
+	<test name="HawkualrWarActionTest">
+		<classes>
+			<class name="org.qe.hawkular.tests.HawkularWarActionTest">
+				<methods>
+					<!-- Local WildFly agent tests -->
+					<include name="hawkularEnableWarTest"></include>
+					<include name="hawkularRedeployWarTest"></include>
+					<include name="hawkularDisableWarTest"></include>
+					<include name="hawkularRemoveWarTest"></include>
+					<include name="hawkularEnableMultipleWarsTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>
