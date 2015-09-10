@@ -7,12 +7,13 @@
 		</classes>
 	</test>
 		
-	<!-- Hawkular App Server Tests -->
+	<!-- Hawkular App Server Tests 
         <test name="HawkularAppServerTest">
                 <classes>
                         <class name="org.qe.hawkular.tests.HawkularAppServerTest" />
                 </classes>
         </test>
+	-->
 
         <!-- Hawkular Red Hat Access Support Case Tests -->
 	<test name="HawkularRHASupportCaseTest">
@@ -28,7 +29,7 @@
                 </classes>
         </test>
 
-	<!-- Hawkular Application Server Deployments Actions Tests -->
+	<!-- Hawkular Application Server Deployments Actions Tests 
 	<test name="HawkualrWarActionTest">
 		<classes>
 			<class name="org.qe.hawkular.tests.HawkularWarActionTest">
@@ -42,5 +43,5 @@
 			</class>
 		</classes>
 	</test>
-	
+	-->
 </suite>
