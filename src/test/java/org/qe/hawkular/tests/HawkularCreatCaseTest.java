@@ -6,7 +6,7 @@ import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularCreateCasePage;
 import org.qe.hawkular.page.HawkularLoginPage;
-import org.qe.hawkular.util.HawkularRedHatAccess;
+import org.qe.hawkular.page.HawkularRedHatAccessPage;
 import org.testng.annotations.Test;
 
 public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
@@ -37,7 +37,7 @@ public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
 		
 		create.clickRedHatAccess();
 		
-		HawkularRedHatAccess rha = new HawkularRedHatAccess(driver);
+		HawkularRedHatAccessPage rha = new HawkularRedHatAccessPage(driver);
 		rha.switchFrameFocusCreateCase();
 		rha.loginHere();
 		rha.switchFrameFocus(true);

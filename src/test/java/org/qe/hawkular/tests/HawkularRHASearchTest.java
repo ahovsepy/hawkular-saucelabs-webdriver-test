@@ -5,7 +5,6 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
-import org.qe.hawkular.util.HawkularRedHatAccess;
 import org.testng.annotations.Test;
 
 public class HawkularRHASearchTest extends HawkularSeleniumLocalWebDriver {
@@ -35,17 +34,13 @@ public class HawkularRHASearchTest extends HawkularSeleniumLocalWebDriver {
 		appServer.navigateToRHATab();
 		appServer.navigateToRHASearchTab();
 
-		HawkularRedHatAccess rha = new HawkularRedHatAccess(driver);
+		HawkularRedHatAccessPage rha = new HawkularRedHatAccessPage(driver);
 		rha.switchFrameFocus();
 		rha.loginHere();
 		rha.switchFrameFocus(true);
 		HawkularRHASearchPage rhaSearch = new HawkularRHASearchPage(driver);
 		rhaSearch.switchFrameFocus();
 		rhaSearch.search("asd");
-		rhaSearch.search("*");
-		rhaSearch.search(" ");
-		rhaSearch.search("@");
-		rhaSearch.search("3");
 		
 		rha.logoutHere();
 		driver.close();

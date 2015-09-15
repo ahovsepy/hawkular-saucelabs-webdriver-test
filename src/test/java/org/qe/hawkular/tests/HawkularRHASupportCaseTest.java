@@ -5,7 +5,6 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
-import org.qe.hawkular.util.HawkularRedHatAccess;
 import org.testng.annotations.Test;
 
 public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
@@ -35,7 +34,7 @@ public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
 		rhaSupport.navigateToRHATab();
 		rhaSupport.navigateToRHASupportmyCasesTab();
 
-		HawkularRedHatAccess rha = new HawkularRedHatAccess(driver);
+		HawkularRedHatAccessPage rha = new HawkularRedHatAccessPage(driver);
 		rha.switchFrameFocusMyCases();
 		rha.loginHere();
 		rha.switchFrameFocus(true);
@@ -55,7 +54,7 @@ public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
 		rhaSupport.navigateToRHATab();
 		rhaSupport.navigateToRHASupportmyCasesTab();
 
-		HawkularRedHatAccess rha = new HawkularRedHatAccess(driver);
+		HawkularRedHatAccessPage rha = new HawkularRedHatAccessPage(driver);
 		rha.switchFrameFocusMyCases();
 		rha.loginHere();
 		rha.switchFrameFocus(true);

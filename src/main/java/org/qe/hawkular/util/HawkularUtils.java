@@ -31,13 +31,13 @@ public class HawkularUtils {
 	}
 
 	public boolean waitForElementPresent(By element) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.presenceOfElementLocated(element));
 		return driver.findElement(element).isDisplayed();
 	}
 
 	public void waitForElementNotPresent(By element) {
-		WebDriverWait wait = new WebDriverWait(driver, 45);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
 	}
 	
