@@ -3,6 +3,7 @@ package org.qe.hawkular.tests;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.WebDriver;
+import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularLoginPageConstants;
 import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
@@ -18,11 +19,10 @@ import org.testng.annotations.Test;
 
 import com.saucelabs.testng.SauceOnDemandTestListener;
 
-@Listeners({ SauceOnDemandTestListener.class })
-public class HawkularHomePageTest extends HawkularSeleniumWebDriver {
+public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
 	@BeforeSuite
 	public void prepateUser() throws MalformedURLException {
-		WebDriver driver = createDriver("firefox", "24.0", "Linux", "homePage");
+		WebDriver driver = createLocalDriver();
 		HawkularRegistrationPage registration = new HawkularRegistrationPage(
 				driver);
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
@@ -31,11 +31,10 @@ public class HawkularHomePageTest extends HawkularSeleniumWebDriver {
 
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularAddURLTest(String browser, String version, String os)
+	@Test
+	public void hawkularAddURLTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularAddURLTest");
+		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -57,11 +56,10 @@ public class HawkularHomePageTest extends HawkularSeleniumWebDriver {
 		driver.quit();
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class, dependsOnMethods="hawkularAddURLTest")
-	public void hawkularDeleteURLTest(String browser, String version, String os)
+	@Test
+	public void hawkularDeleteURLTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularDeleteURLTest");
+		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -82,11 +80,9 @@ public class HawkularHomePageTest extends HawkularSeleniumWebDriver {
 		driver.quit();
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularMenuNavigationTest(String browser, String version,
-			String os) throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"MenuNavigationTest");
+	@Test
+	public void hawkularMenuNavigationTest() throws Exception {
+		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
