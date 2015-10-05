@@ -93,9 +93,9 @@
 		</repository>
 	</repositories>
 
-	<parent>
+	<!-- <parent>
 		<groupId>org.hawkular</groupId>
 		<artifactId>hawkular-parent</artifactId>
 		<version>17</version>
-	</parent>
+	</parent>-->
 </project>
