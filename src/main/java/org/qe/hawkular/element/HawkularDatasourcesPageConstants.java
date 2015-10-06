@@ -25,4 +25,6 @@ public class HawkularDatasourcesPageConstants {
     public static final By addButton = By
             .xpath("//div[@class='modal-footer ng-scope']//button[contains(text(),'Add') ]");
 
+    public static final By exportJDR = By.xpath("//button[contains(text(),'Export JDR')]");
+
 }

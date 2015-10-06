@@ -27,7 +27,9 @@ public class HawkularDatasourcesPage {
     By driverParamsNextButton = HawkularDatasourcesPageConstants.driverParamsNextButton;
 
     By addButton = HawkularDatasourcesPageConstants.addButton;
-
+    
+    By exportJDR = HawkularDatasourcesPageConstants.exportJDR;
+    
     // TODO optional: Driver Major Version , Driver Minor Version
 
     public void navigateAddDriverTab() {
@@ -54,5 +56,11 @@ public class HawkularDatasourcesPage {
         HawkularUtils util = new HawkularUtils(driver);
         util.navigateTo(addButton);
     }
-
+    
+    public void exportJDR() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.navigateTo(exportJDR);
+    }
+    
+  
 }
