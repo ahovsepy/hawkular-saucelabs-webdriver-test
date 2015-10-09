@@ -8,6 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
 import org.testng.Assert;
 
+/**
+ * Utility class for methods: to navigate to a location or wait for if element is present or not.
+ *
+ */
+
 public class HawkularUtils {
 
 	WebDriver driver;

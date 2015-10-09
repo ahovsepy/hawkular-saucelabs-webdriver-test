@@ -7,6 +7,11 @@ import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
 import org.testng.annotations.Test;
 
+/**
+ * Test case for searching the knowledge base for solutions.
+ *
+ */
+
 public class HawkularRHASearchTest extends HawkularSeleniumLocalWebDriver {
 
 	public WebDriver hawkularLogin() throws Exception {

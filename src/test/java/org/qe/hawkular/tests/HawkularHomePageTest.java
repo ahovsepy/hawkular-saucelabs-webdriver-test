@@ -19,6 +19,11 @@ import org.testng.annotations.Test;
 
 import com.saucelabs.testng.SauceOnDemandTestListener;
 
+/**
+ * Test case for menu navigation, add URL and Delete URL
+ *
+ */
+
 public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
 	@BeforeSuite
 	public void prepateUser() throws MalformedURLException {

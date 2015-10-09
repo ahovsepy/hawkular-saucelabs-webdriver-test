@@ -19,6 +19,12 @@ import org.testng.annotations.Test;
 
 import com.saucelabs.testng.SauceOnDemandTestListener;
 
+/**
+ * Test case to verify multi-tenancy
+ *
+ * @author Sunil Kondkar
+ */
+
 public class HawkularMultiTenancyTest extends HawkularSeleniumLocalWebDriver {
 
 	@BeforeSuite

@@ -7,6 +7,11 @@ import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
 import org.testng.annotations.Test;
 
+/**
+ * Test case to test enable/disable/redeploy actions for app server deployments.
+ *
+ */
+
 public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 
 	public WebDriver hawkularLoginToDeployments() throws Exception {

@@ -17,6 +17,11 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+/**
+ * Test case for login, logout and negative tests for hawkular login.
+ *
+ */
+
 import com.saucelabs.testng.SauceOnDemandTestListener;
 
 public class HawkualrLoginTest extends HawkularSeleniumLocalWebDriver {

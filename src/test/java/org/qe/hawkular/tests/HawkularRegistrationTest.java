@@ -9,6 +9,11 @@ import org.qe.hawkular.page.HawkularRegistrationPage;
 import org.qe.hawkular.util.HawkularDataProvider;
 import org.testng.annotations.Test;
 
+/**
+ * Test case for registration tests.
+ *
+ */
+
 public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 
 	@Test

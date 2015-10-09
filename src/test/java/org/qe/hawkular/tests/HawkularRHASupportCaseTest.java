@@ -7,6 +7,12 @@ import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
 import org.testng.annotations.Test;
 
+/**
+ * Test case to list and view the details of support case.
+ *
+ * @author Sunil Kondkar
+ */
+
 public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
 
 	public WebDriver hawkularLogin() throws Exception {

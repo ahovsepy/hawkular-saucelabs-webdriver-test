@@ -20,6 +20,11 @@ import org.testng.annotations.Test;
 
 import com.saucelabs.testng.SauceOnDemandTestListener;
 
+/**
+ * Test case on alerts and alert settings
+ *
+ */
+
 public class HawkularAlertsSettingsTest extends HawkularSeleniumLocalWebDriver {
 
 	@BeforeSuite

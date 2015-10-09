@@ -9,6 +9,11 @@ import org.qe.hawkular.page.HawkularLoginPage;
 import org.qe.hawkular.page.HawkularRedHatAccessPage;
 import org.testng.annotations.Test;
 
+/**
+ * Test case for opening a support case
+ *
+ */
+
 public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
 
 	public WebDriver hawkularLogin() throws Exception {
