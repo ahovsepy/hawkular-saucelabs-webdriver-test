@@ -1,12 +1,14 @@
-package org.qe.hawkular.util;
+package org.qe.hawkular.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.qe.hawkular.element.HawkularRHAPageConstants;
+import org.qe.hawkular.element.HawkularCreateCaseConstants;
+import org.qe.hawkular.util.HawkularUtils;
 import org.testng.Assert;
 
-public class HawkularRedHatAccess {
+public class HawkularRedHatAccessPage {
 
 	WebDriver driver;
 
@@ -20,8 +22,10 @@ public class HawkularRedHatAccess {
 	By cancelLocator = HawkularRHAPageConstants.cancelLocator;
 	By modaldialogLocator = HawkularRHAPageConstants.modaldialogLocator;
 	By logoutLocator = HawkularRHAPageConstants.logoutLocator;
+	By rhaiframeLocatormyCases = HawkularRHAPageConstants.rhaiframeLocatormyCases;
+	By rhaiframeLocatorLogin = HawkularCreateCaseConstants.rhaiframeLocatorLogin;
 	
-	public HawkularRedHatAccess(WebDriver driver) {
+	public HawkularRedHatAccessPage(WebDriver driver) {
 		this.driver = driver;
 		username = System.getProperty("rhausername");
 		password = System.getProperty("rhapassword");
@@ -61,6 +65,17 @@ public class HawkularRedHatAccess {
 
 	public void switchFrameFocus() {
 		WebElement frame = driver.findElement(rhaiframeLocator);
+		driver.switchTo().frame(frame);
+	}
+	
+	public void switchFrameFocusMyCases() {
+		WebElement frame = driver.findElement(rhaiframeLocatormyCases);
+		driver.switchTo().frame(frame);
+	}
+
+
+	public void switchFrameFocusCreateCase() {
+		WebElement frame = driver.findElement(rhaiframeLocatorLogin);
 		driver.switchTo().frame(frame);
 	}
 	

@@ -3,6 +3,7 @@ package org.qe.hawkular.tests;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.WebDriver;
+import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularLoginPageConstants;
 import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
@@ -18,12 +19,17 @@ import org.testng.annotations.Test;
 
 import com.saucelabs.testng.SauceOnDemandTestListener;
 
-@Listeners({ SauceOnDemandTestListener.class })
-public class HawkularMultiTenancyTest extends HawkularSeleniumWebDriver {
+/**
+ * Test case to verify multi-tenancy
+ *
+ * @author Sunil Kondkar
+ */
+
+public class HawkularMultiTenancyTest extends HawkularSeleniumLocalWebDriver {
 
 	@BeforeSuite
 	public void prepareUser() throws MalformedURLException {
-		WebDriver driver = createDriver("firefox", "24.0", "Linux", "homePage");
+		WebDriver driver = createLocalDriver();
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
 		HawkularRegistrationPage registration = new HawkularRegistrationPage(
@@ -34,21 +40,20 @@ public class HawkularMultiTenancyTest extends HawkularSeleniumWebDriver {
 
 	@BeforeSuite
 	public void preparejonqeUser() throws MalformedURLException {
-		WebDriver driver = createDriver("firefox", "24.0", "Linux", "homePage");
+		WebDriver driver = createLocalDriver();
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
 		HawkularRegistrationPage registration = new HawkularRegistrationPage(
 				driver);
-		registration.registerUserIfDoesNotExist(HawkularRegistrationPageConstants.username1, HawkularRegistrationPageConstants.password, HawkularRegistrationPageConstants.confirmPassword, HawkularRegistrationPageConstants.firstName1, HawkularRegistrationPageConstants.lastName1, HawkularRegistrationPageConstants.email1);
+		registration.registerUserIfDoesNotExist(HawkularRegistrationPageConstants.username2, HawkularRegistrationPageConstants.password2, HawkularRegistrationPageConstants.confirmPassword2, HawkularRegistrationPageConstants.firstName2, HawkularRegistrationPageConstants.lastName2, HawkularRegistrationPageConstants.email2);
 
 	}
 
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularBasicMultiTenancyTest(String browser, String version, String os)
+	@Test
+	public void hawkularBasicMultiTenancyTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularBasicMultiTenancyTest");
+		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -61,17 +66,15 @@ public class HawkularMultiTenancyTest extends HawkularSeleniumWebDriver {
 		HawkularConsoleAddUrlPage addUrlPage = new HawkularConsoleAddUrlPage(
 				driver);
 		addUrlPage.verifyConsoleImagePresent();
-		addUrlPage.typeURL(HawkularManagementConsolePageConstants.testURL);
-		addUrlPage.submitURL();
+		addUrlPage.addURLIfDoesNotExist(HawkularManagementConsolePageConstants.testURL);
 		addUrlPage.verifyUrlExists();
 		addUrlPage.navigateToURLsMenu();
 		loginPage.logout();
-		loginPage.loginAs(HawkularRegistrationPageConstants.username1,
-				HawkularRegistrationPageConstants.password);
+		loginPage.loginAs(HawkularRegistrationPageConstants.username2,
+				HawkularRegistrationPageConstants.password2);
 		addUrlPage.verifyConsoleImagePresent();
 		addUrlPage.verifyUrlDoesnotExist();
-		addUrlPage.typeURL(HawkularManagementConsolePageConstants.testURL);
-		addUrlPage.submitURL();
+		addUrlPage.addURLIfDoesNotExist(HawkularManagementConsolePageConstants.testURL);
 		addUrlPage.verifyUrlExists();
 		addUrlPage.deleteURL();
 		addUrlPage.verifyUrlDoesnotExist();

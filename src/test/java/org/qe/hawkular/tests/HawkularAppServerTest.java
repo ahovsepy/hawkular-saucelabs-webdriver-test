@@ -17,6 +17,11 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+/**
+ * Test case to navigate to app server and JVM/deployment tab of the app server
+ *
+ * @author Sunil Kondkar
+ */
 
 public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
 

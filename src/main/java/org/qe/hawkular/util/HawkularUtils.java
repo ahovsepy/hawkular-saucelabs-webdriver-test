@@ -8,6 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
 import org.testng.Assert;
 
+/**
+ * Utility class for methods: to navigate to a location or wait for if element is present or not.
+ *
+ */
+
 public class HawkularUtils {
 
 	WebDriver driver;
@@ -31,13 +36,13 @@ public class HawkularUtils {
 	}
 
 	public boolean waitForElementPresent(By element) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.presenceOfElementLocated(element));
 		return driver.findElement(element).isDisplayed();
 	}
 
 	public void waitForElementNotPresent(By element) {
-		WebDriverWait wait = new WebDriverWait(driver, 45);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
 	}
 	

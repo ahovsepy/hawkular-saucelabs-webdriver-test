@@ -3,16 +3,18 @@ package org.qe.hawkular.tests;
 import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
-import org.qe.hawkular.element.*;
-import org.qe.hawkular.page.*;
+import org.qe.hawkular.element.HawkularRegistrationPageConstants;
+import org.qe.hawkular.page.HawkularCreateCasePage;
+import org.qe.hawkular.page.HawkularLoginPage;
+import org.qe.hawkular.page.HawkularRedHatAccessPage;
 import org.testng.annotations.Test;
 
 /**
- * Test case for searching the knowledge base for solutions.
+ * Test case for opening a support case
  *
  */
 
-public class HawkularRHASearchTest extends HawkularSeleniumLocalWebDriver {
+public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
 
 	public WebDriver hawkularLogin() throws Exception {
 		WebDriver driver = createLocalDriver();
@@ -31,24 +33,28 @@ public class HawkularRHASearchTest extends HawkularSeleniumLocalWebDriver {
 		return driver;
 	}
 
+	
 	@Test
-	public void hawkularSearchKnowledgeBaseTest() throws Exception {
+	public void hawkularCreateSupportcaseTest() throws Exception {
 		WebDriver driver = hawkularLogin();
-		HawkularAppServerPage appServer = new HawkularAppServerPage(driver);
-
-		appServer.navigateToRHATab();
-		appServer.navigateToRHASearchTab();
-
+	
+		HawkularCreateCasePage create = new HawkularCreateCasePage(driver);
+		
+		create.clickRedHatAccess();
+		
 		HawkularRedHatAccessPage rha = new HawkularRedHatAccessPage(driver);
-		rha.switchFrameFocus();
+		rha.switchFrameFocusCreateCase();
 		rha.loginHere();
 		rha.switchFrameFocus(true);
-		HawkularRHASearchPage rhaSearch = new HawkularRHASearchPage(driver);
-		rhaSearch.switchFrameFocus();
-		rhaSearch.search("asd");
-		
+
+		create.switchFrameFocus();
+		create.createSupportCase();
+		create.issue("Test Ignore","Test Ignore");
+		create.nextPage();
 		rha.logoutHere();
 		driver.close();
+		
+			
+		
 	}
-
 }
