@@ -19,7 +19,6 @@ import org.testng.annotations.Test;
 
 import com.saucelabs.testng.SauceOnDemandTestListener;
 
-@Listeners({ SauceOnDemandTestListener.class })
 public class FirstTest extends HawkularSeleniumLocalWebDriver {
 
 	@BeforeSuite
@@ -36,8 +35,8 @@ public class FirstTest extends HawkularSeleniumLocalWebDriver {
 	
 	
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularLoginInvalidPasswordTest(String browser, String version, String os)
+	@Test
+	public void hawkularLoginInvalidPasswordTest()
 			throws Exception {
 		WebDriver driver = createLocalDriver();
 

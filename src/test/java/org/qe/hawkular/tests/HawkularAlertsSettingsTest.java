@@ -3,6 +3,7 @@ package org.qe.hawkular.tests;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.WebDriver;
+import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularLoginPageConstants;
 import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
@@ -19,12 +20,16 @@ import org.testng.annotations.Test;
 
 import com.saucelabs.testng.SauceOnDemandTestListener;
 
-@Listeners({ SauceOnDemandTestListener.class })
-public class HawkularAlertsSettingsTest extends HawkularSeleniumWebDriver {
+/**
+ * Test case on alerts and alert settings
+ *
+ */
+
+public class HawkularAlertsSettingsTest extends HawkularSeleniumLocalWebDriver {
 
 	@BeforeSuite
 	public void prepareUser() throws MalformedURLException {
-		WebDriver driver = createDriver("safari", "6", "OSX 10.8", "homePage");
+		WebDriver driver = createLocalDriver();
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
 		HawkularRegistrationPage registration = new HawkularRegistrationPage(
@@ -33,11 +38,9 @@ public class HawkularAlertsSettingsTest extends HawkularSeleniumWebDriver {
 
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularAlertsSettingsTest(String browser, String version, String os)
-			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularAlertsSettingsTest");
+	@Test
+	public void hawkularAlertsSettingsTest() throws Exception {
+		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());

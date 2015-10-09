@@ -3,6 +3,7 @@ package org.qe.hawkular.tests;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.WebDriver;
+import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularLoginPageConstants;
 import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
@@ -16,14 +17,18 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+/**
+ * Test case for login, logout and negative tests for hawkular login.
+ *
+ */
+
 import com.saucelabs.testng.SauceOnDemandTestListener;
 
-@Listeners({ SauceOnDemandTestListener.class })
-public class HawkualrLoginTest extends HawkularSeleniumWebDriver {
+public class HawkualrLoginTest extends HawkularSeleniumLocalWebDriver {
 
 	@BeforeSuite
 	public void prepareUser() throws MalformedURLException {
-		WebDriver driver = createDriver("safari", "6", "OSX 10.8", "homePage");
+		WebDriver driver = createLocalDriver();
 		HawkularRegistrationPage registration = new HawkularRegistrationPage(
 				driver);
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
@@ -32,11 +37,10 @@ public class HawkualrLoginTest extends HawkularSeleniumWebDriver {
 
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularLoginTest(String browser, String version, String os)
+	@Test
+	public void hawkularLoginTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularLoginTest");
+		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -49,16 +53,15 @@ public class HawkualrLoginTest extends HawkularSeleniumWebDriver {
 		loginPage.loginAs(HawkularRegistrationPageConstants.username,
 				HawkularRegistrationPageConstants.password);
 
-		HawkularUtils util = new HawkularUtils(driver);
-		util.assertElementPresent(HawkularManagementConsolePageConstants.consoleImageAltLocator);
+		driver.findElement(HawkularManagementConsolePageConstants.consoleImageAltLocator);
+		loginPage.logout();
 		driver.quit();
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularLoginEmptyFieldsTest(String browser, String version, String os)
+	@Test
+	public void hawkularLoginEmptyFieldsTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularLoginEmptyFieldsTest");
+		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -75,11 +78,10 @@ public class HawkualrLoginTest extends HawkularSeleniumWebDriver {
 		driver.quit();
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularLoginInvalidPasswordTest(String browser, String version, String os)
+	@Test
+	public void hawkularLoginInvalidPasswordTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularLoginEmptyFieldsTest");
+		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -96,10 +98,10 @@ public class HawkualrLoginTest extends HawkularSeleniumWebDriver {
 		driver.quit();
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularLogoutTest(String browser, String version, String os)
+	@Test
+	public void hawkularLogoutTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os, "hawkularLogoutTest");
+		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
