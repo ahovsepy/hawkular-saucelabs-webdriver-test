@@ -23,6 +23,10 @@ public class HawkularCreateCaseConstants {
 	public static final By clickSeverity =  By.xpath("//select[@id='rha-severity']");
 	public static final By selectSeverity =  By.xpath("//select[@id='rha-severity']/option[text()='1 (Urgent)']");
 	public static final By clickSubmit =  By.xpath("//button[text()='Submit']");
+	public static final By jdrReportLink =  By.xpath("//a[contains(text(), 'jdr_')]");
+	public static final By deleteJdrReportLink =  By.linkText("Delete");
+	public static final By deleteJDRMsg =  By.xpath("//*[contains(text(), 'Successfully deleted attachment')]");
+	public static final By createCaseSuccessMsg = By.xpath("//*[contains(text(),'Successfully created case number')]");
 
 
 }

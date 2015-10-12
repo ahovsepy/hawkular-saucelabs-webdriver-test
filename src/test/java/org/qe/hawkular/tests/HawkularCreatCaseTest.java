@@ -51,10 +51,37 @@ public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
 		create.createSupportCase();
 		create.issue("Test Ignore","Test Ignore");
 		create.nextPage();
+		create.verifyCaseCreated();
 		rha.logoutHere();
 		driver.close();
 		
+	}
+	
+	// Test case to verify if JDR report can be attached while opening a case.
+	
+	@Test
+	public void hawkularAttachJDRReportTest() throws Exception {
+		WebDriver driver = hawkularLogin();
+		
+		HawkularCreateCasePage create = new HawkularCreateCasePage(driver);
 			
+		create.clickRedHatAccess();
+			
+		HawkularRedHatAccessPage rha = new HawkularRedHatAccessPage(driver);
+		rha.switchFrameFocusCreateCase();
+		rha.loginHere();
+		rha.switchFrameFocus(true);
+
+		create.switchFrameFocus();
+		create.createSupportCase();
+		create.issue("Test Ignore","Test Ignore");
+		create.nextPage();
+		create.verifyCaseCreated();
+		create.verifyJDRReportAttached();
+		create.deleteJDRReport();
+		create.verifyJDRReportDeleted();
+		rha.logoutHere();
+		driver.close();		
 		
 	}
 }

@@ -1,11 +1,13 @@
 package org.qe.hawkular.page;
 
+import org.eclipse.jetty.util.log.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.qe.hawkular.element.HawkularCreateCaseConstants;
 import org.qe.hawkular.util.HawkularUtils;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 public class HawkularCreateCasePage {
 
@@ -30,6 +32,10 @@ public class HawkularCreateCasePage {
 	By clickSeverity = HawkularCreateCaseConstants.clickSeverity;
 	By selectSeverity = HawkularCreateCaseConstants.selectSeverity;
 	By clickSubmit = HawkularCreateCaseConstants.clickSubmit;
+	By createCaseSuccessMsg = HawkularCreateCaseConstants.createCaseSuccessMsg;
+	By deleteJDRMsg = HawkularCreateCaseConstants.deleteJDRMsg;
+	By jdrReportLink = HawkularCreateCaseConstants.jdrReportLink;
+	By deleteJdrReportLink = HawkularCreateCaseConstants.deleteJdrReportLink;
 
 
 
@@ -82,6 +88,36 @@ public class HawkularCreateCasePage {
 		driver.findElement(clickSubmit).click();
 
 	}
+	
+	public void verifyCaseCreated() {
+		HawkularUtils utils = new HawkularUtils(driver);
+		utils.waitForElementPresent(createCaseSuccessMsg);
+		Reporter.log("Case Created successfully.");
+		
+	}
+	
+	public void verifyJDRReportAttached() {
+		HawkularUtils utils = new HawkularUtils(driver);
+		utils.waitForElementPresent(jdrReportLink);
+		Reporter.log("JDR Report is attached.");
+		
+	}
+	
+	public void deleteJDRReport() {
+		HawkularUtils utils = new HawkularUtils(driver);
+		utils.waitForElementPresent(deleteJdrReportLink);
+		driver.findElement(deleteJdrReportLink).click();
+				
+	}
+	
+	public void verifyJDRReportDeleted() {
+		HawkularUtils utils = new HawkularUtils(driver);
+		utils.waitForElementPresent(deleteJDRMsg);
+		Reporter.log("JDR Report is deleted.");
+				
+	}
+		
+		
 
 
 }
