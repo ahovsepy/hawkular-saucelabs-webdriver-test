@@ -2,7 +2,7 @@
 <suite name="HawkularUITest">
 
 	<!-- Hawkular Red Hat Login and Registration Tests -->
-	<test name="HawkularLoginAndRegistrationTests">
+	 <test name="HawkularLoginAndRegistrationTests">
 		<classes> 
 			<class name="org.qe.hawkular.tests.HawkualrLoginTest" />
 			
@@ -11,46 +11,45 @@
 			<class name="org.qe.hawkular.tests.HawkularRegistrationTest" />
 				
 		</classes>
-	</test>
+	</test> 
 	
 	<!-- Hawkular Home page test - Add/Delete URL tests -->
-	<test name="HawkularHomePageTests">
+	 <test name="HawkularHomePageTests">
 		<classes>
 			<class name="org.qe.hawkular.tests.HawkularHomePageTest" />
 		</classes>
 	</test>
 	
-	
 	<!-- Hawkular Red Hat Access Search Knowledge Base Test -->	
-	<test name="HawkularRHASearchTest">
+	 <test name="HawkularRHASearchTest">
 		<classes>
 			<class name="org.qe.hawkular.tests.HawkularRHASearchTest" />
 		</classes>
-	</test>
+	</test> 
 	
 	<!-- Hawkular App Server Tests -->
-        <test name="HawkularAppServerTest">
+       <test name="HawkularAppServerTest">
                 <classes>
                         <class name="org.qe.hawkular.tests.HawkularAppServerTest" />
                 </classes>
-        </test>
+        </test> 
 	
     <!-- Hawkular Red Hat Access Support Case Tests -->
-	<test name="HawkularRHASupportCaseTest">
+	 <test name="HawkularRHASupportCaseTest">
                 <classes>
                         <class name="org.qe.hawkular.tests.HawkularRHASupportCaseTest" />
                 </classes>
         </test>
     
 	<!-- Hawkular Red Hat Access Create Support Case Test -->
-	<test name="hawkularCreateSupportcaseTest">
+	 <test name="hawkularCreateSupportcaseTest">
                 <classes>
                         <class name="org.qe.hawkular.tests.HawkularCreatCaseTest" />
                 </classes>
-        </test>
+        </test> 
 	
 	<!-- Hawkular Application Server Deployments Actions Tests -->
-	<test name="HawkualrWarActionTest">
+	 <test name="HawkualrWarActionTest">
 		<classes>
 			<class name="org.qe.hawkular.tests.HawkularWarActionTest">
 				<methods>
@@ -63,12 +62,19 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 
 	<test name="HawkularDatasourcesTest">
 		<classes>
 			<class name="org.qe.hawkular.tests.HawkularDatasourcesTest" />
 		</classes>
-	</test>
+	</test> 
 	 
+	 
+	 <!-- Hawkular Add Deployment Tests -->
+	<test name="HawkularAddDeploymentTest">
+	<classes>
+			<class name="org.qe.hawkular.tests.HawkularAddDeploymentTest" />
+		</classes>
+	</test>
 </suite>
