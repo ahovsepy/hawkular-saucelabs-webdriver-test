@@ -36,7 +36,7 @@ public class HawkularUtils {
 	}
 
 	public boolean waitForElementPresent(By element) {
-		WebDriverWait wait = new WebDriverWait(driver, 2000);
+i		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.presenceOfElementLocated(element));
 		return driver.findElement(element).isDisplayed();
 	}
