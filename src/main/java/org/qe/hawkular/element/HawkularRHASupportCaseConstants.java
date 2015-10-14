@@ -14,6 +14,7 @@ public class HawkularRHASupportCaseConstants {
 	public static final By searchResultLocator = By.xpath("//*[text()='Waiting on Red Hat']");
 	public static final By rhAccessCaseSearchFieldLocator = By.id("rha-searchform-searchbox");
 	public static final By verifyTicket = By.xpath("//*[text()='Test Ignore']"); 
+	public static final By caseID = By.xpath("//a[@href='#/case/01523802']");
 	public static final By supportCaseIDLocator = By.cssSelector("tr.ng-scope td a.ng-binding");
 	public static final By supportCaseDetailsLocator = By.xpath("//*[contains(text(), 'Case')]");
 

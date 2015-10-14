@@ -6,6 +6,7 @@ import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularCreateCasePage;
 import org.qe.hawkular.page.HawkularLoginPage;
+import org.qe.hawkular.page.HawkularRHASupportCasePage;
 import org.qe.hawkular.page.HawkularRedHatAccessPage;
 import org.testng.annotations.Test;
 
@@ -62,24 +63,21 @@ public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
 	@Test
 	public void hawkularOpenCaseJDRReportTest() throws Exception {
 		WebDriver driver = hawkularLogin();
-		
-		HawkularCreateCasePage create = new HawkularCreateCasePage(driver);
-			
-		create.clickRedHatAccess();
-			
+		HawkularRHASupportCasePage rhaSupport = new HawkularRHASupportCasePage(driver);
+
+		rhaSupport.navigateToRHATab();
+		rhaSupport.navigateToRHASupportmyCasesTab();
+
 		HawkularRedHatAccessPage rha = new HawkularRedHatAccessPage(driver);
-		rha.switchFrameFocusCreateCase();
+		rha.switchFrameFocusMyCases();
 		rha.loginHere();
 		rha.switchFrameFocus(true);
-
-		create.switchFrameFocus();
-		create.createSupportCase();
-		create.issue("Test Ignore","Test Ignore");
-		create.nextPage();
-		create.verifyCaseCreated();
+		rhaSupport.switchFrameFocus();
+		rhaSupport.searchOpenandClosedTickets("01523802");
+		rhaSupport.navigateToCase();
+		
+		HawkularCreateCasePage create = new HawkularCreateCasePage(driver);
 		create.verifyJDRReportAttached();
-		create.deleteJDRReport();
-		create.verifyJDRReportDeleted();
 		rha.logoutHere();
 		driver.close();		
 		

@@ -27,6 +27,7 @@ public class HawkularRHASupportCasePage {
 	By supportCaseDetailsLocator = HawkularRHASupportCaseConstants.supportCaseDetailsLocator;
 	By rhAccessCaseSearchFieldLocator = HawkularRHASupportCaseConstants.rhAccessCaseSearchFieldLocator;
 	By searchResultLocator = HawkularRHASupportCaseConstants.searchResultLocator;
+	By caseID = HawkularRHASupportCaseConstants.caseID;
 
 
 	public void navigateToRHATab() {
@@ -67,6 +68,13 @@ public class HawkularRHASupportCasePage {
 	public void verifyOpenAndClosedSearchResult() {
 		HawkularUtils util = new HawkularUtils(driver);
 		driver.findElement(HawkularRHASupportCaseConstants.verifyTicket);
+
+	}
+	
+	public void navigateToCase() {
+		HawkularUtils util = new HawkularUtils(driver);
+		util.waitForElementPresent(caseID);
+		driver.findElement(HawkularRHASupportCaseConstants.caseID).click();
 
 	}
 
