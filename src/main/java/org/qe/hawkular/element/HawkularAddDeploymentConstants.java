@@ -14,7 +14,9 @@ public class HawkularAddDeploymentConstants {
             + "//button[@ng-disabled='deployFileForm.$invalid' and @class='btn btn-primary' and "
             + "contains(text(),'Next >') and not(@disabled)]");
 	 
-	public static final By addDeploymentNextButton = By.xpath("html/body/div[12]/div/div/div[2]/div/section[2]/div[2]/button[2]");
+	public static final By addDeploymentNextButton = By.xpath("//div[@class='modal-footer ng-scope']//button["
+            + "@ng-disabled='dac.deploymentData.editDeploymentFiles' "
+            + "and @class='btn btn-primary' and contains(text(),'Next >') and not(@disabled)]");
 	
 	
 	 public static final By verifyDeploymentSuccess = By.xpath("//div[2]/strong");
