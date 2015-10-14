@@ -60,7 +60,7 @@ public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
 	// Test case to verify if JDR report can be attached while opening a case.
 	
 	@Test
-	public void hawkularAttachJDRReportTest() throws Exception {
+	public void hawkularOpenCaseJDRReportTest() throws Exception {
 		WebDriver driver = hawkularLogin();
 		
 		HawkularCreateCasePage create = new HawkularCreateCasePage(driver);
