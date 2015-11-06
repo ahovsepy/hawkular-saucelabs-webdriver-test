@@ -13,6 +13,7 @@ import org.qe.hawkular.page.HawkularConsoleAddUrlPage;
 import org.qe.hawkular.page.HawkularRegistrationPage;
 import org.qe.hawkular.util.HawkularDataProvider;
 import org.qe.hawkular.util.HawkularUtils;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -25,6 +26,8 @@ import com.saucelabs.testng.SauceOnDemandTestListener;
  */
 
 public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
+
 	@BeforeSuite
 	public void prepateUser() throws MalformedURLException {
 		WebDriver driver = createLocalDriver();
@@ -36,10 +39,15 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
 
 	}
 
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+	
 	@Test
 	public void hawkularAddURLTest()
 			throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -58,13 +66,12 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
 		addUrlPage.typeURL(HawkularManagementConsolePageConstants.testURL);
 		addUrlPage.submitURL();
 		addUrlPage.verifyUrlExists();
-		driver.quit();
 	}
 
 	@Test
 	public void hawkularDeleteURLTest()
 			throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -82,12 +89,11 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
 		addUrlPage.verifyConsoleImagePresent();
 		addUrlPage.deleteURL();
 		addUrlPage.verifyUrlDoesnotExist();
-		driver.quit();
 	}
 
 	@Test
 	public void hawkularMenuNavigationTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -109,7 +115,6 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
 		addUrlPage.verifyAppServersMenuNavigation();
 		addUrlPage.navigateToURLsMenu();
 		addUrlPage.verifyURLsMenuNavigation();
-		driver.quit();
 
 	}
 }

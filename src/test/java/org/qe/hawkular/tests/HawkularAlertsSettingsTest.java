@@ -14,6 +14,7 @@ import org.qe.hawkular.page.HawkularLoginPage;
 import org.qe.hawkular.page.HawkularRegistrationPage;
 import org.qe.hawkular.util.HawkularDataProvider;
 import org.qe.hawkular.util.HawkularUtils;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -26,7 +27,8 @@ import com.saucelabs.testng.SauceOnDemandTestListener;
  */
 
 public class HawkularAlertsSettingsTest extends HawkularSeleniumLocalWebDriver {
-
+	WebDriver driver = null;
+	
 	@BeforeSuite
 	public void prepareUser() throws MalformedURLException {
 		WebDriver driver = createLocalDriver();
@@ -38,9 +40,14 @@ public class HawkularAlertsSettingsTest extends HawkularSeleniumLocalWebDriver {
 
 	}
 
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+	
 	@Test
 	public void hawkularAlertsSettingsTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -63,8 +70,5 @@ public class HawkularAlertsSettingsTest extends HawkularSeleniumLocalWebDriver {
 		alertsSettings.verifyAllAlertsLinkPresent();
 		alertsSettings.navigateToAlertsSettings();
 		alertsSettings.verifyAlertSettingsOpened();
-
-		driver.quit();
-
 	}
 }

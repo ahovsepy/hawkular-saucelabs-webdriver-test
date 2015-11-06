@@ -5,6 +5,7 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -13,6 +14,7 @@ import org.testng.annotations.Test;
  */
 
 public class HawkularRHASearchTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
 	public WebDriver hawkularLogin() throws Exception {
 		WebDriver driver = createLocalDriver();
@@ -31,9 +33,14 @@ public class HawkularRHASearchTest extends HawkularSeleniumLocalWebDriver {
 		return driver;
 	}
 
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+	
 	@Test
 	public void hawkularSearchKnowledgeBaseTest() throws Exception {
-		WebDriver driver = hawkularLogin();
+		driver = hawkularLogin();
 		HawkularAppServerPage appServer = new HawkularAppServerPage(driver);
 
 		appServer.navigateToRHATab();
@@ -48,7 +55,6 @@ public class HawkularRHASearchTest extends HawkularSeleniumLocalWebDriver {
 		rhaSearch.search("asd");
 		
 		rha.logoutHere();
-		driver.close();
 	}
 
 }

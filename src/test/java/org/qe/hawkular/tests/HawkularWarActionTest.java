@@ -5,6 +5,7 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -13,7 +14,13 @@ import org.testng.annotations.Test;
  */
 
 public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+	
 	public WebDriver hawkularLoginToDeployments() throws Exception {
 		WebDriver driver = createLocalDriver();
 
@@ -43,12 +50,12 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 
 	public void verifyAndQuit(HawkularDepoymentActionPage test, WebDriver driver) {
 		test.verfiySuccess();
-		driver.quit();
+		// driver.quit();
 	}
 
 	@Test
 	public void hawkularRedeployWarTest() throws Exception {
-		WebDriver driver = hawkularLoginToDeployments();
+		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testRedeploy = new HawkularDepoymentActionPage(
 				driver);
 		
@@ -61,7 +68,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 
 	@Test
 	public void hawkularEnableWarTest() throws Exception {
-		WebDriver driver = hawkularLoginToDeployments();
+		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testEnableWar = new HawkularDepoymentActionPage(
 				driver);
 		
@@ -73,7 +80,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 
 	@Test
 	public void hawkularDisableWarTest() throws Exception {
-		WebDriver driver = hawkularLoginToDeployments();
+		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testDisableWar = new HawkularDepoymentActionPage(
 				driver);
 		
@@ -85,7 +92,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 
 	@Test
 	public void hawkularRemoveWarTest() throws Exception {
-		WebDriver driver = hawkularLoginToDeployments();
+		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testEnableWar = new HawkularDepoymentActionPage(
 				driver);
 		
@@ -97,7 +104,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 
 	@Test
 	public void hawkularRemoveMultipleWars() throws Exception {
-		WebDriver driver = hawkularLoginToDeployments();
+		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testEnableWar = new HawkularDepoymentActionPage(
 				driver);
 		
@@ -109,7 +116,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 
 	@Test
 	public void hawkularEnableMultipleWarsTest() throws Exception {
-		WebDriver driver = hawkularLoginToDeployments();
+		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testEnableWar = new HawkularDepoymentActionPage(
 				driver);
 		
@@ -121,7 +128,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 
 	@Test
 	public void hawkularDisableMultipleWarsTest() throws Exception {
-		WebDriver driver = hawkularLoginToDeployments();
+		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testDisableWar = new HawkularDepoymentActionPage(
 				driver);
 
@@ -133,7 +140,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 
 	@Test
 	public void hawkularRedeployMultipleWarsTest() throws Exception {
-		WebDriver driver = hawkularLoginToDeployments();
+		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testDisableWar = new HawkularDepoymentActionPage(
 				driver);
 		

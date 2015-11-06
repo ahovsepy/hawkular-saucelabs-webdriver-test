@@ -7,6 +7,7 @@ import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularCreateCasePage;
 import org.qe.hawkular.page.HawkularLoginPage;
 import org.qe.hawkular.page.HawkularRedHatAccessPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -15,7 +16,8 @@ import org.testng.annotations.Test;
  */
 
 public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
-
+	WebDriver driver = null;
+	
 	public WebDriver hawkularLogin() throws Exception {
 		WebDriver driver = createLocalDriver();
 
@@ -33,10 +35,14 @@ public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
 		return driver;
 	}
 
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
 	
 	@Test
 	public void hawkularCreateSupportcaseTest() throws Exception {
-		WebDriver driver = hawkularLogin();
+		driver = hawkularLogin();
 	
 		HawkularCreateCasePage create = new HawkularCreateCasePage(driver);
 		
@@ -52,9 +58,6 @@ public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
 		create.issue("Test Ignore","Test Ignore");
 		create.nextPage();
 		rha.logoutHere();
-		driver.close();
-		
-			
 		
 	}
 }

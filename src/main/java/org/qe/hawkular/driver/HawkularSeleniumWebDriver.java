@@ -25,7 +25,7 @@ public class HawkularSeleniumWebDriver implements
         SauceOnDemandSessionIdProvider, SauceOnDemandAuthenticationProvider {
 
     public static String hawkularUrl = (System.getProperty("hawkularUrl") != null) ? System
-            .getProperty("hawkularUrl") : "http://localhost:8080";
+            .getProperty("hawkularUrl") : "http://livingontheedge.hawkular.org";
 
             public static String sauceUsername = (System.getProperty("sauceUsername") != null) ? System
                     .getProperty("sauceUsername") : "hawkularqe";
