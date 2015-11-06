@@ -1,122 +1,113 @@
 package org.qe.hawkular.tests;
 
-import java.net.MalformedURLException;
 
 import org.openqa.selenium.WebDriver;
+import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
-import org.qe.hawkular.element.HawkularLoginPageConstants;
 import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularLoginPage;
 import org.qe.hawkular.page.HawkularRegistrationPage;
-import org.qe.hawkular.util.HawkularDataProvider;
-import org.qe.hawkular.util.HawkularUtils;
-import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.saucelabs.testng.SauceOnDemandTestListener;
+/**
+ * Test case for login, logout and negative tests for hawkular login.
+ *
+ */
 
-@Listeners({ SauceOnDemandTestListener.class })
-public class HawkualrLoginTest extends HawkularSeleniumWebDriver {
-
+public class HawkualrLoginTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
+	
 	@BeforeSuite
-	public void prepareUser() throws MalformedURLException {
-		WebDriver driver = createDriver("safari", "6", "OSX 10.8", "homePage");
+	public void prepareUser() {
+		WebDriver driver = createLocalDriver();
+
 		HawkularRegistrationPage registration = new HawkularRegistrationPage(
 				driver);
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
 		registration.registerUserIfDoesNotExist(HawkularRegistrationPageConstants.username, HawkularRegistrationPageConstants.password, HawkularRegistrationPageConstants.confirmPassword, HawkularRegistrationPageConstants.firstName, HawkularRegistrationPageConstants.lastName, HawkularRegistrationPageConstants.email);
-
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularLoginTest(String browser, String version, String os)
-			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularLoginTest");
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+	
+	@Test
+	public void hawkularLoginTest()	throws Exception {
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 
-		HawkularUtils util = new HawkularUtils(driver);
-		util.assertTitle(HawkularLoginPageConstants.loginTitle);
+		loginPage.verifyLoginTitle();
 
 		loginPage = new HawkularLoginPage(driver);
 		loginPage.loginAs(HawkularRegistrationPageConstants.username,
 				HawkularRegistrationPageConstants.password);
 
-		util = new HawkularUtils(driver);
-		Assert.assertTrue(util
-				.waitForElementPresent(HawkularManagementConsolePageConstants.consoleImageAltLocator));
-		driver.quit();
+		driver.findElement(HawkularManagementConsolePageConstants.consoleImageAltLocator);
+		loginPage.logout();
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularLoginEmptyFieldsTest(String browser, String version, String os)
+	@Test
+	public void hawkularLoginEmptyFieldsTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularLoginEmptyFieldsTest");
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 
-		HawkularUtils util = new HawkularUtils(driver);
-		util.assertTitle(HawkularLoginPageConstants.loginTitle);
+		loginPage.verifyLoginTitle();
 
 		loginPage = new HawkularLoginPage(driver);
 		loginPage.loginAs("",
 				"");
 
 		loginPage.verifyInvalidUsernameOrPassword();
-		driver.quit();
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularLoginInvalidPasswordTest(String browser, String version, String os)
+	@Test
+	public void hawkularLoginInvalidPasswordTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os,
-				"hawkularLoginEmptyFieldsTest");
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 
-		HawkularUtils util = new HawkularUtils(driver);
-		util.assertTitle(HawkularLoginPageConstants.loginTitle);
+		loginPage.verifyLoginTitle();
 
 		loginPage = new HawkularLoginPage(driver);
 		loginPage.loginAs(HawkularRegistrationPageConstants.username,
 				HawkularRegistrationPageConstants.wrongPassword);
 
 		loginPage.verifyInvalidUsernameOrPassword();
-		driver.quit();
 	}
 
-	@Test(dataProvider = "browsersAndOs", dataProviderClass = HawkularDataProvider.class)
-	public void hawkularLogoutTest(String browser, String version, String os)
+	@Test
+	public void hawkularLogoutTest()
 			throws Exception {
-		WebDriver driver = createDriver(browser, version, os, "hawkularLogoutTest");
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 
-		HawkularUtils util = new HawkularUtils(driver);
-		util.assertTitle(HawkularLoginPageConstants.loginTitle);
+		loginPage.verifyLoginTitle();
 
 		loginPage.loginAs(HawkularRegistrationPageConstants.username,
 				HawkularRegistrationPageConstants.password);
 		loginPage.logout();
-		driver.quit();
 	}
 
 }
