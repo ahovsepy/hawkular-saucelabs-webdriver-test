@@ -13,6 +13,7 @@ import org.qe.hawkular.page.HawkularLoginPage;
 import org.qe.hawkular.page.HawkularRegistrationPage;
 import org.qe.hawkular.util.HawkularDataProvider;
 import org.qe.hawkular.util.HawkularUtils;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -26,6 +27,7 @@ import com.saucelabs.testng.SauceOnDemandTestListener;
  */
 
 public class HawkularMultiTenancyTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
 	@BeforeSuite
 	public void prepareUser() throws MalformedURLException {
@@ -49,11 +51,15 @@ public class HawkularMultiTenancyTest extends HawkularSeleniumLocalWebDriver {
 
 	}
 
-
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+	
 	@Test
 	public void hawkularBasicMultiTenancyTest()
 			throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -85,7 +91,6 @@ public class HawkularMultiTenancyTest extends HawkularSeleniumLocalWebDriver {
 		addUrlPage.deleteURL();
 		addUrlPage.verifyUrlDoesnotExist();
 		loginPage.logout();
-		driver.quit();
 
 	}
 

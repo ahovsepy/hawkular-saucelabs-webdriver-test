@@ -5,6 +5,7 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -14,6 +15,7 @@ import org.testng.annotations.Test;
  */
 
 public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
 	public WebDriver hawkularLogin() throws Exception {
 		WebDriver driver = createLocalDriver();
@@ -32,9 +34,14 @@ public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
 		return driver;
 	}
 
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+	
 	@Test
 	public void hawkularListSupportcaseTest() throws Exception {
-		WebDriver driver = hawkularLogin();
+		driver = hawkularLogin();
 		HawkularRHASupportCasePage rhaSupport = new HawkularRHASupportCasePage(driver);
 
 		rhaSupport.navigateToRHATab();
@@ -49,12 +56,11 @@ public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
 		rhaSupport.verifyOpenCaseSearchResults();
 
 		rha.logoutHere();
-		driver.close();
 	}
 
 	@Test
 	public void hawkularViewSupportcaseTest() throws Exception {
-		WebDriver driver = hawkularLogin();
+		driver = hawkularLogin();
 		HawkularRHASupportCasePage rhaSupport = new HawkularRHASupportCasePage(driver);
 
 		rhaSupport.navigateToRHATab();
@@ -70,7 +76,6 @@ public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
 		rhaSupport.verifyCaseDetails();
 
 		rha.logoutHere();
-		driver.close();
 	}
 
 }

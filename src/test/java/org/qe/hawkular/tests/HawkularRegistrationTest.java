@@ -7,6 +7,7 @@ import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularLoginPage;
 import org.qe.hawkular.page.HawkularRegistrationPage;
 import org.qe.hawkular.util.HawkularDataProvider;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -15,6 +16,7 @@ import org.testng.annotations.Test;
  */
 
 public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
 	@Test
 	public void hawkularRegistrationBasicTest() throws Exception {
@@ -26,9 +28,14 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 
 	}
 
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+	
 	@Test
 	public void hawkularRegistrationMismatchPasswordsTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -44,13 +51,12 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 				HawkularRegistrationPageConstants.firstName,
 				HawkularRegistrationPageConstants.lastName);
 		regPage.verifyMismatchPasswords();
-		driver.quit();
 	}
 
 
 	@Test
 	public void hawkularRegistrationNoPasswordsTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -66,12 +72,11 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 				HawkularRegistrationPageConstants.firstName,
 				HawkularRegistrationPageConstants.lastName);
 		regPage.verifyNoPasswords();
-		driver.quit();
 	}
 
 	@Test
 	public void hawkularRegistrationNoEmailTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -87,12 +92,11 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 				HawkularRegistrationPageConstants.firstName,
 				HawkularRegistrationPageConstants.lastName);
 		regPage.verifyNoEmail();
-		driver.quit();
 	}
 
 	@Test
 	public void hawkularRegistrationNoFirstNameTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -108,12 +112,11 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 				"",
 				HawkularRegistrationPageConstants.lastName);
 		regPage.verifyNoFirstName();
-		driver.quit();
 	}
 
 	@Test
 	public void hawkularRegistrationNoLastNameTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -129,12 +132,11 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 				HawkularRegistrationPageConstants.firstName,
 				"");
 		regPage.verifyNoLastName();
-		driver.quit();
 	}
 
 	@Test
 	public void hawkularRegistrationNoUserNameTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -150,12 +152,11 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 				HawkularRegistrationPageConstants.firstName,
 				HawkularRegistrationPageConstants.lastName);
 		regPage.verifyNoUsername();
-		driver.quit();
 	}
 
 	@Test
 	public void hawkularRegistrationPasswordMinLengthTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -171,7 +172,6 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 				HawkularRegistrationPageConstants.firstName,
 				HawkularRegistrationPageConstants.lastName);
 		regPage.verifyPasswordMinLength();
-		driver.quit();
 	}
 
 
