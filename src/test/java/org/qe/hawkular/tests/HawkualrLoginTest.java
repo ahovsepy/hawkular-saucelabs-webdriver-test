@@ -1,6 +1,8 @@
 package org.qe.hawkular.tests;
 
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
@@ -21,7 +23,7 @@ public class HawkualrLoginTest extends HawkularSeleniumLocalWebDriver {
 	WebDriver driver = null;
 	
 	@BeforeSuite
-	public void prepareUser() {
+	public void prepareUser() throws MalformedURLException {
 		WebDriver driver = createLocalDriver();
 
 		HawkularRegistrationPage registration = new HawkularRegistrationPage(
