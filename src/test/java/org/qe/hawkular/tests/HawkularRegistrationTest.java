@@ -20,7 +20,7 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 
 	@Test
 	public void hawkularRegistrationBasicTest() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 		HawkularRegistrationPage registration = new HawkularRegistrationPage(
 				driver);
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
