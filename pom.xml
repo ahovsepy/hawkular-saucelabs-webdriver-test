@@ -11,6 +11,9 @@
         that run using TestNG
     </description>
 
+        <properties>
+            <testng.suite>src/test/resources/testng.xml</testng.suite>
+        </properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -54,10 +57,11 @@
                     <systemPropertyVariables>
                         <environment>${hawkularUrl}</environment>
                     </systemPropertyVariables>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
                     <suitename>HawkularTests</suitename>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${testng.suite}</suiteXmlFile>
+                    </suiteXmlFiles>
+
                 </configuration>
             </plugin>
 			<plugin>
