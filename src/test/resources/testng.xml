@@ -58,10 +58,43 @@
 					<include name="hawkularEnableWarTest"></include>
 					<include name="hawkularRedeployWarTest"></include>
 					<include name="hawkularDisableWarTest"></include>
+					<include name="hawkularRemoveWarTest"></include>
 					<include name="hawkularEnableMultipleWarsTest"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
+	
+	<!-- Hawkular JDBC driver upload test -->
+	<test name="HawkularDatasourcesTest">
+		<classes>
+			<class name="org.qe.hawkular.tests.HawkularDatasourcesTest" />
+			<methods>					
+					<include name="hawkularAddDataSourceTest"></include>
+					<include name="hawkularDeleteDataSourceTest"></include>
+			</methods>
+		</classes>
+	</test>  
+	
+	<!-- Hawkular Add Deployment Tests -->
+	<test name="HawkularAddDeploymentTest">
+	<classes>
+			<class name="org.qe.hawkular.tests.HawkularAddDeploymentTest" />
+		</classes>
+	</test>
+	
+	<!-- Hawkular Organizations Tests -->
+	<test name="HawkularOrganizationsTest">
+	<classes>
+			<class name="org.qe.hawkular.tests.HawkularOrganizationsTest" />
+		</classes>
+	</test>	
+	
+	<!-- Hawkular User Settings Tests -->
+	<test name="HawkularUserSettingsTest">
+	<classes>
+			<class name="org.qe.hawkular.tests.HawkularUserSettingsTest" />
+		</classes>
+	</test>	
 	 
 </suite>
