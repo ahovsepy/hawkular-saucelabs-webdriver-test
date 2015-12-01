@@ -109,6 +109,7 @@ public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
         HawkularConsoleAddUrlPage addUrlPage = new HawkularConsoleAddUrlPage(
                 driver);
         addUrlPage.verifyConsoleImagePresent();
+        addUrlPage.navigateToURLsMenu();
         addUrlPage.addURLIfDoesNotExist(HawkularManagementConsolePageConstants.testURL);
         addUrlPage.verifyURLTraitsExists();
         addUrlPage.deleteURL();

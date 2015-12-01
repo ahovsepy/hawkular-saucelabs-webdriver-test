@@ -63,6 +63,7 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
 		HawkularConsoleAddUrlPage addUrlPage = new HawkularConsoleAddUrlPage(
 				driver);
 		addUrlPage.verifyConsoleImagePresent();
+		addUrlPage.navigateToURLsMenu();
 		addUrlPage.typeURL(HawkularManagementConsolePageConstants.testURL);
 		addUrlPage.submitURL();
 		addUrlPage.verifyUrlExists();
@@ -87,6 +88,7 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
 		HawkularConsoleAddUrlPage addUrlPage = new HawkularConsoleAddUrlPage(
 				driver);
 		addUrlPage.verifyConsoleImagePresent();
+		addUrlPage.navigateToURLsMenu();		
 		addUrlPage.deleteURL();
 		addUrlPage.verifyUrlDoesnotExist();
 	}
