@@ -13,7 +13,7 @@ public class HawkularUserSettingsConstants {
     public static final String userEmail = "jdoe@acme.com";
 //    public static final By saveButtonLocator =  By.xpath("//button[text()='Save']");
     public static final By saveButtonLocator =  By
-            .xpath("//button[@ng-disabled='!form.$valid' and contains(text(),'Save')]");
+            .xpath("//button[@ng-disabled='!form.$valid || !form.$dirty' and contains(text(),'Save')]");
     public static final By verifySuccessMsg = By.xpath("//*[text()='User settings successfully updated.']");
     
 
