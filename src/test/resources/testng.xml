@@ -20,14 +20,6 @@
 		</classes>
 	</test>
 	
-	
-	<!-- Hawkular Red Hat Access Search Knowledge Base Test -->	
-	<test name="HawkularRHASearchTest">
-		<classes>
-			<class name="org.qe.hawkular.tests.HawkularRHASearchTest" />
-		</classes>
-	</test>
-	
 	<!-- Hawkular App Server Tests -->
         <test name="HawkularAppServerTest">
                 <classes>
@@ -35,21 +27,7 @@
                 </classes>
         </test>
 	
-    <!-- Hawkular Red Hat Access Support Case Tests -->
-	<test name="HawkularRHASupportCaseTest">
-                <classes>
-                        <class name="org.qe.hawkular.tests.HawkularRHASupportCaseTest" />
-                </classes>
-        </test>
-    
-	<!-- Hawkular Red Hat Access Create Support Case Test -->
-	<test name="hawkularCreateSupportcaseTest">
-                <classes>
-                        <class name="org.qe.hawkular.tests.HawkularCreatCaseTest" />
-                </classes>
-        </test>
-	
-	<!-- Hawkular Application Server Deployments Actions Tests -->
+    <!-- Hawkular Application Server Deployments Actions Tests -->
 	<test name="HawkualrWarActionTest">
 		<classes>
 			<class name="org.qe.hawkular.tests.HawkularWarActionTest">
