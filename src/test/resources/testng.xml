@@ -72,6 +72,8 @@
 			<methods>					
 					<include name="hawkularAddDataSourceTest"></include>
 					<include name="hawkularDeleteDataSourceTest"></include>
+					<include name="hawkularAddJDBCDriversTest"></include>
+					<include name="hawkularExportJDRTest"></include>
 			</methods>
 		</classes>
 	</test>  

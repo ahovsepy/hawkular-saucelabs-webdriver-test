@@ -5,15 +5,17 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
  * @author skondkar
  */
 public class HawkularUserSettingsTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
     public WebDriver hawkularLogin() throws Exception {
-        WebDriver driver = createLocalDriver();
+        driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
         System.out.println(driver.getTitle());
@@ -28,6 +30,11 @@ public class HawkularUserSettingsTest extends HawkularSeleniumLocalWebDriver {
 
         return driver;
     }
+    
+    @AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
 
     @Test
     public void hawkularUserSettingsTest() throws Exception {
@@ -36,7 +43,7 @@ public class HawkularUserSettingsTest extends HawkularSeleniumLocalWebDriver {
 
         page.navigateToUserSettings();
         page.addEmailNotification();
-        driver.quit();
+//        driver.quit();
     }    
 
 }

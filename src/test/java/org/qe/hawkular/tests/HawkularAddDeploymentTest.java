@@ -8,6 +8,7 @@ import org.qe.hawkular.page.HawkularAddDeploymentPage;
 import org.qe.hawkular.page.HawkularAppServerPage;
 import org.qe.hawkular.page.HawkularConsoleAddUrlPage;
 import org.qe.hawkular.page.HawkularLoginPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -16,9 +17,10 @@ import org.testng.annotations.Test;
  */
 
 public class HawkularAddDeploymentTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
     public WebDriver hawkularLoginToDeployments() throws Exception {
-        WebDriver driver = createLocalDriver();
+        driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
         System.out.println(driver.getTitle());
@@ -43,6 +45,11 @@ public class HawkularAddDeploymentTest extends HawkularSeleniumLocalWebDriver {
 
         return driver;
     }
+    
+    @AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
 
     @Test
     public void hawkularAddDeploymentTest() throws Exception {
@@ -54,6 +61,6 @@ public class HawkularAddDeploymentTest extends HawkularSeleniumLocalWebDriver {
         adddeployment.deployApplication();
         adddeployment.verfiySuccess();
         // TODO check successful upload after fix of https://issues.jboss.org/browse/HAWKULAR-678
-        driver.quit();
+ //       driver.quit();
     }
 }
