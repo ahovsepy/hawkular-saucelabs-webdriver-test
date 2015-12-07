@@ -55,6 +55,9 @@
 			</methods>
 		</classes>
 	</test>  
+
+
+
 	
 	<!-- Hawkular Add Deployment Tests -->
 	<test name="HawkularAddDeploymentTest">
@@ -76,5 +79,33 @@
 			<class name="org.qe.hawkular.tests.HawkularUserSettingsTest" />
 		</classes>
 	</test>	
+
+	<!-- Hawkular Alert filter Tests -->
+
+
+	     <test name="hawkularAlertSeverityFilterTest">
+		<classes>
+			<class name="org.qe.hawkular.tests.hawkularAlertSeverityFilterTest" />
+		</classes>
+	</test> 
+	
+	
+	<!-- Hawkular  Alert Notification Tests -->
+	
+	<test name="hawkularAlertNotificationsTest">
+		<classes>
+			<class name="org.qe.hawkular.tests.hawkularAlertNotificationsTest" />
+		</classes>
+	</test> 
+	
+	
+	<!-- Hawkular Topology  Tests -->
+	
+	<test name="hawkularNavigateNetworkTopologyTest">
+		<classes>
+			<class name="org.qe.hawkular.tests.hawkularNavigateNetworkTopologyTest" />
+		</classes>
+	</test> 
+
 	 
 </suite>
