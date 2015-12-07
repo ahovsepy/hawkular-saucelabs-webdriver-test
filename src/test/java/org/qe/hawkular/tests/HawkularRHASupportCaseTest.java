@@ -55,7 +55,7 @@ public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
 		rhaSupport.searchOpenTickets("Test");
 		rhaSupport.verifyOpenCaseSearchResults();
 
-		rha.logoutHere();
+//		rha.logoutHere(); 
 	}
 
 	@Test
@@ -75,7 +75,7 @@ public class HawkularRHASupportCaseTest extends HawkularSeleniumLocalWebDriver {
 		rhaSupport.verifyOpenAndClosedSearchResult();
 		rhaSupport.verifyCaseDetails();
 
-		rha.logoutHere();
+//		rha.logoutHere();
 	}
 
 }

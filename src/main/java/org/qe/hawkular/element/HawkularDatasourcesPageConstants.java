@@ -7,7 +7,7 @@ public class HawkularDatasourcesPageConstants {
     public static final By addDriver = By.xpath("id('hk-datasources')//button[text()='Add Driver']");
     public static final By loadDriverFile = By.id("driver-file");
     public static final String driverFilePath = "/hawkular-ui-test/src/test/resources/mysql-connector-java-5.1.36-bin.jar";// TODO URL or Path?
-    public static final By driverFilePathNextButton = By.xpath("//div[@class='modal-footer ng-scope']"
+    public static final By driverFilePathNextButton = By.xpath("//div[@class='modal-footer']"
             + "//button[@ng-disabled='addJdbcDriverForm.$invalid' and @class='btn btn-primary' and "
             + "contains(text(),'Next >') and not(@disabled)]");
 
@@ -18,12 +18,12 @@ public class HawkularDatasourcesPageConstants {
     public static final By driverClassSelect = By.id("dc");
     public static final String driverClass = "com.mysql.jdbc.Driver";
     public static final By driverParamsNextButton = By
-            .xpath("//div[@class='modal-footer ng-scope']//button["
+            .xpath("//div[@class='modal-footer']//button["
                     + "@ng-disabled='!dac.driverData.driverName || !dac.driverData.moduleName || !dac.driverData.driverClass' "
                     + "and @class='btn btn-primary' and contains(text(),'Next >') and not(@disabled)]");
 
     public static final By addButton = By
-            .xpath("//div[@class='modal-footer ng-scope']//button[contains(text(),'Add') ]");
+            .xpath("//div[@class='modal-footer']//button[contains(text(),'Add') ]");
 
     public static final By exportJDR = By.xpath("//button[contains(text(),'Export JDR')]");
     
@@ -40,8 +40,10 @@ public class HawkularDatasourcesPageConstants {
     public static final By datasourceConnURLSelect = By.id("connUrl");
     public static final String datasourceClass = "org.h2.jdbcx.JdbcDataSource";
     public static final String datasourceConnURL = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1";
+//    public static final By datasourceDriverNextButton = By
+//            .xpath("/html/body/div[10]/div/div/div[2]/div/section[3]/div[2]/button[3]");
     public static final By datasourceDriverNextButton = By
-            .xpath("/html/body/div[10]/div/div/div[2]/div/section[3]/div[2]/button[3]");
+    .xpath("//div[@class='modal-footer']//button[contains(@ng-disabled,'!dac.dsData.connectionUrl') ]");
     public static final By datasourceXAPropertiesNextButton = By
             .xpath("//button[@ng-click='dac.exitStepXAProperties()' and contains(text(),'Next >')]");
     public static final By datasourceUsernameSelect = By.id("un");

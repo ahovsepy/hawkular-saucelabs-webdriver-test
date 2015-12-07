@@ -114,7 +114,7 @@ public class HawkularDatasourcesPage {
         util.sendKeysTo(datasourceClassSelect, datasourceClass);
         util.sendKeysTo(datasourceConnURLSelect, datasourceConnURL);
         util.navigateTo(datasourceDriverNextButton);
-        util.navigateTo(datasourceXAPropertiesNextButton);
+//        util.navigateTo(datasourceXAPropertiesNextButton);
         
     }
     

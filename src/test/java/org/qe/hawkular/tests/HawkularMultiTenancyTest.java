@@ -72,6 +72,7 @@ public class HawkularMultiTenancyTest extends HawkularSeleniumLocalWebDriver {
 		HawkularConsoleAddUrlPage addUrlPage = new HawkularConsoleAddUrlPage(
 				driver);
 		addUrlPage.verifyConsoleImagePresent();
+		addUrlPage.navigateToURLsMenu();
 		addUrlPage.addURLIfDoesNotExist(HawkularManagementConsolePageConstants.testURL);
 		addUrlPage.verifyUrlExists();
 		addUrlPage.navigateToURLsMenu();
@@ -79,15 +80,13 @@ public class HawkularMultiTenancyTest extends HawkularSeleniumLocalWebDriver {
 		loginPage.loginAs(HawkularRegistrationPageConstants.username2,
 				HawkularRegistrationPageConstants.password2);
 		addUrlPage.verifyConsoleImagePresent();
-		addUrlPage.verifyUrlDoesnotExist();
-		addUrlPage.addURLIfDoesNotExist(HawkularManagementConsolePageConstants.testURL);
-		addUrlPage.verifyUrlExists();
-		addUrlPage.deleteURL();
+		addUrlPage.navigateToURLsMenu();
 		addUrlPage.verifyUrlDoesnotExist();
 		loginPage.logout();
 		loginPage.loginAs(HawkularRegistrationPageConstants.username,
 				HawkularRegistrationPageConstants.password);
 		addUrlPage.verifyConsoleImagePresent();
+		addUrlPage.navigateToURLsMenu();
 		addUrlPage.deleteURL();
 		addUrlPage.verifyUrlDoesnotExist();
 		loginPage.logout();

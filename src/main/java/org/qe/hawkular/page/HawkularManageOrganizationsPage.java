@@ -61,14 +61,12 @@ public class HawkularManageOrganizationsPage {
     
     public void listOrganization() {
         HawkularUtils util = new HawkularUtils(driver);
-        util.waitForElementPresent(listOrganizationLocator);
+        util.waitForElementPresent(selectOrganization);
         
     }
     
     public void invitePeople(){    	
     	HawkularUtils util = new HawkularUtils(driver);
-    	util.navigateTo(userTab);
-    	util.navigateTo(clickManageOrganization);
     	util.navigateTo(selectOrganization);
     	util.waitForElementPresent(invitePeopleButton);
     	util.navigateTo(invitePeopleButton);

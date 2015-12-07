@@ -14,6 +14,7 @@ public class HawkularDepoymentActionPage {
 	}
 	
 	By checkAllWars = HawkularRedeployConstants.checkAllWars;
+	By checkFirstWarLocator = HawkularRedeployConstants.checkFirstWarLocator;
 	By selectAllWarsAction = HawkularRedeployConstants.selectAllWarsAction;
 	By selectWarAction = HawkularRedeployConstants.selectWarAction;
 	By selectRedeployWar = HawkularRedeployConstants.selectRedeployWar;
@@ -27,6 +28,11 @@ public class HawkularDepoymentActionPage {
 		HawkularUtils utils = new HawkularUtils(driver);
 		utils.navigateTo(selectWarAction);
 	}
+	
+	public void checkFirstWar() {
+		HawkularUtils utils = new HawkularUtils(driver);
+		utils.navigateTo(checkFirstWarLocator);
+	}
 
 	public void clickToRedeployAllWars() {
 		HawkularUtils utils = new HawkularUtils(driver);
@@ -36,8 +42,8 @@ public class HawkularDepoymentActionPage {
 	public void clickAllWarsAction() {
 		HawkularUtils utils = new HawkularUtils(driver);
 		utils.navigateTo(checkAllWars);
-		utils.waitForElementPresent(selectAllWarsAction);
-		utils.navigateTo(selectAllWarsAction);
+		utils.waitForElementPresent(selectWarAction);
+		utils.navigateTo(selectWarAction);
 		utils.waitForElementPresent(selectRedeployWar);
 	}
 

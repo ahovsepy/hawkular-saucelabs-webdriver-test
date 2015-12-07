@@ -6,15 +6,17 @@ import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularLoginPage;
 import org.qe.hawkular.page.HawkularManageOrganizationsPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
  * @author vprusa
  */
 public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
     public WebDriver hawkularLogin() throws Exception {
-        WebDriver driver = createLocalDriver();
+        driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
         System.out.println(driver.getTitle());
@@ -29,6 +31,11 @@ public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
 
         return driver;
     }
+    
+    @AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
 
     @Test
     public void hawkularCreateNewOrgTest() throws Exception {
@@ -38,7 +45,7 @@ public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
         page.toManageOrganizationsTab();
         page.createOrganization();
 
-        driver.quit();
+//        driver.quit();
     }
 
     @Test
@@ -49,7 +56,7 @@ public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
         page.toManageOrganizationsTab();
         page.removeOrganization(0);
 
-        driver.quit();
+ //       driver.quit();
     }
     
     @Test
@@ -62,7 +69,7 @@ public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
         page.listOrganization();
         page.removeOrganization(0);
 
-        driver.quit();
+//        driver.quit();
     }
     
     @Test
@@ -78,7 +85,7 @@ public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
 		page.navigateToAllOrganizations();
 		page.removeOrganization(0);
 				
-		driver.quit();
+//		driver.quit();
 	}
 
 }

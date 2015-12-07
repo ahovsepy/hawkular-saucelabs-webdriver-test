@@ -57,7 +57,7 @@ public class HawkularCreatCaseTest  extends HawkularSeleniumLocalWebDriver {
 		create.createSupportCase();
 		create.issue("Test Ignore","Test Ignore");
 		create.nextPage();
-		rha.logoutHere();
+//		rha.logoutHere();
 		
 	}
 }

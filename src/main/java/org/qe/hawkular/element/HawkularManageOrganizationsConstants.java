@@ -27,7 +27,7 @@ public class HawkularManageOrganizationsConstants {
 
     /* Remove organization */
     public static final By removeOrgButtonLocator = By
-            .xpath("//div[@class='hk-organizations']//tr[1]//td[2]/button/..//i[contains(@class,'fa-trash-o')]");
+            .xpath("//div[@class='hk-organizations row']//tr[1]//td[2]/button/..//i[contains(@class,'fa-trash-o')]");
     public static final By removeOrgButtonConfirmLocator = By
             .xpath("//div[@class='modal-dialog']//button[text()='Delete']");
     public static final By removeOrgVerifyLocator = By
@@ -36,8 +36,10 @@ public class HawkularManageOrganizationsConstants {
     /* Invite User to organization */
     public static final By userTab = By.xpath("html/body/nav/div[2]/div[2]/ul/li[2]/a");
 	public static final By clickManageOrganization = By.id("organizationsOption");
-	public static final By selectOrganization= By.xpath("html/body/div[1]/div/div/div/div[1]/div[4]/table/tbody/tr[1]/td[1]/a");
-	public static final By invitePeopleButton= By.xpath("html/body/div[1]/div/div/div/div[1]/div[3]/button");
+//	public static final By selectOrganization= By.xpath("html/body/div[1]/div/div/div/div[1]/div[4]/table/tbody/tr[1]/td[1]/a");
+	public static final By selectOrganization= By.linkText(""+organizationName);
+//	public static final By invitePeopleButton= By.xpath("html/body/div[1]/div/div/div/div[1]/div[3]/button");
+	public static final By invitePeopleButton= By.xpath("//button[contains(text(),'Invite People')]");
 	public static final By inviteViaEmail= By.xpath(".//*[@id='emails']");
 	public static final By inviteTab = By.xpath(".//*[@id='inviteToOrganizationFormBtn']");
 	public static final By successMassage = By.xpath(".//*[@id='toast-container']/div[1]/div/div");

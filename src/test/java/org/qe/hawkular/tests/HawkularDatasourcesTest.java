@@ -5,12 +5,14 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.*;
 import org.qe.hawkular.page.*;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 	
     public WebDriver hawkularLoginToDeployments() throws Exception {
-        WebDriver driver = createLocalDriver();
+        driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
         System.out.println(driver.getTitle());
@@ -37,6 +39,11 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
         return driver;
     }
     
+    @AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+    
     @Test
     public void hawkularAddJDBCDriversTest() throws Exception {
         WebDriver driver = hawkularLoginToDeployments();
@@ -47,7 +54,7 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
         page.defineDriverParams();
         page.addDriverSubmit();
         // TODO check successful upload after fix of https://issues.jboss.org/browse/HAWKULAR-674
-        driver.quit();
+//        driver.quit();
     }
 
     @Test
@@ -57,7 +64,7 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
                 driver);
         page.exportJDR();
         // TODO check successful download after fix of https://issues.jboss.org/browse/HAWKULAR-674
-        driver.quit();
+//        driver.quit();
     }
     
     @Test
@@ -71,7 +78,7 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
         page.addDatasourceConnSettings();
         page.datasourceAdd();
         page.addDatasourceVerifySuccess();
-        driver.quit();
+ //       driver.quit();
         
     }
     
@@ -82,7 +89,7 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
                 driver);
         page.deleteDatasource();
         page.verifyDeleteDatasource();
-        driver.quit();
+//        driver.quit();
         // TODO Test datasource deletion from UI after disable and delete the datasource. Disable datasource seems not yet implemented.
     }
 

@@ -58,7 +58,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testRedeploy = new HawkularDepoymentActionPage(
 				driver);
-		
+		testRedeploy.checkFirstWar();
 		testRedeploy.clickWarAction();
 		testRedeploy.clickToRedeployWar();
 		
@@ -71,7 +71,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testEnableWar = new HawkularDepoymentActionPage(
 				driver);
-		
+		testEnableWar.checkFirstWar();
 		testEnableWar.clickWarAction();
 		testEnableWar.clickToEnableWar();
 		
@@ -83,7 +83,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testDisableWar = new HawkularDepoymentActionPage(
 				driver);
-		
+		testDisableWar.checkFirstWar();
 		testDisableWar.clickWarAction();
 		testDisableWar.clickToDisableWar();
 		
@@ -95,7 +95,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testEnableWar = new HawkularDepoymentActionPage(
 				driver);
-		
+		testEnableWar.checkFirstWar();
 		testEnableWar.clickWarAction();
 		testEnableWar.clickToRemoveWar();
 		
@@ -107,7 +107,6 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 		driver = hawkularLoginToDeployments();
 		HawkularDepoymentActionPage testEnableWar = new HawkularDepoymentActionPage(
 				driver);
-		
 		testEnableWar.clickAllWarsAction();
 		testEnableWar.clickToRemoveWar();
 		
@@ -144,7 +143,8 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 		HawkularDepoymentActionPage testDisableWar = new HawkularDepoymentActionPage(
 				driver);
 		
-		testDisableWar.clickAllWarsAction();
+//		testDisableWar.clickAllWarsAction();
+		testDisableWar.clickWarAction();
 		testDisableWar.clickToRedeployWar();
 
 		verifyAndQuit(testDisableWar, driver);
