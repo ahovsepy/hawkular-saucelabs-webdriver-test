@@ -1,8 +1,8 @@
 package org.qe.hawkular.page;
 
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.qe.hawkular.element.hawkularNavigateNetworkTopologyConstants;
 import org.openqa.selenium.interactions.Actions;
 import org.qe.hawkular.util.HawkularUtils;
@@ -43,21 +43,30 @@ public hawkularNavigateNetworkTopologyPage(WebDriver driver) {
         // TO DO Graph navigation test
         
         
-        //utils.waitForElementPresent(datasourceTopology);
+        utils.waitForElementPresent(datasourceTopology);
         
     }
 
 	
-	/*public void verifyTopology(){
+public void verifyTopology(){
 		
-		 Actions action = new Actions(driver);
-		 action.moveToElement(driver.findElement(deploymentTopology)).doubleClick().perform();
+		
 		
 		HawkularUtils utils = new HawkularUtils(driver);
+			
+		utils.waitForElementPresent(deploymentTopology);
+		
+		WebElement deployment= driver.findElement(deploymentTopology);
+		
+		Actions action = new Actions(driver);
+	 
+		 action.doubleClick(deployment);
+		
+		 //action.perform();
 		
 		
-		utils.waitForElementPresent(verifyDeployment);
+		
+		//utils.waitForElementPresent(verifyDeployment);
 		
 	}
-	*/
 }
