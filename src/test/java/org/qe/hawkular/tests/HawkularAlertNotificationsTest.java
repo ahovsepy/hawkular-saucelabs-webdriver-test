@@ -4,8 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
+import org.qe.hawkular.page.HawkularAppServerPage;
+import org.qe.hawkular.page.HawkularConsoleAddUrlPage;
 import org.qe.hawkular.page.HawkularLoginPage;
-import org.qe.hawkular.page.hawkularAlertNotificationsPage;
+import org.qe.hawkular.page.HawkularAlertNotificationsPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
@@ -30,6 +32,15 @@ public class HawkularAlertNotificationsTest extends HawkularSeleniumLocalWebDriv
 		loginPage = new HawkularLoginPage(driver);
 		loginPage.loginAs(HawkularRegistrationPageConstants.username2,
 				HawkularRegistrationPageConstants.password2);
+		HawkularConsoleAddUrlPage clickAppServer = new HawkularConsoleAddUrlPage(
+                driver);
+        clickAppServer.navigateToAppServersMenu();
+
+        HawkularAppServerPage selectAppServer = new HawkularAppServerPage(
+                driver);
+
+        selectAppServer.verifyLocalAppServerExists();
+        selectAppServer.navigateToLocalAppServer();
 
 		return driver; 	
 	
@@ -46,11 +57,10 @@ public class HawkularAlertNotificationsTest extends HawkularSeleniumLocalWebDriv
 	public void hawkularAlertNotificationsTest() throws Exception {
 		WebDriver driver = hawkularLogin();
 		
-		hawkularAlertNotificationsPage notify= new hawkularAlertNotificationsPage(driver);
+		HawkularAlertNotificationsPage notify= new HawkularAlertNotificationsPage(driver);
 		
-		notify.navigateToAppServer();
-		notify.verifyAlert();
-		notify.verfiySeverity();
+		notify.verifyAlertNotification();
+		notify.verfiyNavigationToAlertDefinition();
 		
 //		driver.close();
 		

@@ -5,7 +5,7 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularLoginPage;
-import org.qe.hawkular.page.hawkularAlertSeverityFilterPage;
+import org.qe.hawkular.page.HawkularAlertFilterPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
@@ -44,7 +44,7 @@ public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
 	public void hawkularAlertSeverityFilterTest() throws Exception {
 		WebDriver driver = hawkularLogin();
 		
-		hawkularAlertSeverityFilterPage filter= new hawkularAlertSeverityFilterPage(driver);
+		HawkularAlertFilterPage filter= new HawkularAlertFilterPage(driver);
 		filter. navigateToAlertCenter();
 		filter.filter("High");
 		filter.verfiySeverity();
@@ -58,7 +58,7 @@ public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
 	public void hawkularAlertDescriptionFilterTest() throws Exception {
 		WebDriver driver = hawkularLogin();
 		
-		hawkularAlertSeverityFilterPage filter= new hawkularAlertSeverityFilterPage(driver);
+		HawkularAlertFilterPage filter= new HawkularAlertFilterPage(driver);
 		filter. navigateToAlertCenter();
 		filter.filter("JVM");
 		filter.verifyDescription();

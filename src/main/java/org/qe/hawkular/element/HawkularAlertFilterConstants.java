@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 /**
  * @author pyadav
  */
-public class hawkularAlertSeverityFilterConstants {
+public class HawkularAlertFilterConstants {
 	
 	 public static final By alertCenter = By.linkText("Alert Center");
 	 public static final By alertDefinitions = By.linkText("Definitions");

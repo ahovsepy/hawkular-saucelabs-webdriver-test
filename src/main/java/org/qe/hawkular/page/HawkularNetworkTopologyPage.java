@@ -3,7 +3,7 @@ package org.qe.hawkular.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.qe.hawkular.element.hawkularNavigateNetworkTopologyConstants;
+import org.qe.hawkular.element.HawkularNetworkTopologyConstants;
 import org.openqa.selenium.interactions.Actions;
 import org.qe.hawkular.util.HawkularUtils;
 
@@ -11,11 +11,11 @@ import org.qe.hawkular.util.HawkularUtils;
  * @author pyadav
  */
 
-public class hawkularNavigateNetworkTopologyPage {
+public class HawkularNetworkTopologyPage {
 	
 public final WebDriver driver;
 
-public hawkularNavigateNetworkTopologyPage(WebDriver driver) {
+public HawkularNetworkTopologyPage(WebDriver driver) {
 
     this.driver = driver;
 
@@ -23,13 +23,13 @@ public hawkularNavigateNetworkTopologyPage(WebDriver driver) {
 	
 	
 	
-	By clickTopology = hawkularNavigateNetworkTopologyConstants.clickTopology;
-	By imageServers = hawkularNavigateNetworkTopologyConstants.imageServers;
-	By imageApps = hawkularNavigateNetworkTopologyConstants.imageApps;
-	By imageDatasources = hawkularNavigateNetworkTopologyConstants.imageDatasources;
-	By datasourceTopology = hawkularNavigateNetworkTopologyConstants.datasourceTopology;
-	By deploymentTopology = hawkularNavigateNetworkTopologyConstants.deploymentTopology;
-	By verifyDeployment = hawkularNavigateNetworkTopologyConstants.verifyDeployment;
+	By clickTopology = HawkularNetworkTopologyConstants.clickTopology;
+	By imageServers = HawkularNetworkTopologyConstants.imageServers;
+	By imageApps = HawkularNetworkTopologyConstants.imageApps;
+	By imageDatasources = HawkularNetworkTopologyConstants.imageDatasources;
+	By datasourceTopology = HawkularNetworkTopologyConstants.datasourceTopology;
+	By deploymentTopology = HawkularNetworkTopologyConstants.deploymentTopology;
+	By verifyDeployment = HawkularNetworkTopologyConstants.verifyDeployment;
 	
 	
 	

@@ -6,28 +6,28 @@ import org.openqa.selenium.By;
  * @author pyadav
  */
 import org.openqa.selenium.WebDriver;
-import org.qe.hawkular.element.hawkularAlertSeverityFilterConstants;
+import org.qe.hawkular.element.HawkularAlertFilterConstants;
 import org.qe.hawkular.util.HawkularUtils;
 
 /**
  * @author pyadav
  */
-public class hawkularAlertSeverityFilterPage {
+public class HawkularAlertFilterPage {
 
 	
 	public final WebDriver driver;
 	
 	
 	
-	By alertCenter = hawkularAlertSeverityFilterConstants.alertCenter;
-	By alertDefinitions = hawkularAlertSeverityFilterConstants.alertDefinitions;
-	By clickSearchBox = hawkularAlertSeverityFilterConstants.clickSearchBox;
-	By verifySeverity = hawkularAlertSeverityFilterConstants.verifySeverity;
-	By verifyDescription = hawkularAlertSeverityFilterConstants.verifyDescription;
+	By alertCenter = HawkularAlertFilterConstants.alertCenter;
+	By alertDefinitions = HawkularAlertFilterConstants.alertDefinitions;
+	By clickSearchBox = HawkularAlertFilterConstants.clickSearchBox;
+	By verifySeverity = HawkularAlertFilterConstants.verifySeverity;
+	By verifyDescription = HawkularAlertFilterConstants.verifyDescription;
 	
 	
 	
-	public hawkularAlertSeverityFilterPage(WebDriver driver) {
+	public HawkularAlertFilterPage(WebDriver driver) {
 
         this.driver = driver;
 

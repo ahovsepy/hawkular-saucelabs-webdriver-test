@@ -5,7 +5,7 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularLoginPage;
-import org.qe.hawkular.page.hawkularNavigateNetworkTopologyPage;
+import org.qe.hawkular.page.HawkularNetworkTopologyPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
@@ -44,7 +44,7 @@ public class HawkularNetworkTopologyTest extends HawkularSeleniumLocalWebDriver 
 	public void hawkularNavigateNetworkTopologyTest() throws Exception {
 		WebDriver driver = hawkularLogin();
 		
-		hawkularNavigateNetworkTopologyPage topology= new hawkularNavigateNetworkTopologyPage(driver);
+		HawkularNetworkTopologyPage topology= new HawkularNetworkTopologyPage(driver);
 		topology. navigateToTopology();
 		//topology.verifyTopology();
 		
