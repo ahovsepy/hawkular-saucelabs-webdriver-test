@@ -6,16 +6,18 @@ import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularLoginPage;
 import org.qe.hawkular.page.hawkularAlertSeverityFilterPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
  * @author pyadav
  */
 
-public class hawkularAlertSeverityFilterTest  extends HawkularSeleniumLocalWebDriver {
+public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
 	public WebDriver hawkularLogin() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -25,16 +27,21 @@ public class hawkularAlertSeverityFilterTest  extends HawkularSeleniumLocalWebDr
 		loginPage.verifyLoginTitle();
 
 		loginPage = new HawkularLoginPage(driver);
-		loginPage.loginAs(HawkularRegistrationPageConstants.username,
-				HawkularRegistrationPageConstants.password);
+		loginPage.loginAs(HawkularRegistrationPageConstants.username2,
+				HawkularRegistrationPageConstants.password2);
 
 		return driver; 	
 	
 
 	}
 	
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
+	
 	@Test
-	public void hawkularAlertSevFilterTest() throws Exception {
+	public void hawkularAlertSeverityFilterTest() throws Exception {
 		WebDriver driver = hawkularLogin();
 		
 		hawkularAlertSeverityFilterPage filter= new hawkularAlertSeverityFilterPage(driver);
@@ -43,7 +50,7 @@ public class hawkularAlertSeverityFilterTest  extends HawkularSeleniumLocalWebDr
 		filter.verfiySeverity();
 		
 		
-		driver.close();
+//		driver.close();
 		
 	}
 	
@@ -53,11 +60,10 @@ public class hawkularAlertSeverityFilterTest  extends HawkularSeleniumLocalWebDr
 		
 		hawkularAlertSeverityFilterPage filter= new hawkularAlertSeverityFilterPage(driver);
 		filter. navigateToAlertCenter();
-		filter.filter("Available Connection");
-		filter.verfiySeverity();
+		filter.filter("JVM");
 		filter.verifyDescription();
 		
-		driver.close();
+//		driver.close();
 		
 	}
 }

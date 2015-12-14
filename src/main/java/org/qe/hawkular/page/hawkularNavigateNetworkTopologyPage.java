@@ -47,22 +47,20 @@ public hawkularNavigateNetworkTopologyPage(WebDriver driver) {
         
     }
 
-	
-public void verifyTopology(){
+	/*
+	 * TODO: Resolve issue with doubleclick involving svg elements in topology graphs.
+	 */
+    public void verifyTopology(){
 		
 		
 		
-		HawkularUtils utils = new HawkularUtils(driver);
-			
-		utils.waitForElementPresent(deploymentTopology);
+		HawkularUtils utils = new HawkularUtils(driver);			
+		utils.waitForElementPresent(deploymentTopology);		
+		WebElement deployment= driver.findElement(deploymentTopology);		
+		Actions action = new Actions(driver);	 
+		action.doubleClick(deployment);
 		
-		WebElement deployment= driver.findElement(deploymentTopology);
-		
-		Actions action = new Actions(driver);
-	 
-		 action.doubleClick(deployment);
-		
-		 //action.perform();
+		//action.perform();
 		
 		
 		

@@ -5,18 +5,19 @@ import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
 import org.qe.hawkular.page.HawkularLoginPage;
-import org.qe.hawkular.page.hawkularAlertNotificationsPage;
+import org.qe.hawkular.page.hawkularNavigateNetworkTopologyPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-
 
 /**
  * @author pyadav
  */
 
-public class hawkularAlertNotificationsTest extends HawkularSeleniumLocalWebDriver {
+public class HawkularNetworkTopologyTest extends HawkularSeleniumLocalWebDriver {
+	WebDriver driver = null;
 
 	public WebDriver hawkularLogin() throws Exception {
-		WebDriver driver = createLocalDriver();
+		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
 		System.out.println(driver.getTitle());
@@ -26,28 +27,32 @@ public class hawkularAlertNotificationsTest extends HawkularSeleniumLocalWebDriv
 		loginPage.verifyLoginTitle();
 
 		loginPage = new HawkularLoginPage(driver);
-		loginPage.loginAs(HawkularRegistrationPageConstants.username,
-				HawkularRegistrationPageConstants.password);
+		loginPage.loginAs(HawkularRegistrationPageConstants.username2,
+				HawkularRegistrationPageConstants.password2);
 
 		return driver; 	
 	
 
 	}
 	
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
 	
 	@Test
-	public void hawkularAlertNotifTest() throws Exception {
+	public void hawkularNavigateNetworkTopologyTest() throws Exception {
 		WebDriver driver = hawkularLogin();
 		
-		hawkularAlertNotificationsPage notify= new hawkularAlertNotificationsPage(driver);
+		hawkularNavigateNetworkTopologyPage topology= new hawkularNavigateNetworkTopologyPage(driver);
+		topology. navigateToTopology();
+		//topology.verifyTopology();
 		
-		notify.navigateToAppServer();
-		notify.verifyAlert();
-		notify.verfiySeverity();
 		
-		driver.close();
-		
+//		driver.close();
 		
 	}
-
+	
+	
+	
 }
