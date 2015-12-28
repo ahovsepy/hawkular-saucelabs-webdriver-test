@@ -4,15 +4,12 @@
 	<!-- Hawkular Red Hat Login and Registration Tests -->
 	<test name="HawkularLoginAndRegistrationTests">
 		<classes> 
-			<class name="org.qe.hawkular.tests.HawkualrLoginTest" />
-			
-			<class name="org.qe.hawkular.tests.HawkularMultiTenancyTest" />
-			
-			<class name="org.qe.hawkular.tests.HawkularRegistrationTest" />
-				
+			<class name="org.qe.hawkular.tests.HawkualrLoginTest" />			
+			<class name="org.qe.hawkular.tests.HawkularMultiTenancyTest" />			
+			<class name="org.qe.hawkular.tests.HawkularRegistrationTest" />				
 		</classes>
 	</test>
-	
+		
 	<!-- Hawkular Home page test - Add/Delete URL tests -->
 	<test name="HawkularHomePageTests">
 		<classes>
@@ -28,7 +25,7 @@
         </test>
 	
     <!-- Hawkular Application Server Deployments Actions Tests -->
-	<test name="HawkualrWarActionTest">
+	<test name="HawkualrWarActionTest"> 
 		<classes>
 			<class name="org.qe.hawkular.tests.HawkularWarActionTest">
 				<methods>
@@ -43,7 +40,7 @@
 		</classes>
 	</test>
 	
-	<!-- Hawkular JDBC driver upload test -->
+	<!-- Hawkular Datasources test -->
 	<test name="HawkularDatasourcesTest">
 		<classes>
 			<class name="org.qe.hawkular.tests.HawkularDatasourcesTest" />
@@ -54,8 +51,8 @@
 					<include name="hawkularExportJDRTest"></include>
 			</methods>
 		</classes>
-	</test>  
-	
+	</test>  	
+		
 	<!-- Hawkular Add Deployment Tests -->
 	<test name="HawkularAddDeploymentTest">
 	<classes>
@@ -68,13 +65,28 @@
 	<classes>
 			<class name="org.qe.hawkular.tests.HawkularOrganizationsTest" />
 		</classes>
-	</test>	
+	</test>		
 	
 	<!-- Hawkular User Settings Tests -->
 	<test name="HawkularUserSettingsTest">
 	<classes>
 			<class name="org.qe.hawkular.tests.HawkularUserSettingsTest" />
 		</classes>
-	</test>	
+	</test>		
+
+	<!-- Hawkular Alerts Tests -->
+	<test name="HawkularAlertTests">
+		<classes>
+			<class name="org.qe.hawkular.tests.HawkularAlertFilterTest" />
+			<class name="org.qe.hawkular.tests.HawkularAlertNotificationsTest" />
+		</classes>
+	</test> 
+	
+	<!-- Hawkular Topology  Tests -->	
+	<test name="HawkularNetworkTopologyTest">
+		<classes>
+			<class name="org.qe.hawkular.tests.HawkularNetworkTopologyTest" />
+		</classes>
+	</test> 
 	 
 </suite>
