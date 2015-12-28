@@ -40,12 +40,7 @@ public HawkularNetworkTopologyPage(WebDriver driver) {
         utils.waitForElementPresent(imageApps);
         utils.waitForElementPresent(imageDatasources);
         
-        // TO DO Graph navigation test
-        
-        
-        utils.waitForElementPresent(datasourceTopology);
-        
-    }
+        }
 
 	/*
 	 * TODO: Resolve issue with doubleclick involving svg elements in topology graphs.

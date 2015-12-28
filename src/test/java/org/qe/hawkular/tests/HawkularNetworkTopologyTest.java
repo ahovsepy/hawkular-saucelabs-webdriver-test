@@ -15,8 +15,14 @@ import org.testng.annotations.Test;
 
 public class HawkularNetworkTopologyTest extends HawkularSeleniumLocalWebDriver {
 	WebDriver driver = null;
+	
+	@AfterMethod
+	public void closeSession() {
+		driver.quit();
+	}
 
-	public WebDriver hawkularLogin() throws Exception {
+	@Test
+	public void hawkularNavigateNetworkTopologyTest() throws Exception {
 		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
@@ -29,30 +35,9 @@ public class HawkularNetworkTopologyTest extends HawkularSeleniumLocalWebDriver 
 		loginPage = new HawkularLoginPage(driver);
 		loginPage.loginAs(HawkularRegistrationPageConstants.username2,
 				HawkularRegistrationPageConstants.password2);
-
-		return driver; 	
-	
-
-	}
-	
-	@AfterMethod
-	public void closeSession() {
-		driver.quit();
-	}
-	
-	@Test
-	public void hawkularNavigateNetworkTopologyTest() throws Exception {
-		WebDriver driver = hawkularLogin();
-		
 		HawkularNetworkTopologyPage topology= new HawkularNetworkTopologyPage(driver);
 		topology. navigateToTopology();
-		//topology.verifyTopology();
-		
-		
-//		driver.close();
 		
 	}
-	
-	
 	
 }
