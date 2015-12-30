@@ -17,6 +17,7 @@ public class HawkularAppServerPage {
 
     By localAppServerLink = HawkularAppServerPageConstants.localWildfyServerLink;
     By appServerJvmtabLocator = HawkularAppServerPageConstants.appServerJvmtabLocator;
+    By appServerOverviewtabLocator = HawkularAppServerPageConstants.appServerOverviewtabLocator;
     By appServerDatasourcestabLink = HawkularAppServerPageConstants.appServerDatasourcestabLink;
     By appServerDeploymentstabLink = HawkularAppServerPageConstants.appServerDeploymentsLink;
     By appServerDeploymentstabLocator = HawkularAppServerPageConstants.appServerDeploymentstabLocator;
@@ -37,6 +38,11 @@ public class HawkularAppServerPage {
     public boolean verifyAppServerJVMTabNavigation() {
         HawkularUtils util = new HawkularUtils(driver);
         return util.waitForElementPresent(appServerJvmtabLocator);
+    }
+    
+    public boolean verifyAppServerOverviewTabNavigation() {
+        HawkularUtils util = new HawkularUtils(driver);
+        return util.waitForElementPresent(appServerOverviewtabLocator);
     }
 
     public void navigateToDeploymentsTab() {
