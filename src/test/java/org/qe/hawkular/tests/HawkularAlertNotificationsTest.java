@@ -41,6 +41,7 @@ public class HawkularAlertNotificationsTest extends HawkularSeleniumLocalWebDriv
 
         selectAppServer.verifyLocalAppServerExists();
         selectAppServer.navigateToLocalAppServer();
+        selectAppServer.navigateToJVMTab();
 
 		return driver; 	
 	

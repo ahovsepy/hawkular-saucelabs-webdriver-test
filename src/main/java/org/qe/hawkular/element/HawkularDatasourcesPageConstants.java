@@ -53,13 +53,13 @@ public class HawkularDatasourcesPageConstants {
             .xpath("//button[@ng-click='dac.exitStepDefineParameters()' and contains(text(),'Next >')]");
     public static final By datasourceAddButton = By
             .xpath("//div[@class='modal-footer']//button[contains(text(),'Add') ]");
-    public static final By createDatasourceSuccessMsg = By.xpath("//*[contains(text(),'Success!')]");
+    public static final By createDatasourceSuccessMsg = By.xpath("//div[contains(.,'successfully created')]");
     public static final By exitButton = By
             .xpath("//div[@class='modal-footer']//button[contains(text(),'Exit') ]");
     
     public static final By datasourceHeading = By
             .xpath("//div[@class='panel-heading']//span[contains(text(),'Datasource [TestDS]') ]");
-    public static final By actionsDropdownLocator =  By.xpath("//*[text() = 'Datasource [TestDS]']/../..//button");
+    public static final By actionsDropdownLocator =  By.xpath("//*[text() = 'TestDS']/../..//button");
     public static final By deleteAction = By.linkText("Delete");
     public static final By confirmDeleteLocator = By.xpath("//button[text()='Delete']");
     public static final By deleteDatasourceSuccessMsg = By.xpath("//*[contains(text(),'Execution Ops request delivery: The request has been forwarded to feed')]");

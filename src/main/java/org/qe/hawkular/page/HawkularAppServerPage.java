@@ -18,13 +18,14 @@ public class HawkularAppServerPage {
     By localAppServerLink = HawkularAppServerPageConstants.localWildfyServerLink;
     By appServerJvmtabLocator = HawkularAppServerPageConstants.appServerJvmtabLocator;
     By appServerOverviewtabLocator = HawkularAppServerPageConstants.appServerOverviewtabLocator;
+    By appServerJVMtabLink = HawkularAppServerPageConstants.appServerJVMtabLink;
     By appServerDatasourcestabLink = HawkularAppServerPageConstants.appServerDatasourcestabLink;
     By appServerDeploymentstabLink = HawkularAppServerPageConstants.appServerDeploymentsLink;
     By appServerDeploymentstabLocator = HawkularAppServerPageConstants.appServerDeploymentstabLocator;
     By appServerWarFileLocator = HawkularAppServerPageConstants.appServerWarFileLocator;
     By appServerRHALocator = HawkularAppServerPageConstants.appServerRHALocator;
     By appServerRHASearchLocator = HawkularAppServerPageConstants.appServerRHASearchLocator;
-    
+        
     public void verifyLocalAppServerExists() {
         HawkularUtils util = new HawkularUtils(driver);
         Assert.assertTrue(util.waitForElementPresent(localAppServerLink));
@@ -43,6 +44,11 @@ public class HawkularAppServerPage {
     public boolean verifyAppServerOverviewTabNavigation() {
         HawkularUtils util = new HawkularUtils(driver);
         return util.waitForElementPresent(appServerOverviewtabLocator);
+    }
+    
+    public void navigateToJVMTab() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.navigateTo(appServerJVMtabLink);
     }
 
     public void navigateToDeploymentsTab() {
