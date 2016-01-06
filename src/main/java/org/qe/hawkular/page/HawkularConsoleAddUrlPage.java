@@ -42,9 +42,10 @@ public class HawkularConsoleAddUrlPage {
     }
 
     public HawkularConsoleAddUrlPage deleteURL() {
+    	HawkularUtils util = new HawkularUtils(driver);
+    	util.waitForElementPresent(deleteButtonLocator);
         try {
-            driver.findElement(deleteButtonLocator).click();
-            HawkularUtils util = new HawkularUtils(driver);
+            driver.findElement(deleteButtonLocator).click();            
             util.waitForElementPresent(confirmDelete);
             driver.findElement(confirmDelete).click();
         } catch (Exception e) {

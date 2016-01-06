@@ -46,7 +46,7 @@ public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
 		
 		HawkularAlertFilterPage filter= new HawkularAlertFilterPage(driver);
 		filter. navigateToAlertCenter();
-		filter.filter("High");
+		filter.filter("Medium");
 		filter.verfiySeverity();
 		
 		
@@ -60,7 +60,7 @@ public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
 		
 		HawkularAlertFilterPage filter= new HawkularAlertFilterPage(driver);
 		filter. navigateToAlertCenter();
-		filter.filter("JVM");
+		filter.filter("Available Connection Count");
 		filter.verifyDescription();
 		
 //		driver.close();
