@@ -42,7 +42,7 @@ public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
 	
 	@Test
 	public void hawkularAlertSeverityFilterTest() throws Exception {
-		WebDriver driver = hawkularLogin();
+		driver = hawkularLogin();
 		
 		HawkularAlertFilterPage filter= new HawkularAlertFilterPage(driver);
 		filter. navigateToAlertCenter();
@@ -56,7 +56,7 @@ public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
 	
 	@Test
 	public void hawkularAlertDescriptionFilterTest() throws Exception {
-		WebDriver driver = hawkularLogin();
+		driver = hawkularLogin();
 		
 		HawkularAlertFilterPage filter= new HawkularAlertFilterPage(driver);
 		filter. navigateToAlertCenter();

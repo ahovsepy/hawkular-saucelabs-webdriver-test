@@ -39,7 +39,7 @@ public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
 
     @Test
     public void hawkularCreateNewOrgTest() throws Exception {
-        WebDriver driver = hawkularLogin();
+        driver = hawkularLogin();
         HawkularManageOrganizationsPage page = new HawkularManageOrganizationsPage(driver);
 
         page.toManageOrganizationsTab();
@@ -50,7 +50,7 @@ public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
 
     @Test
     public void hawkularDeleteOrgTest() throws Exception {
-        WebDriver driver = hawkularLogin();
+        driver = hawkularLogin();
         HawkularManageOrganizationsPage page = new HawkularManageOrganizationsPage(driver);
 
         page.toManageOrganizationsTab();
@@ -61,7 +61,7 @@ public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
     
     @Test
     public void hawkularListUserOrgTest() throws Exception {
-        WebDriver driver = hawkularLogin();
+        driver = hawkularLogin();
         HawkularManageOrganizationsPage page = new HawkularManageOrganizationsPage(driver);
 
         page.toManageOrganizationsTab();
@@ -74,7 +74,7 @@ public class HawkularOrganizationsTest extends HawkularSeleniumLocalWebDriver {
     
     @Test
 	public void hawkularInviteUserToOrgTest() throws Exception {
-		WebDriver driver = hawkularLogin();
+		driver = hawkularLogin();
 	
 		HawkularManageOrganizationsPage page = new HawkularManageOrganizationsPage(driver);
 		page.toManageOrganizationsTab();
