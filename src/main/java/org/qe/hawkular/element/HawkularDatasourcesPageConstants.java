@@ -34,6 +34,8 @@ public class HawkularDatasourcesPageConstants {
                     .xpath("//button[@ng-disabled='addDatasourceForm.$invalid' and contains(text(),'Next >')]");
     public static final By datasourceNameSelect = By.id("name");
     public static final String datasourceName = "TestDS";
+    public static final String overviewDatasourceName = "TestDataSource";
+    public static final By datasourceHeadingLocator = By.xpath("//span[contains(text(),'TestDS')]");
     public static final By datasourceAttributeNextButton = By
             .xpath("//button[@ng-disabled='!dac.dsData.jndiName' and contains(text(),'Next >')]");    
     public static final By datasourceClassSelect = By.id("dsClass");

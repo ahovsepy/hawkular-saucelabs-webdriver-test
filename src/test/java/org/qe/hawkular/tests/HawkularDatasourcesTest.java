@@ -46,7 +46,7 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
     
     @Test
     public void hawkularAddJDBCDriversTest() throws Exception {
-        WebDriver driver = hawkularLoginToDeployments();
+        driver = hawkularLoginToDeployments();
         HawkularDatasourcesPage page = new HawkularDatasourcesPage(
                 driver);
         page.navigateAddDriverTab();
@@ -59,7 +59,7 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
 
     @Test
     public void hawkularExportJDRTest() throws Exception {
-        WebDriver driver = hawkularLoginToDeployments();
+        driver = hawkularLoginToDeployments();
         HawkularDatasourcesPage page = new HawkularDatasourcesPage(
                 driver);
         page.exportJDR();
@@ -69,7 +69,7 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
     
     @Test
     public void hawkularAddDataSourceTest() throws Exception {
-        WebDriver driver = hawkularLoginToDeployments();
+        driver = hawkularLoginToDeployments();
         HawkularDatasourcesPage page = new HawkularDatasourcesPage(
                 driver);
         page.addDatasourceType();
@@ -81,16 +81,38 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
  //       driver.quit();
         
     }
+     
+    /**
+     * Test to verify adding a datasource from 'OverView' tab of the app server.
+     */
+    @Test
+    public void hawkularOverviewAddDataSourceTest() throws Exception {
+        driver = hawkularLoginToDeployments();
+        HawkularAppServerPage appserverPage = new HawkularAppServerPage(
+                driver);
+        appserverPage.navigateToOverviewTab();
+        appserverPage.navigateToOverviewAddDatasource();
+        HawkularDatasourcesPage page = new HawkularDatasourcesPage(
+                driver);
+        page.overviewAddDatasourceType();
+        page.overviewAddDatasourceAttribute();
+        page.addDatasourceDriverParams();
+        page.addDatasourceConnSettings();
+        page.datasourceAdd();
+        page.addDatasourceVerifySuccess();
+ //       driver.quit();
+        
+    }
     
     @Test
     public void hawkularDeleteDataSourceTest() throws Exception {
-        WebDriver driver = hawkularLoginToDeployments();
+        driver = hawkularLoginToDeployments();
         HawkularDatasourcesPage page = new HawkularDatasourcesPage(
                 driver);
         page.deleteDatasource();
         page.verifyDeleteDatasource();
-//        driver.quit();
-        // TODO Test datasource deletion from UI after disable and delete the datasource. Disable datasource seems not yet implemented.
+ //        driver.quit();
+ // TODO Test datasource deletion from UI after disable and delete the datasource. Disable datasource seems not yet implemented.
     }
 
 }
