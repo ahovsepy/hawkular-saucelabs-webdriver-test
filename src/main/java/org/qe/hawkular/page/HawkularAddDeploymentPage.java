@@ -16,6 +16,7 @@ public class HawkularAddDeploymentPage {
 	 By addDeploymentTab = HawkularAddDeploymentConstants.addDeploymentTab;
 	 By uploadFileTab = HawkularAddDeploymentConstants.uploadFileTab;
 	 String applicationFilePath = HawkularAddDeploymentConstants.applicationFilePath;
+	 String overviewApplicationFilePath = HawkularAddDeploymentConstants.overviewApplicationFilePath;
 	 By applicationFilePathNextButton = HawkularAddDeploymentConstants.applicationFilePathNextButton;
 	 By addDeploymentNextButton = HawkularAddDeploymentConstants.addDeploymentNextButton;
 	 By verifyDeploymentSuccess = HawkularAddDeploymentConstants.verifyDeploymentSuccess;
@@ -29,6 +30,13 @@ public class HawkularAddDeploymentPage {
 	 public void uploadApplicationFile() {
 	        HawkularUtils util = new HawkularUtils(driver);
 	        util.sendKeysTo(uploadFileTab, applicationFilePath);
+	        util.navigateTo(applicationFilePathNextButton);
+	 }
+	 
+	 public void overviewUploadApplicationFile() {
+	        HawkularUtils util = new HawkularUtils(driver);
+	        util.waitForElementPresent(uploadFileTab);
+	        util.sendKeysTo(uploadFileTab, overviewApplicationFilePath);
 	        util.navigateTo(applicationFilePathNextButton);
 	 }
 	 

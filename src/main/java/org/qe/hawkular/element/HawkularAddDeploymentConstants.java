@@ -11,6 +11,7 @@ public class HawkularAddDeploymentConstants {
 	
 		public static final By uploadFileTab =  By.name("deployFile");
 	public static final String applicationFilePath = "/hawkular-ui-test/src/test/resources/ClusterWebApp.war";
+	public static final String overviewApplicationFilePath = "/hawkular-ui-test/src/test/resources/ClusterWebApp1.war";
 	public static final By applicationFilePathNextButton = By.xpath("//div[@class='modal-footer']"
             + "//button[@ng-disabled='deployFileForm.$invalid' and @class='btn btn-primary' and "
             + "contains(text(),'Next >') and not(@disabled)]");

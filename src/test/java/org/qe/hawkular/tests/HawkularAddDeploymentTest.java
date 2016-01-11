@@ -53,7 +53,7 @@ public class HawkularAddDeploymentTest extends HawkularSeleniumLocalWebDriver {
 
     @Test
     public void hawkularAddDeploymentTest() throws Exception {
-        WebDriver driver = hawkularLoginToDeployments();
+        driver = hawkularLoginToDeployments();
         HawkularAddDeploymentPage adddeployment = new HawkularAddDeploymentPage(
                 driver);
         adddeployment.addDeploymentTab();
@@ -62,5 +62,23 @@ public class HawkularAddDeploymentTest extends HawkularSeleniumLocalWebDriver {
         adddeployment.verfiySuccess();
         // TODO check successful upload after fix of https://issues.jboss.org/browse/HAWKULAR-678
  //       driver.quit();
+    }
+    
+    /**
+     * Test to verify adding a deployment from 'OverView' tab of the app server.
+     */
+    @Test
+    public void hawkularOverviewAddDeploymentTest() throws Exception {
+        driver = hawkularLoginToDeployments();
+        HawkularAppServerPage appserverPage = new HawkularAppServerPage(
+                driver);
+        appserverPage.navigateToOverviewTab();
+        appserverPage.navigateToOverviewAddDeployment();
+        HawkularAddDeploymentPage adddeployment = new HawkularAddDeploymentPage(
+                driver);
+        adddeployment.overviewUploadApplicationFile();
+        adddeployment.deployApplication();
+        adddeployment.verfiySuccess();
+        
     }
 }
