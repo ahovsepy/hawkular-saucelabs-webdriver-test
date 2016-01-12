@@ -74,6 +74,13 @@
 		</classes>
 	</test>		
 
+         <!-- Switch User -->
+        <test name="HawkularSwitchUserTest">
+                <classes>
+                        <class name="org.qe.hawkular.tests.HawkularSwitchUserTest" />
+                </classes>
+        </test>
+
 	<!-- Hawkular Alerts Tests -->
 	<test name="HawkularAlertTests">
 		<classes>

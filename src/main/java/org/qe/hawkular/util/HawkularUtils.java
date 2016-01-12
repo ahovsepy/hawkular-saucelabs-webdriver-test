@@ -1,6 +1,5 @@
 package org.qe.hawkular.util;
 
-import java.io.IOException;
 import java.util.Calendar;
 
 import org.openqa.selenium.By;
