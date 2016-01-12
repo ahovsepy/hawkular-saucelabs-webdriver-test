@@ -51,12 +51,12 @@ public class HawkularSwitchUserTest extends HawkularSeleniumLocalWebDriver {
     	orgPage.navigateToNewOrg();
         url.navigateToURLsMenu();
 	    url.typeURL(HawkularManagementConsolePageConstants.testURL2);
-	    url.submitURLAndWaitToBeAdded(HawkularManagementConsolePageConstants.testURL2);
-	    Assert.assertTrue(util.isTextOnPage(HawkularManagementConsolePageConstants.testURL2));
+        url.submitURLAndWaitToBeAdded(HawkularManagementConsolePageConstants.testURL2);
+        Assert.assertTrue(util.isTextOnPage(HawkularManagementConsolePageConstants.testURL2));
 	  
-	    // Validate that on JDoe Org, the URL that was added to "New Org" is not present
-	    orgPage.navigateToJDoeUser(); 
-	    url.navigateToURLsMenu();
-	    Assert.assertFalse(util.isTextOnPage(HawkularManagementConsolePageConstants.testURL2));
+        // Validate that on JDoe Org, the URL that was added to "New Org" is not present
+        orgPage.navigateToJDoeUser(); 
+        url.navigateToURLsMenu();
+        Assert.assertFalse(util.isTextOnPage(HawkularManagementConsolePageConstants.testURL2));
     }
 }
