@@ -64,9 +64,9 @@ public class HawkularConsoleAddUrlPage {
     }
 
     public void submitURLAndWaitToBeAdded(String URL) throws InterruptedException, IOException {
-    	HawkularUtils util = new HawkularUtils(driver);
-    	driver.findElement(addButtonLocator).submit();
-    	util.whatForTextOnPage(URL, 5);
+        HawkularUtils util = new HawkularUtils(driver);
+        driver.findElement(addButtonLocator).submit();
+        util.whatForTextOnPage(URL, 5);
     }
     
     public boolean verifyAddUrlMsg() {

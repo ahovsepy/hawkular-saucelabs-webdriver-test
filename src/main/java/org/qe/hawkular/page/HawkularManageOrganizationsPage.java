@@ -47,15 +47,15 @@ public class HawkularManageOrganizationsPage {
     }
 
     public void navigateToNewOrg() {
-    	HawkularUtils util = new HawkularUtils(driver);
-    	util.navigateTo(rhAccessDropdownLocator);
-    	driver.findElement(HawkularManageOrganizationsConstants.navigateToNewOrg).click();
+        HawkularUtils util = new HawkularUtils(driver);
+        util.navigateTo(rhAccessDropdownLocator);
+        driver.findElement(HawkularManageOrganizationsConstants.navigateToNewOrg).click();
     }
     	 
     public void navigateToJDoeUser() {
-    	HawkularUtils util = new HawkularUtils(driver);
-    	util.navigateTo(rhAccessDropdownLocator);
-    	driver.findElement(HawkularManageOrganizationsConstants.NavigateToJDoe).click();
+        HawkularUtils util = new HawkularUtils(driver);
+        util.navigateTo(rhAccessDropdownLocator);
+        driver.findElement(HawkularManageOrganizationsConstants.NavigateToJDoe).click();
     }
     	
     public void createOrganization() {

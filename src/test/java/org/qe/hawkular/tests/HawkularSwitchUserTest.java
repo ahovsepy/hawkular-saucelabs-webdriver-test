@@ -16,41 +16,41 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class HawkularSwitchUserTest extends HawkularSeleniumLocalWebDriver {
-	WebDriver driver = null;
-	HawkularLoginPage loginPage = null;
-	HawkularManageOrganizationsPage orgPage = null;
-	HawkularConsoleAddUrlPage url = null;
-	HawkularUtils util = null;
+    WebDriver driver = null;
+    HawkularLoginPage loginPage = null;
+    HawkularManageOrganizationsPage orgPage = null;
+    HawkularConsoleAddUrlPage url = null;
+    HawkularUtils util = null;
     
-    @BeforeMethod
+	@BeforeMethod
     public void createBrowserInstance() throws MalformedURLException {
-    	driver = createLocalDriver();
-    	driver.get(HawkularSeleniumWebDriver.hawkularUrl);
+        driver = createLocalDriver();
+        driver.get(HawkularSeleniumWebDriver.hawkularUrl);
     	
-    	loginPage = new HawkularLoginPage(driver);
-    	orgPage = new HawkularManageOrganizationsPage(driver);
-    	url = new HawkularConsoleAddUrlPage(driver);
-    	util = new HawkularUtils(driver);
+        loginPage = new HawkularLoginPage(driver);
+        orgPage = new HawkularManageOrganizationsPage(driver);
+        url = new HawkularConsoleAddUrlPage(driver);
+        util = new HawkularUtils(driver);
     	
-    	loginPage = new HawkularLoginPage(driver);
+        loginPage = new HawkularLoginPage(driver);
         loginPage.loginAs(HawkularRegistrationPageConstants.username2,
                           HawkularRegistrationPageConstants.password2);
     }
     
     @AfterMethod
-	public void closeSession() {
-		driver.quit();
-	}
+    public void closeSession() {
+        driver.quit();
+    }
     
     @Test
     public void switchUserTest() throws InterruptedException, IOException {
     	
-    	// Create new Organization, and add a URL to that new Org
-    	orgPage.toManageOrganizationsTab();
-    	orgPage._createOrganization();
-    	orgPage.navigateToNewOrg();
+        // Create new Organization, and add a URL to that new Org
+        orgPage.toManageOrganizationsTab();
+        orgPage._createOrganization();
+        orgPage.navigateToNewOrg();
         url.navigateToURLsMenu();
-	    url.typeURL(HawkularManagementConsolePageConstants.testURL2);
+        url.typeURL(HawkularManagementConsolePageConstants.testURL2);
         url.submitURLAndWaitToBeAdded(HawkularManagementConsolePageConstants.testURL2);
         Assert.assertTrue(util.isTextOnPage(HawkularManagementConsolePageConstants.testURL2));
 	  
