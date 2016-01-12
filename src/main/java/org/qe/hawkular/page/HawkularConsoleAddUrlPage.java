@@ -63,7 +63,7 @@ public class HawkularConsoleAddUrlPage {
         return new HawkularConsoleAddUrlPage(driver);
     }
 
-    public void submitURLAndWaitToBeAdded(String URL) throws InterruptedException, IOException {
+    public void submitURLAndWaitToBeAdded(String URL) throws InterruptedException, NoSuchFieldException {
         HawkularUtils util = new HawkularUtils(driver);
         driver.findElement(addButtonLocator).submit();
         util.whatForTextOnPage(URL, 5);
@@ -105,7 +105,7 @@ public class HawkularConsoleAddUrlPage {
         utils.navigateTo(appServersMenuLocator);
     }
 
-    public void navigateToURLsMenu() throws InterruptedException, IOException {
+    public void navigateToURLsMenu() throws InterruptedException, NoSuchFieldException {
         HawkularUtils utils = new HawkularUtils(driver);
         utils.navigateTo(urlsMenuLocator);
         utils.whatForTextOnPage(urlPageText, 5);

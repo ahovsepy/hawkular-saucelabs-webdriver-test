@@ -43,7 +43,7 @@ public class HawkularSwitchUserTest extends HawkularSeleniumLocalWebDriver {
     }
     
     @Test
-    public void switchUserTest() throws InterruptedException, IOException {
+    public void switchUserTest() throws InterruptedException, NoSuchFieldException, IOException {
     	
         // Create new Organization, and add a URL to that new Org
         orgPage.toManageOrganizationsTab();

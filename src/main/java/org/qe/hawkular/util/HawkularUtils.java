@@ -3,12 +3,10 @@ package org.qe.hawkular.util;
 import java.io.IOException;
 import java.util.Calendar;
 
-import org.apache.regexp.recompile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
 import org.testng.Assert;
 
 /**
@@ -57,7 +55,7 @@ public class HawkularUtils {
 	    return(driver.findElement(By.cssSelector("body")).getText().contains(text));
 	}
 	 
-	public void whatForTextOnPage(String text, int timeToWait) throws InterruptedException, IOException {
+	public void whatForTextOnPage(String text, int timeToWait) throws NoSuchFieldException, InterruptedException {
 	    boolean isPresent = false;
 		long currentTime = Calendar.getInstance().getTimeInMillis();
 		long newTime = 0;
@@ -73,8 +71,7 @@ public class HawkularUtils {
 		         
 		if (!isPresent) {
 		    System.out.println("Timed out waiting for " + "\"" + text + "\"");
-		    IOException e = new IOException();
-		    throw e;
+		    throw new NoSuchFieldException();
 		}
     }
 

@@ -66,7 +66,7 @@ public class HawkularManageOrganizationsPage {
         util.waitForElementPresent(createOrgVerifyLocator);
     }
 
-    public void _createOrganization() throws InterruptedException, IOException {
+    public void _createOrganization() throws InterruptedException, NoSuchFieldException {
         HawkularUtils util = new HawkularUtils(driver);
     	
     	// Until one action will work for both "Create Organization" button elements:
