@@ -1,5 +1,7 @@
 package org.qe.hawkular.page;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.element.HawkularManageOrganizationsConstants;
@@ -44,6 +46,18 @@ public class HawkularManageOrganizationsPage {
         util.navigateTo(rhAccessManageOrgOptionLocator);
     }
 
+    public void navigateToNewOrg() {
+    	HawkularUtils util = new HawkularUtils(driver);
+    	util.navigateTo(rhAccessDropdownLocator);
+    	driver.findElement(HawkularManageOrganizationsConstants.navigateToNewOrg).click();
+    }
+    	 
+    public void navigateToJDoeUser() {
+    	HawkularUtils util = new HawkularUtils(driver);
+    	util.navigateTo(rhAccessDropdownLocator);
+    	driver.findElement(HawkularManageOrganizationsConstants.NavigateToJDoe).click();
+    }
+    	
     public void createOrganization() {
         HawkularUtils util = new HawkularUtils(driver);
         util.navigateTo(createOrgButtonLocator);
@@ -52,6 +66,21 @@ public class HawkularManageOrganizationsPage {
         util.waitForElementPresent(createOrgVerifyLocator);
     }
 
+    public void _createOrganization() throws InterruptedException, IOException {
+        HawkularUtils util = new HawkularUtils(driver);
+    	
+    	// Until one action will work for both "Create Organization" button elements:
+    	if (util.isTextOnPage("No organizations created")) {
+    	    driver.findElement(HawkularManageOrganizationsConstants.createOrgButtonLocatorNoOrgCreated).click();
+    	} else {
+    	    driver.findElement(HawkularManageOrganizationsConstants.craateOrgButtonLocatorOrgsCreated).click();
+    	}
+    	
+    	util.sendKeysTo(organizationNameLocator, organizationName);
+    	util.navigateTo(modalCreateOrgButtonLocator);
+    	util.whatForTextOnPage(organizationName, 5);
+    }
+    
     public void removeOrganization(int lineNumber) {
         HawkularUtils util = new HawkularUtils(driver);
         util.navigateTo(removeOrgButtonLocator);

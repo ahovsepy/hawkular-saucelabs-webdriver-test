@@ -6,6 +6,7 @@ public class HawkularManagementConsolePageConstants {
 
    public static final By consoleImageAltLocator = By.xpath("//*[contains(attribute::alt, 'RED HAT JBOSS HAWKULAR Management Console')]");
    public static final String testURL = "http://www.redhat.com";
+   public static final String testURL2 = "http://www.google.com";
    public static final By urlLocator = By.name("resourceUrl");
    public static final By addButtonLocator = By.cssSelector("button.btn.btn-primary");
    public static final By homePageImgLocator = By.id("hawkularLogo");

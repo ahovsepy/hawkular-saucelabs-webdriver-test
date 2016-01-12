@@ -1,6 +1,9 @@
 package org.qe.hawkular.page;
 
+import java.io.IOException;
+
 import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
@@ -10,7 +13,8 @@ import org.openqa.selenium.WebElement;
 public class HawkularConsoleAddUrlPage {
 
     public final WebDriver driver;
-
+    public static String urlPageText= "Add URL";
+    
     By consoleImageAltLocator = HawkularManagementConsolePageConstants.consoleImageAltLocator;
     By urlLocator = HawkularManagementConsolePageConstants.urlLocator;
     By addButtonLocator = HawkularManagementConsolePageConstants.addButtonLocator;
@@ -59,6 +63,12 @@ public class HawkularConsoleAddUrlPage {
         return new HawkularConsoleAddUrlPage(driver);
     }
 
+    public void submitURLAndWaitToBeAdded(String URL) throws InterruptedException, IOException {
+    	HawkularUtils util = new HawkularUtils(driver);
+    	driver.findElement(addButtonLocator).submit();
+    	util.whatForTextOnPage(URL, 5);
+    }
+    
     public boolean verifyAddUrlMsg() {
         HawkularUtils util = new HawkularUtils(driver);
         return util.waitForElementPresent(addUrlMsg);
@@ -95,9 +105,10 @@ public class HawkularConsoleAddUrlPage {
         utils.navigateTo(appServersMenuLocator);
     }
 
-    public void navigateToURLsMenu() {
+    public void navigateToURLsMenu() throws InterruptedException, IOException {
         HawkularUtils utils = new HawkularUtils(driver);
         utils.navigateTo(urlsMenuLocator);
+        utils.whatForTextOnPage(urlPageText, 5);
     }
     
     public void navigateToURL() {

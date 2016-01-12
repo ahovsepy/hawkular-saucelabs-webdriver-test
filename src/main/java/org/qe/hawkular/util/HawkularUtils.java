@@ -1,5 +1,8 @@
 package org.qe.hawkular.util;
 
+import java.io.IOException;
+import java.util.Calendar;
+
 import org.apache.regexp.recompile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -49,5 +52,30 @@ public class HawkularUtils {
 	public void assertElementPresent(By element) {
 		Assert.assertTrue(waitForElementPresent(element));
 	}
+	
+	public boolean isTextOnPage(String text) {
+	    return(driver.findElement(By.cssSelector("body")).getText().contains(text));
+	}
+	 
+	public void whatForTextOnPage(String text, int timeToWait) throws InterruptedException, IOException {
+	    boolean isPresent = false;
+		long currentTime = Calendar.getInstance().getTimeInMillis();
+		long newTime = 0;
+		         
+		do {
+		    if (isTextOnPage(text)) {
+		        isPresent = true;
+		    } else {
+		        Thread.sleep(1*1000);
+		        newTime = Calendar.getInstance().getTimeInMillis();
+		    }
+		} while (!isPresent && ((newTime-currentTime)/1000) < timeToWait);
+		         
+		if (!isPresent) {
+		    System.out.println("Timed out waiting for " + "\"" + text + "\"");
+		    IOException e = new IOException();
+		    throw e;
+		}
+    }
 
 }
