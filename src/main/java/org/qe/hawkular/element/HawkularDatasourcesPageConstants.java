@@ -26,6 +26,7 @@ public class HawkularDatasourcesPageConstants {
             .xpath("//div[@class='modal-footer']//button[contains(text(),'Add') ]");
 
     public static final By exportJDR = By.xpath("//button[contains(text(),'Export JDR')]");
+    public static final By overviewExportJDRLink = By.xpath("//a[contains(text(),'Export a JBoss Diagnostics Report')]");
     
     public static final By addDatasource = By.xpath("id('hk-datasources')//button[text()='Add Datasource']");
     public static final By nonxadatasource = By
