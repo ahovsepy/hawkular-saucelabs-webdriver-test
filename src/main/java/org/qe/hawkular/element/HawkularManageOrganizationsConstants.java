@@ -45,5 +45,8 @@ public class HawkularManageOrganizationsConstants {
 	public static final By successMassage = By.xpath(".//*[@id='toast-container']/div[1]/div/div");
 	public static final By AllOrganizationsLinkLocator = By.linkText("« All organizations");
     
-
+	public static final By createOrgButtonLocatorNoOrgCreated = By.xpath("//button[contains(text(),'Create Organization')]");  // User has yet to creat
+	public static final By craateOrgButtonLocatorOrgsCreated = By.xpath("//div[@class='text-right']/button"); // User already has created one or more O
+	public static final By navigateToNewOrg = By.xpath("/html/body/nav/div[2]/div[2]/ul/li/ul/li[2]/a");
+	public static final By NavigateToJDoe = By.xpath("/html/body/nav/div[2]/div[2]/ul/li/ul/li[3]/a");
 }
