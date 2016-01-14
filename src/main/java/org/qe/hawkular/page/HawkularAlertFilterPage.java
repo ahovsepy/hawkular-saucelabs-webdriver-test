@@ -58,6 +58,13 @@ public class HawkularAlertFilterPage {
 		utils.waitForElementPresent(verifyDescription);
 		
 	}	
+	
+	public void navigateToViewDetails() {
+        HawkularUtils utils = new HawkularUtils(driver);        
+        utils.waitForElementPresent(HawkularAlertFilterConstants.viewDetailsLink);
+        driver.findElement(HawkularAlertFilterConstants.viewDetailsLink).click();
+        
+    }   
 
 }
 

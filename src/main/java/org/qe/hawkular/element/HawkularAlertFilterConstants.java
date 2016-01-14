@@ -12,5 +12,6 @@ public class HawkularAlertFilterConstants {
 	 public static final By clickSearchBox= By.xpath(".//*[@id='DataTables_Table_0_filter']/label/input");
 	 public static final By verifySeverity= By.xpath("//*[text()='Medium']");
 	 public static final By verifyDescription=By.xpath("//*[contains(text(),'Available Connection Count for Datasource')]");
+	 public static final By viewDetailsLink=By.xpath("//i[@tooltip='View Details']");
 
 }
