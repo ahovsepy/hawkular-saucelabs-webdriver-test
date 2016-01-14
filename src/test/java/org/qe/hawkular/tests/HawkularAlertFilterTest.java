@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumLocalWebDriver;
 import org.qe.hawkular.driver.HawkularSeleniumWebDriver;
 import org.qe.hawkular.element.HawkularRegistrationPageConstants;
+import org.qe.hawkular.page.HawkularAlertsSettingsPage;
 import org.qe.hawkular.page.HawkularLoginPage;
 import org.qe.hawkular.page.HawkularAlertFilterPage;
 import org.testng.annotations.AfterMethod;
@@ -60,10 +61,35 @@ public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
 		
 		HawkularAlertFilterPage filter= new HawkularAlertFilterPage(driver);
 		filter. navigateToAlertCenter();
-		filter.filter("Available Connection Count");
+		filter.filter("JVM");
 		filter.verifyDescription();
 		
 //		driver.close();
 		
 	}
+	
+	@Test
+    public void hawkularAlertChangeStateTest() throws Exception {
+        driver = hawkularLogin();        
+
+        HawkularAlertFilterPage alertpage = new HawkularAlertFilterPage(
+                driver);
+        alertpage.navigateToAlertCenter();
+        alertpage.filter("JVM Heap Used");
+        alertpage.navigateToViewDetails();
+        
+        HawkularAlertsSettingsPage alertSetting = new HawkularAlertsSettingsPage(
+                driver);
+        alertSetting.editAlertDefinition();
+        alertSetting.verifyEditAlertSuccessMsg();
+        alertSetting.navigateToAllDefinitions();
+        alertpage.navigateToAlertTab();
+        alertpage.navigateToHeapUsedAlert();
+        alertpage.acknowledgeAlert();
+        alertpage.verifyAcknowledgedAlert();
+        alertpage.ResolveAlert();
+        alertpage.verifyResolvededAlert();
+                
+    }
+	
 }

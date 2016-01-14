@@ -1,5 +1,7 @@
 package org.qe.hawkular.page;
 
+import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 
 /**
@@ -16,6 +18,7 @@ public class HawkularAlertFilterPage {
 
 	
 	public final WebDriver driver;
+	protected static final int ALERT_CENTER_REALOAD_ITERATTIONS = 10;
 	
 	
 	
@@ -64,7 +67,63 @@ public class HawkularAlertFilterPage {
         utils.waitForElementPresent(HawkularAlertFilterConstants.viewDetailsLink);
         driver.findElement(HawkularAlertFilterConstants.viewDetailsLink).click();
         
-    }   
+    }
+	
+	public void navigateToAlertTab() {
+        HawkularUtils utils = new HawkularUtils(driver);        
+        utils.waitForElementPresent(HawkularAlertFilterConstants.alertTabLink);
+        driver.findElement(HawkularAlertFilterConstants.alertTabLink).click();
+        
+    }
+	
+	public void navigateToHeapUsedAlert() {
+        HawkularUtils util = new HawkularUtils(driver);
+        for (int i = 0; i < ALERT_CENTER_REALOAD_ITERATTIONS; i++) {
+            util.refresh();
+            if (!driver.findElements(HawkularAlertFilterConstants.lastJvmHeapUsedAlertLocator).isEmpty()) {
+                util.navigateTo(HawkularAlertFilterConstants.viewDetailsLastJvmAlertLink); 
+                util.waitForElementPresent(HawkularAlertFilterConstants.alertDetailPageLocator);
+                return;
+            }
+            util.refresh();
+        }
+        Assert.fail();
+    }
+	
+	public void acknowledgeAlert() {
+        HawkularUtils util = new HawkularUtils(driver);        
+        driver.findElement(HawkularAlertFilterConstants.acknowledgeButton).click();
+        driver.findElement(HawkularAlertFilterConstants.saveButton).click();
+        util.waitForElementPresent(HawkularAlertFilterConstants.acknowledgeComment);
+        util.navigateTo(HawkularAlertFilterConstants.allAlertsLink);             
+        
+    }
+	
+	public void verifyAcknowledgedAlert() {
+	    HawkularUtils utils = new HawkularUtils(driver);
+	    utils.waitForElementPresent(HawkularAlertFilterConstants.acknowledgeStatus);
+        
+    }
+	
+	public void ResolveAlert() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.navigateTo(HawkularAlertFilterConstants.viewDetailsLastJvmAlertLink); 
+        util.waitForElementPresent(HawkularAlertFilterConstants.alertDetailPageLocator);
+        driver.findElement(HawkularAlertFilterConstants.resolveButton).click();
+        driver.findElement(HawkularAlertFilterConstants.saveButton).click();
+        util.waitForElementPresent(HawkularAlertFilterConstants.resolveComment);
+        util.navigateTo(HawkularAlertFilterConstants.allAlertsLink);             
+        
+    }
+    
+    public void verifyResolvededAlert() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.waitForElementPresent(HawkularAlertFilterConstants.resolvedAlertCheckBox);
+        driver.findElement(HawkularAlertFilterConstants.resolvedAlertCheckBox).click();
+        util.waitForElementPresent(HawkularAlertFilterConstants.resolveStatus);
+        
+    }
+	
 
 }
 
