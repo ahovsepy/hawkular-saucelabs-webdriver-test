@@ -2,6 +2,8 @@ package org.qe.hawkular.page;
 
 import java.io.IOException;
 
+import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.element.HawkularManageOrganizationsConstants;
@@ -118,6 +120,30 @@ public class HawkularManageOrganizationsPage {
         HawkularUtils util = new HawkularUtils(driver);
         util.navigateTo(AllOrganizationsLinkLocator);       
 
-	}  
+	}
+    
+    public void switchtoOrg() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.waitForElementPresent(HawkularManageOrganizationsConstants.switchPersonaDropdown);
+        driver.findElement(
+                HawkularManageOrganizationsConstants.switchPersonaDropdown)
+                .click();
+        util.waitForElementPresent(HawkularManageOrganizationsConstants.orgOptionLocator);
+        util.navigateTo(HawkularManageOrganizationsConstants.orgOptionLocator);       
+
+    }  
+    
+    public void navigateToURLsPage() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.navigateTo(HawkularManageOrganizationsConstants.urlsMenuLocator);       
+
+    }  
+    
+    public void verfiyURLsPage() {
+        HawkularUtils util = new HawkularUtils(driver);
+        Assert.assertTrue(util
+                .waitForElementPresent(HawkularManageOrganizationsConstants.urlPageLocator));        
+
+    }
 
 }
