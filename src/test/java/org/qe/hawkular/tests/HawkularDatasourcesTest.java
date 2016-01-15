@@ -67,6 +67,22 @@ public class HawkularDatasourcesTest extends HawkularSeleniumLocalWebDriver {
 //        driver.quit();
     }
     
+    /**
+     * Test to verify JDR export from 'OverView' tab of the app server.
+     */
+@Test
+    public void hawkularOverviewExportJDRTest() throws Exception {
+        driver = hawkularLoginToDeployments();
+        HawkularAppServerPage appserverPage = new HawkularAppServerPage(
+                driver);
+        appserverPage.navigateToOverviewTab();
+        HawkularDatasourcesPage page = new HawkularDatasourcesPage(
+                driver);
+        page.overviewExportJDR();
+        // TODO check successful download with handling of file download dialog box
+//        driver.quit();
+    }
+    
     @Test
     public void hawkularAddDataSourceTest() throws Exception {
         driver = hawkularLoginToDeployments();

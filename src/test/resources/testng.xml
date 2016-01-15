@@ -49,6 +49,9 @@
 					<include name="hawkularDeleteDataSourceTest"></include>
 					<include name="hawkularAddJDBCDriversTest"></include>
 					<include name="hawkularExportJDRTest"></include>
+					<include name="hawkularOverviewExportJDRTest"></include>
+					<include name="hawkularOverviewAddDataSourceTest"></include>
+					
 			</methods>
 		</classes>
 	</test>  	
@@ -86,6 +89,7 @@
 		<classes>
 			<class name="org.qe.hawkular.tests.HawkularAlertFilterTest" />
 			<class name="org.qe.hawkular.tests.HawkularAlertNotificationsTest" />
+			<class name="org.qe.hawkular.tests.HawkularAlertsSettingsTest" />
 		</classes>
 	</test> 
 	

@@ -3,6 +3,7 @@ package org.qe.hawkular.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.element.HawkularDatasourcesPageConstants;
+import org.qe.hawkular.element.HawkularLoginPageConstants;
 import org.qe.hawkular.util.HawkularUtils;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -93,6 +94,12 @@ public class HawkularDatasourcesPage {
     public void exportJDR() {
         HawkularUtils util = new HawkularUtils(driver);
         util.navigateTo(exportJDR);
+    }
+    
+    public void overviewExportJDR() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.waitForElementPresent(HawkularDatasourcesPageConstants.overviewExportJDRLink);
+        driver.findElement(HawkularDatasourcesPageConstants.overviewExportJDRLink).click();        
     }
     
     public void addDatasourceType() {

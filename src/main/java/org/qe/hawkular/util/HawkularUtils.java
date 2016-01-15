@@ -73,5 +73,9 @@ public class HawkularUtils {
 		    throw new NoSuchFieldException();
 		}
     }
-
+	
+	public void refresh() {
+        driver.navigate().refresh();
+    }	
+	
 }
