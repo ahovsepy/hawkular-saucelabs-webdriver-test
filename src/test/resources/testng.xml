@@ -101,21 +101,21 @@
 	</test> 
 	
 	<!-- Hawkular add/remove tokens Tests -->  
-    <test name="HawkularNetworkTopologyTest">
+    <test name="HawkularTokenTest">
         <classes>
             <class name="org.qe.hawkular.tests.HawkularTokenTest" />
         </classes>
     </test>
     
     <!-- Hawkular test for overview tab of app server -->   
-    <test name="HawkularNetworkTopologyTest">
+    <test name="HawkularApplicationOverviewTest">
         <classes>
             <class name="org.qe.hawkular.tests.HawkularApplicationOverviewTest" />
         </classes>
     </test>
     
     <!-- Hawkular remember last state test -->   
-    <test name="HawkularNetworkTopologyTest">
+    <test name="HawkularRememberLastStateTest">
         <classes>
             <class name="org.qe.hawkular.tests.HawkularRememberLastStateTest" />
         </classes>
