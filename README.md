@@ -18,3 +18,6 @@ mvn test -DhawkularUrl="http://IP:Port" -Dtestng.suite="<suiteName.xml>"
 ```
 to test Red Hat Access use -Drhausername="username" -Drhapassword="password"
 ```
+to create an Eclipse project that can be directly imported into Eclipse
+mvn eclipse:eclipse
+```
