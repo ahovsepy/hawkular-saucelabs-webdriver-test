@@ -13,9 +13,9 @@ public class HawkularAlertsSettingsPage {
     By allAlertsLink = HawkularAlertsSettingsConstants.allAlertsLink;
     By alertsSettingsLink = HawkularAlertsSettingsConstants.alertsSettingsLink;
     By emailField = HawkularAlertsSettingsConstants.emailField;
-    By responseTimeField = HawkularAlertsSettingsConstants.responseTimeField; 
+    By responseTimeField = HawkularAlertsSettingsConstants.responseTimeField;
     By heapGreaterThanField = HawkularAlertsSettingsConstants.heapGreaterThanField;
-    
+
     public HawkularAlertsSettingsPage(WebDriver driver) {
 
         this.driver = driver;
@@ -48,54 +48,62 @@ public class HawkularAlertsSettingsPage {
         Assert.assertTrue(driver.findElement(emailField).isDisplayed());
 
     }
-    
+
     public void verifyAlertsSettingsResponseTimeFieldPresent() {
         HawkularUtils util = new HawkularUtils(driver);
         util.waitForElementPresent(responseTimeField);
 
     }
-    
+
     public void verifyAlertsSettingsResponseEnabled() {
 
     }
-    
+
     public void editAlertDefinition() {
         HawkularUtils util = new HawkularUtils(driver);
         util.waitForElementPresent(HawkularAlertsSettingsConstants.heapGreaterThanField);
-        driver.findElement(HawkularAlertsSettingsConstants.heapGreaterThanField).clear();
-        util.sendKeysTo(HawkularAlertsSettingsConstants.heapGreaterThanField, "60");
-        driver.findElement(HawkularAlertsSettingsConstants.heapLessThanField).clear();
+        driver.findElement(HawkularAlertsSettingsConstants.heapGreaterThanField)
+                .clear();
+        util.sendKeysTo(HawkularAlertsSettingsConstants.heapGreaterThanField,
+                "60");
+        driver.findElement(HawkularAlertsSettingsConstants.heapLessThanField)
+                .clear();
         util.sendKeysTo(HawkularAlertsSettingsConstants.heapLessThanField, "30");
-        driver.findElement(HawkularAlertsSettingsConstants.everyTimeRadioButton).click();
+        driver.findElement(HawkularAlertsSettingsConstants.everyTimeRadioButton)
+                .click();
         util.waitForElementPresent(HawkularAlertsSettingsConstants.saveButton);
-        driver.findElement(HawkularAlertsSettingsConstants.saveButton).click();      
+        driver.findElement(HawkularAlertsSettingsConstants.saveButton).click();
 
     }
-    
+
     public void verifyEditAlertSuccessMsg() {
         HawkularUtils util = new HawkularUtils(driver);
-        util.waitForElementPresent(HawkularAlertsSettingsConstants.editAlertSuccessMsg);       
+        util.waitForElementPresent(HawkularAlertsSettingsConstants.editAlertSuccessMsg);
 
     }
-    
+
     public void navigateToAllDefinitions() {
         HawkularUtils util = new HawkularUtils(driver);
-        util.waitForElementPresent(HawkularAlertsSettingsConstants.allDefinitionsLink); 
-        driver.findElement(HawkularAlertsSettingsConstants.allDefinitionsLink).click();     
+        util.waitForElementPresent(HawkularAlertsSettingsConstants.allDefinitionsLink);
+        driver.findElement(HawkularAlertsSettingsConstants.allDefinitionsLink)
+                .click();
 
     }
-    
-    
-    public void verifyAlertSettingDetails() {               
-        String heapGTValue = driver.findElement(HawkularAlertsSettingsConstants.heapGreaterThanField).getAttribute("value");
+
+    public void verifyAlertSettingDetails() {
+        String heapGTValue = driver.findElement(
+                HawkularAlertsSettingsConstants.heapGreaterThanField)
+                .getAttribute("value");
         Assert.assertEquals("60", heapGTValue);
-        String heapLTValue = driver.findElement(HawkularAlertsSettingsConstants.heapLessThanField).getAttribute("value");
+        String heapLTValue = driver.findElement(
+                HawkularAlertsSettingsConstants.heapLessThanField)
+                .getAttribute("value");
         Assert.assertEquals("30", heapLTValue);
-        String everyTimeSettingValue = driver.findElement(HawkularAlertsSettingsConstants.everyTimeRadioButton).getAttribute("value");
-        Assert.assertEquals("true", everyTimeSettingValue);     
-        
+        String everyTimeSettingValue = driver.findElement(
+                HawkularAlertsSettingsConstants.everyTimeRadioButton)
+                .getAttribute("value");
+        Assert.assertEquals("true", everyTimeSettingValue);
 
     }
-    
-    
+
 }

@@ -16,9 +16,9 @@ import org.testng.annotations.Test;
  */
 
 public class HawkularAlertsSettingsTest extends HawkularSeleniumLocalWebDriver {
-	WebDriver driver = null;
-	
-	public WebDriver hawkularNavigateToAlertSettings() throws Exception {
+    WebDriver driver = null;
+
+    public WebDriver hawkularNavigateToAlertSettings() throws Exception {
         driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
@@ -34,37 +34,35 @@ public class HawkularAlertsSettingsTest extends HawkularSeleniumLocalWebDriver {
 
         return driver;
     }
-	
-	@AfterMethod
-	public void closeSession() {
-		driver.quit();
-	}
-	
-	/**
-	 * Test case on edit alerts and verify if alert is being saved.
-	 *
-	 */
-	
-	@Test
-	public void hawkularEditAlertTest() throws Exception {
-	    driver = hawkularNavigateToAlertSettings();
-	    
-	    HawkularAlertFilterPage alertSetting = new HawkularAlertFilterPage(
+
+    @AfterMethod
+    public void closeSession() {
+        driver.quit();
+    }
+
+    /**
+     * Test case on edit alerts and verify if alert is being saved.
+     *
+     */
+
+    @Test
+    public void hawkularEditAlertTest() throws Exception {
+        driver = hawkularNavigateToAlertSettings();
+
+        HawkularAlertFilterPage alertSetting = new HawkularAlertFilterPage(
                 driver);
         alertSetting.navigateToAlertCenter();
         alertSetting.filter("JVM Heap Used");
         alertSetting.navigateToViewDetails();
-	    
-	    HawkularAlertsSettingsPage page = new HawkularAlertsSettingsPage(
-                driver);
-	    page.editAlertDefinition();
-	    page.verifyEditAlertSuccessMsg();
-	    page.navigateToAllDefinitions();
-	    alertSetting.filter("JVM Heap Used");
+
+        HawkularAlertsSettingsPage page = new HawkularAlertsSettingsPage(driver);
+        page.editAlertDefinition();
+        page.verifyEditAlertSuccessMsg();
+        page.navigateToAllDefinitions();
+        alertSetting.filter("JVM Heap Used");
         alertSetting.navigateToViewDetails();
-	    page.verifyAlertSettingDetails();
-		
-	}
-	
-	
+        page.verifyAlertSettingDetails();
+
+    }
+
 }

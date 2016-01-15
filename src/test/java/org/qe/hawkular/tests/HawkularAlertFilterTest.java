@@ -14,70 +14,67 @@ import org.testng.annotations.Test;
  * @author pyadav
  */
 
-public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
-	WebDriver driver = null;
+public class HawkularAlertFilterTest extends HawkularSeleniumLocalWebDriver {
+    WebDriver driver = null;
 
-	public WebDriver hawkularLogin() throws Exception {
-		driver = createLocalDriver();
+    public WebDriver hawkularLogin() throws Exception {
+        driver = createLocalDriver();
 
-		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-		System.out.println(driver.getTitle());
+        driver.get(HawkularSeleniumWebDriver.hawkularUrl);
+        System.out.println(driver.getTitle());
 
-		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
+        HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 
-		loginPage.verifyLoginTitle();
+        loginPage.verifyLoginTitle();
 
-		loginPage = new HawkularLoginPage(driver);
-		loginPage.loginAs(HawkularRegistrationPageConstants.username2,
-				HawkularRegistrationPageConstants.password2);
+        loginPage = new HawkularLoginPage(driver);
+        loginPage.loginAs(HawkularRegistrationPageConstants.username2,
+                HawkularRegistrationPageConstants.password2);
 
-		return driver; 	
-	
+        return driver;
 
-	}
-	
-	@AfterMethod
-	public void closeSession() {
-		driver.quit();
-	}
-	
-	@Test
-	public void hawkularAlertSeverityFilterTest() throws Exception {
-		driver = hawkularLogin();
-		
-		HawkularAlertFilterPage filter= new HawkularAlertFilterPage(driver);
-		filter. navigateToAlertCenter();
-		filter.filter("Medium");
-		filter.verfiySeverity();
-		
-		
-//		driver.close();
-		
-	}
-	
-	@Test
-	public void hawkularAlertDescriptionFilterTest() throws Exception {
-		driver = hawkularLogin();
-		
-		HawkularAlertFilterPage filter= new HawkularAlertFilterPage(driver);
-		filter. navigateToAlertCenter();
-		filter.filter("JVM");
-		filter.verifyDescription();
-		
-//		driver.close();
-		
-	}
-	
-	@Test
+    }
+
+    @AfterMethod
+    public void closeSession() {
+        driver.quit();
+    }
+
+    @Test
+    public void hawkularAlertSeverityFilterTest() throws Exception {
+        driver = hawkularLogin();
+
+        HawkularAlertFilterPage filter = new HawkularAlertFilterPage(driver);
+        filter.navigateToAlertCenter();
+        filter.filter("Medium");
+        filter.verfiySeverity();
+
+        // driver.close();
+
+    }
+
+    @Test
+    public void hawkularAlertDescriptionFilterTest() throws Exception {
+        driver = hawkularLogin();
+
+        HawkularAlertFilterPage filter = new HawkularAlertFilterPage(driver);
+        filter.navigateToAlertCenter();
+        filter.filter("JVM");
+        filter.verifyDescription();
+
+        // driver.close();
+
+    }
+
+    @Test
     public void hawkularAlertChangeStateTest() throws Exception {
-        driver = hawkularLogin();        
+        driver = hawkularLogin();
 
-        HawkularAlertFilterPage alertpage = new HawkularAlertFilterPage(
-                driver);
+        HawkularAlertFilterPage alertpage = new HawkularAlertFilterPage(driver);
         alertpage.navigateToAlertCenter();
         alertpage.filter("JVM Heap Used");
         alertpage.navigateToViewDetails();
-        
+
         HawkularAlertsSettingsPage alertSetting = new HawkularAlertsSettingsPage(
                 driver);
         alertSetting.editAlertDefinition();
@@ -89,7 +86,7 @@ public class HawkularAlertFilterTest  extends HawkularSeleniumLocalWebDriver {
         alertpage.verifyAcknowledgedAlert();
         alertpage.ResolveAlert();
         alertpage.verifyResolvededAlert();
-                
+
     }
-	
+
 }
