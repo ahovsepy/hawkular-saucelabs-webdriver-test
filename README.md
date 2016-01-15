@@ -6,6 +6,10 @@ saucelabs + selenium webdriver test framework for hawkular gui testing
 to build project: 
 ```
 mvn clean install -DskipTests
+
+// To create an Eclipse project that can be directly imported into Eclipse
+mvn eclipse:eclipse
+
 ```
 to run tests: 
 ```
@@ -14,9 +18,6 @@ mvn test -DhawkularUrl="http://IP:Port" -DauthenticationKey="SAUCELABS_AUTH_KEY"
 
 // Run with specific TestNG suite
 mvn test -DhawkularUrl="http://IP:Port" -Dtestng.suite="<suiteName.xml>" 
-
-// To create an Eclipse project that can be directly imported into Eclipse
-mvn eclipse:eclipse
 
 ```
 to test Red Hat Access use -Drhausername="username" -Drhapassword="password"
