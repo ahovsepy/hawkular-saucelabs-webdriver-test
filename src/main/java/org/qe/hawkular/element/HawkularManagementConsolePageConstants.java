@@ -20,4 +20,13 @@ public class HawkularManagementConsolePageConstants {
    public static final By errorAlert =  By.xpath("//*[@class='toast-message']");
    public static final By urlIPLocator = By.xpath("//*[contains(text(),'IP:')]");
    public static final By urlTraits =  By.xpath("//*[text() = '"+testURL+"']/../..//span");
+   public static final String testanotherURL = "http://doesnotexist.in";
+   public static final By url2HeadingLocator = By.xpath("//div[contains(.,'"+testanotherURL+"')]");
+   public static final By selectNameDropdown =  By.xpath("//button[contains(@tooltip,'Filter by')]");
+   public static final By selectNameOption = By.xpath("//a[contains(text(),'Name')]");
+   public static final By searchbox = By.xpath("//input[contains(@placeholder,'Containts text')]");
+   public static final By selectStateOption = By.xpath("//a[contains(text(),'State')]");
+   public static final By selectFilterByStateDropdown =  By.xpath("//button[@title='Filter by State']");
+   public static final By selectStateUpOption = By.xpath("//a[contains(.,'Up')]");
+   public static final By selectStateDownOption = By.xpath("//a[contains(.,'Down')]");
 }

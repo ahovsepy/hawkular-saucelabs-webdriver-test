@@ -49,4 +49,8 @@ public class HawkularManageOrganizationsConstants {
 	public static final By craateOrgButtonLocatorOrgsCreated = By.xpath("//div[@class='text-right']/button"); // User already has created one or more O
 	public static final By navigateToNewOrg = By.xpath("/html/body/nav/div[2]/div[2]/ul/li/ul/li[2]/a");
 	public static final By NavigateToJDoe = By.xpath("/html/body/nav/div[2]/div[2]/ul/li/ul/li[3]/a");
+	public static final By orgOptionLocator = By.xpath("/html/body/nav/div[2]/div[2]/ul/li/ul/li[2]/a");
+    public static final By urlsMenuLocator = By.linkText("URLs");
+    public static final By urlPageLocator = By.name("resourceUrl");
+    public static final By switchPersonaDropdown = By.xpath("//a[contains(@class,'dropdown-toggle')]");
 }
