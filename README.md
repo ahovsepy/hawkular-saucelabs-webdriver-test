@@ -15,9 +15,9 @@ mvn test -DhawkularUrl="http://IP:Port" -DauthenticationKey="SAUCELABS_AUTH_KEY"
 // Run with specific TestNG suite
 mvn test -DhawkularUrl="http://IP:Port" -Dtestng.suite="<suiteName.xml>" 
 
+// To create an Eclipse project that can be directly imported into Eclipse
+mvn eclipse:eclipse
+
 ```
 to test Red Hat Access use -Drhausername="username" -Drhapassword="password"
-```
-to create an Eclipse project that can be directly imported into Eclipse
-mvn eclipse:eclipse
 ```
