@@ -30,6 +30,7 @@ public class HawkularAlertFilterConstants {
 //	 To-Do Generalise xpath for resolvedAlertCheckBox element.
 	 public static final By resolvedAlertCheckBox=By.xpath("/html/body/div/div/div/div/div/div[2]/div[2]/div[2]/div[2]/div/label/input");
 	 public static final By resolveStatus=By.xpath("//*[contains(text(),'Resolved')]"); 
+	 public static final By nextLink=By.xpath("//span[@class='i fa fa-angle-right']");
 	 
 
 }
