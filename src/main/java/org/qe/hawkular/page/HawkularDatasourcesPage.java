@@ -3,7 +3,10 @@ package org.qe.hawkular.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.element.HawkularDatasourcesPageConstants;
+import org.qe.hawkular.element.HawkularLoginPageConstants;
 import org.qe.hawkular.util.HawkularUtils;
+import org.testng.Assert;
+import org.testng.Reporter;
 
 public class HawkularDatasourcesPage {
 
@@ -35,6 +38,7 @@ public class HawkularDatasourcesPage {
     By datasourceTypeNextButton = HawkularDatasourcesPageConstants.datasourceTypeNextButton;
     By datasourceNameSelect = HawkularDatasourcesPageConstants.datasourceNameSelect;
     String datasourceName = HawkularDatasourcesPageConstants.datasourceName;
+    String overviewDatasourceName = HawkularDatasourcesPageConstants.overviewDatasourceName;
     By datasourceAttributeNextButton = HawkularDatasourcesPageConstants.datasourceAttributeNextButton;
     
     By datasourceClassSelect = HawkularDatasourcesPageConstants.datasourceClassSelect;
@@ -58,6 +62,7 @@ public class HawkularDatasourcesPage {
     By deleteAction = HawkularDatasourcesPageConstants.deleteAction;
     By confirmDeleteLocator = HawkularDatasourcesPageConstants.confirmDeleteLocator;
     By deleteDatasourceSuccessMsg = HawkularDatasourcesPageConstants.deleteDatasourceSuccessMsg;
+    By datasourceHeadingLocator = HawkularDatasourcesPageConstants.datasourceHeadingLocator;
     
     // TODO optional: Driver Major Version , Driver Minor Version
 
@@ -91,10 +96,24 @@ public class HawkularDatasourcesPage {
         util.navigateTo(exportJDR);
     }
     
+    public void overviewExportJDR() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.waitForElementPresent(HawkularDatasourcesPageConstants.overviewExportJDRLink);
+        driver.findElement(HawkularDatasourcesPageConstants.overviewExportJDRLink).click();        
+    }
+    
     public void addDatasourceType() {
         HawkularUtils util = new HawkularUtils(driver);
         util.navigateTo(addDatasource);
        util.waitForElementPresent(nonxadatasource);
+        util.navigateTo(nonxadatasource);
+        util.navigateTo(datasourceTypeNextButton);
+        
+    }
+    
+    public void overviewAddDatasourceType() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.waitForElementPresent(nonxadatasource);
         util.navigateTo(nonxadatasource);
         util.navigateTo(datasourceTypeNextButton);
         
@@ -105,6 +124,13 @@ public class HawkularDatasourcesPage {
         util.waitForElementPresent(datasourceNameSelect);
         util.sendKeysTo(datasourceNameSelect, datasourceName);
 //        util.waitForElementPresent(datasourceAttributeNextButton);
+        util.navigateTo(datasourceAttributeNextButton);
+    }
+    
+    public void overviewAddDatasourceAttribute() {
+    	HawkularUtils util = new HawkularUtils(driver);
+        util.waitForElementPresent(datasourceNameSelect);
+        util.sendKeysTo(datasourceNameSelect, overviewDatasourceName);
         util.navigateTo(datasourceAttributeNextButton);
     }
 
@@ -135,12 +161,14 @@ public class HawkularDatasourcesPage {
     public void addDatasourceVerifySuccess() {
         HawkularUtils util = new HawkularUtils(driver);
         util.waitForElementPresent(createDatasourceSuccessMsg);
+        Reporter.log("Datasource added successfully");
         util.navigateTo(exitButton);
         
     }
     
     public void deleteDatasource() {
         HawkularUtils util = new HawkularUtils(driver);
+        util.waitForElementPresent(datasourceHeadingLocator); 
         util.navigateTo(actionsDropdownLocator);
         util.navigateTo(deleteAction);
         util.navigateTo(confirmDeleteLocator);
@@ -149,8 +177,9 @@ public class HawkularDatasourcesPage {
     public void verifyDeleteDatasource() {
         HawkularUtils util = new HawkularUtils(driver);
         util.waitForElementPresent(deleteDatasourceSuccessMsg);
+        util.waitForElementNotPresent(datasourceHeadingLocator);        
+        Reporter.log("Datasource deleted successfully");
                 
-    }
+    }   
     
-  
 }

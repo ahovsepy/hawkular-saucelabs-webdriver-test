@@ -166,7 +166,6 @@ public class HawkularRegistrationPage {
     }
 
     public boolean verifyPasswordNumericChar() {
-
         return driver.findElement(
                 HawkularRegistrationPageConstants.passwordNumericCharError)
                 .isDisplayed();

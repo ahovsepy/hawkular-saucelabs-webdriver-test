@@ -1,5 +1,9 @@
 package org.qe.hawkular.page;
 
+import java.io.IOException;
+
+import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.element.HawkularManageOrganizationsConstants;
@@ -44,6 +48,18 @@ public class HawkularManageOrganizationsPage {
         util.navigateTo(rhAccessManageOrgOptionLocator);
     }
 
+    public void navigateToNewOrg() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.navigateTo(rhAccessDropdownLocator);
+        driver.findElement(HawkularManageOrganizationsConstants.navigateToNewOrg).click();
+    }
+    	 
+    public void navigateToJDoeUser() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.navigateTo(rhAccessDropdownLocator);
+        driver.findElement(HawkularManageOrganizationsConstants.NavigateToJDoe).click();
+    }
+    	
     public void createOrganization() {
         HawkularUtils util = new HawkularUtils(driver);
         util.navigateTo(createOrgButtonLocator);
@@ -52,6 +68,21 @@ public class HawkularManageOrganizationsPage {
         util.waitForElementPresent(createOrgVerifyLocator);
     }
 
+    public void _createOrganization() throws InterruptedException, NoSuchFieldException {
+        HawkularUtils util = new HawkularUtils(driver);
+    	
+    	// Until one action will work for both "Create Organization" button elements:
+    	if (util.isTextOnPage("No organizations created")) {
+    	    driver.findElement(HawkularManageOrganizationsConstants.createOrgButtonLocatorNoOrgCreated).click();
+    	} else {
+    	    driver.findElement(HawkularManageOrganizationsConstants.craateOrgButtonLocatorOrgsCreated).click();
+    	}
+    	
+    	util.sendKeysTo(organizationNameLocator, organizationName);
+    	util.navigateTo(modalCreateOrgButtonLocator);
+    	util.whatForTextOnPage(organizationName, 5);
+    }
+    
     public void removeOrganization(int lineNumber) {
         HawkularUtils util = new HawkularUtils(driver);
         util.navigateTo(removeOrgButtonLocator);
@@ -89,6 +120,30 @@ public class HawkularManageOrganizationsPage {
         HawkularUtils util = new HawkularUtils(driver);
         util.navigateTo(AllOrganizationsLinkLocator);       
 
-	}  
+	}
+    
+    public void switchtoOrg() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.waitForElementPresent(HawkularManageOrganizationsConstants.switchPersonaDropdown);
+        driver.findElement(
+                HawkularManageOrganizationsConstants.switchPersonaDropdown)
+                .click();
+        util.waitForElementPresent(HawkularManageOrganizationsConstants.orgOptionLocator);
+        util.navigateTo(HawkularManageOrganizationsConstants.orgOptionLocator);       
+
+    }  
+    
+    public void navigateToURLsPage() {
+        HawkularUtils util = new HawkularUtils(driver);
+        util.navigateTo(HawkularManageOrganizationsConstants.urlsMenuLocator);       
+
+    }  
+    
+    public void verfiyURLsPage() {
+        HawkularUtils util = new HawkularUtils(driver);
+        Assert.assertTrue(util
+                .waitForElementPresent(HawkularManageOrganizationsConstants.urlPageLocator));        
+
+    }
 
 }

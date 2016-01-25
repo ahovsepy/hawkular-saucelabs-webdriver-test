@@ -1,11 +1,11 @@
 package org.qe.hawkular.util;
 
-import org.apache.regexp.recompile;
+import java.util.Calendar;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
 import org.testng.Assert;
 
 /**
@@ -49,5 +49,33 @@ public class HawkularUtils {
 	public void assertElementPresent(By element) {
 		Assert.assertTrue(waitForElementPresent(element));
 	}
-
+	
+	public boolean isTextOnPage(String text) {
+	    return(driver.findElement(By.cssSelector("body")).getText().contains(text));
+	}
+	 
+	public void whatForTextOnPage(String text, int timeToWait) throws NoSuchFieldException, InterruptedException {
+	    boolean isPresent = false;
+		long currentTime = Calendar.getInstance().getTimeInMillis();
+		long newTime = 0;
+		         
+		do {
+		    if (isTextOnPage(text)) {
+		        isPresent = true;
+		    } else {
+		        Thread.sleep(1*1000);
+		        newTime = Calendar.getInstance().getTimeInMillis();
+		    }
+		} while (!isPresent && ((newTime-currentTime)/1000) < timeToWait);
+		         
+		if (!isPresent) {
+		    System.out.println("Timed out waiting for " + "\"" + text + "\"");
+		    throw new NoSuchFieldException();
+		}
+    }
+	
+	public void refresh() {
+        driver.navigate().refresh();
+    }	
+	
 }

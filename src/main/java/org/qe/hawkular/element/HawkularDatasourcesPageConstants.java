@@ -26,6 +26,7 @@ public class HawkularDatasourcesPageConstants {
             .xpath("//div[@class='modal-footer']//button[contains(text(),'Add') ]");
 
     public static final By exportJDR = By.xpath("//button[contains(text(),'Export JDR')]");
+    public static final By overviewExportJDRLink = By.xpath("//a[contains(text(),'Export a JBoss Diagnostics Report')]");
     
     public static final By addDatasource = By.xpath("id('hk-datasources')//button[text()='Add Datasource']");
     public static final By nonxadatasource = By
@@ -34,6 +35,8 @@ public class HawkularDatasourcesPageConstants {
                     .xpath("//button[@ng-disabled='addDatasourceForm.$invalid' and contains(text(),'Next >')]");
     public static final By datasourceNameSelect = By.id("name");
     public static final String datasourceName = "TestDS";
+    public static final String overviewDatasourceName = "TestDataSource";
+    public static final By datasourceHeadingLocator = By.xpath("//span[contains(text(),'TestDS')]");
     public static final By datasourceAttributeNextButton = By
             .xpath("//button[@ng-disabled='!dac.dsData.jndiName' and contains(text(),'Next >')]");    
     public static final By datasourceClassSelect = By.id("dsClass");

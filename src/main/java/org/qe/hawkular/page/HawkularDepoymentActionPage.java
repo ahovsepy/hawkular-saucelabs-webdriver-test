@@ -57,7 +57,7 @@ public class HawkularDepoymentActionPage {
 	public void verfiySuccess() {
 		HawkularUtils utils = new HawkularUtils(driver);
 		utils.waitForElementPresent(verifySuccess);
-		utils.waitForElementPresent(verifySucceeded);
+//		utils.waitForElementPresent(verifySucceeded);
 
 	}
 
