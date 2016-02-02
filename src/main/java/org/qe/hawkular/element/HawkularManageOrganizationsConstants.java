@@ -27,7 +27,7 @@ public class HawkularManageOrganizationsConstants {
 
     /* Remove organization */
     public static final By removeOrgButtonLocator = By
-            .xpath("//div[@class='hk-organizations row']//tr[1]//td[2]/button/..//i[contains(@class,'fa-trash-o')]");
+            .xpath("//div[@class='hk-organizations row ng-scope']//tr[1]//td[2]/button/..//i[contains(@class,'fa-trash-o')]");
     public static final By removeOrgButtonConfirmLocator = By
             .xpath("//div[@class='modal-dialog']//button[text()='Delete']");
     public static final By removeOrgVerifyLocator = By
