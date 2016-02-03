@@ -1,6 +1,5 @@
 package org.qe.hawkular.tests;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.WebDriver;
@@ -24,6 +23,7 @@ public class HawkularSwitchUserTest extends HawkularSeleniumLocalWebDriver {
     
 	@BeforeMethod
     public void createBrowserInstance() throws MalformedURLException {
+	    
         driver = createLocalDriver();
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
     	
@@ -43,9 +43,9 @@ public class HawkularSwitchUserTest extends HawkularSeleniumLocalWebDriver {
     }
     
     @Test
-    public void switchUserTest() throws InterruptedException, NoSuchFieldException, IOException {
-    	
-        // Create new Organization, and add a URL to that new Org
+    public void switchUserTest() throws NoSuchFieldException, InterruptedException   {
+        
+    	_logger.info("Create new Organization, and add a URL to the new Org");
         orgPage.toManageOrganizationsTab();
         orgPage._createOrganization();
         orgPage.navigateToNewOrg();
@@ -54,7 +54,7 @@ public class HawkularSwitchUserTest extends HawkularSeleniumLocalWebDriver {
         url.submitURLAndWaitToBeAdded(HawkularManagementConsolePageConstants.testURL2);
         Assert.assertTrue(util.isTextOnPage(HawkularManagementConsolePageConstants.testURL2));
 	  
-        // Validate that on JDoe Org, the URL that was added to "New Org" is not present
+        _logger.info("Validate that on JDoe Org, the URL that was added is not present");
         orgPage.navigateToJDoeUser(); 
         url.navigateToURLsMenu();
         Assert.assertFalse(util.isTextOnPage(HawkularManagementConsolePageConstants.testURL2));
