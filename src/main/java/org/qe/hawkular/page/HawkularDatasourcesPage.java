@@ -176,7 +176,13 @@ public class HawkularDatasourcesPage {
     
     public void verifyDeleteDatasource() {
         HawkularUtils util = new HawkularUtils(driver);
-        util.waitForElementPresent(deleteDatasourceSuccessMsg);
+        util.refresh();
+        if (!driver.findElements(
+                HawkularDatasourcesPageConstants.datasourceHeadingLocator)
+                .isEmpty()) {
+            util.refresh();
+        }
+//        util.waitForElementPresent(deleteDatasourceSuccessMsg);
         util.waitForElementNotPresent(datasourceHeadingLocator);        
         Reporter.log("Datasource deleted successfully");
                 

@@ -7,7 +7,7 @@ public class HawkularDatasourcesPageConstants {
     public static final By addDriver = By.xpath("id('hk-datasources')//button[text()='Add Driver']");
     public static final By loadDriverFile = By.id("driver-file");
     public static final String driverFilePath = "/hawkular-ui-test/src/test/resources/mysql-connector-java-5.1.36-bin.jar";// TODO URL or Path?
-    public static final By driverFilePathNextButton = By.xpath("//div[@class='modal-footer']"
+    public static final By driverFilePathNextButton = By.xpath("//div[@class='modal-footer ng-scope']"
             + "//button[@ng-disabled='addJdbcDriverForm.$invalid' and @class='btn btn-primary' and "
             + "contains(text(),'Next >') and not(@disabled)]");
 
@@ -18,12 +18,12 @@ public class HawkularDatasourcesPageConstants {
     public static final By driverClassSelect = By.id("dc");
     public static final String driverClass = "com.mysql.jdbc.Driver";
     public static final By driverParamsNextButton = By
-            .xpath("//div[@class='modal-footer']//button["
+            .xpath("//div[@class='modal-footer ng-scope']//button["
                     + "@ng-disabled='!dac.driverData.driverName || !dac.driverData.moduleName || !dac.driverData.driverClass' "
                     + "and @class='btn btn-primary' and contains(text(),'Next >') and not(@disabled)]");
 
     public static final By addButton = By
-            .xpath("//div[@class='modal-footer']//button[contains(text(),'Add') ]");
+            .xpath("//div[@class='modal-footer ng-scope']//button[contains(text(),'Add') ]");
 
     public static final By exportJDR = By.xpath("//button[contains(text(),'Export JDR')]");
     public static final By overviewExportJDRLink = By.xpath("//a[contains(text(),'Export a JBoss Diagnostics Report')]");
@@ -36,7 +36,7 @@ public class HawkularDatasourcesPageConstants {
     public static final By datasourceNameSelect = By.id("name");
     public static final String datasourceName = "TestDS";
     public static final String overviewDatasourceName = "TestDataSource";
-    public static final By datasourceHeadingLocator = By.xpath("//span[contains(text(),'TestDS')]");
+    public static final By datasourceHeadingLocator = By.xpath("//button[@id='ds-actions' and contains(text(),'TestDS')]");
     public static final By datasourceAttributeNextButton = By
             .xpath("//button[@ng-disabled='!dac.dsData.jndiName' and contains(text(),'Next >')]");    
     public static final By datasourceClassSelect = By.id("dsClass");
@@ -46,7 +46,7 @@ public class HawkularDatasourcesPageConstants {
 //    public static final By datasourceDriverNextButton = By
 //            .xpath("/html/body/div[10]/div/div/div[2]/div/section[3]/div[2]/button[3]");
     public static final By datasourceDriverNextButton = By
-    .xpath("//div[@class='modal-footer']//button[contains(@ng-disabled,'!dac.dsData.connectionUrl') ]");
+            .xpath("//div[@class='modal-footer ng-scope']//button[contains(@ng-disabled,'!dac.dsData.connectionUrl') ]");
     public static final By datasourceXAPropertiesNextButton = By
             .xpath("//button[@ng-click='dac.exitStepXAProperties()' and contains(text(),'Next >')]");
     public static final By datasourceUsernameSelect = By.id("un");
@@ -55,14 +55,14 @@ public class HawkularDatasourcesPageConstants {
     public static final By datasourceConnSettingsNextButton = By
             .xpath("//button[@ng-click='dac.exitStepDefineParameters()' and contains(text(),'Next >')]");
     public static final By datasourceAddButton = By
-            .xpath("//div[@class='modal-footer']//button[contains(text(),'Add') ]");
+            .xpath("//div[@class='modal-footer ng-scope']//button[contains(text(),'Add') ]");
     public static final By createDatasourceSuccessMsg = By.xpath("//div[contains(.,'successfully created')]");
     public static final By exitButton = By
-            .xpath("//div[@class='modal-footer']//button[contains(text(),'Exit') ]");
+            .xpath("//div[@class='modal-footer ng-scope']//button[contains(text(),'Exit') ]");
     
     public static final By datasourceHeading = By
             .xpath("//div[@class='panel-heading']//span[contains(text(),'Datasource [TestDS]') ]");
-    public static final By actionsDropdownLocator =  By.xpath("//*[text() = 'TestDS']/../..//button");
+    public static final By actionsDropdownLocator =  By.xpath("//button[@id='ds-actions' and contains(text(),'TestDS')]");
     public static final By deleteAction = By.linkText("Delete");
     public static final By confirmDeleteLocator = By.xpath("//button[text()='Delete']");
     public static final By deleteDatasourceSuccessMsg = By.xpath("//*[contains(text(),'Execution Ops request delivery: The request has been forwarded to feed')]");

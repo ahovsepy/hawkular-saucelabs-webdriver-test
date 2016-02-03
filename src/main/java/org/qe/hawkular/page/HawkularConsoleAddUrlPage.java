@@ -68,7 +68,7 @@ public class HawkularConsoleAddUrlPage {
             throws InterruptedException, NoSuchFieldException {
         HawkularUtils util = new HawkularUtils(driver);
         driver.findElement(addButtonLocator).submit();
-        util.whatForTextOnPage(URL, 5);
+        util.whatForTextOnPage(URL, 60);
     }
 
     public boolean verifyAddUrlMsg() {
