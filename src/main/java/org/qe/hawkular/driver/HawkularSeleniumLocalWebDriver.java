@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeSuite;
 
 /**
@@ -13,20 +15,11 @@ import org.testng.annotations.BeforeSuite;
  */
 
 public class HawkularSeleniumLocalWebDriver {
-    protected static org.slf4j.Logger _logger = null;
-    
-    // Must be one of: "trace", "debug", "info", "warn", or "error"
-    private static String logLevel = "info";
+    protected static Logger _logger = null;
     
     @BeforeSuite
     public void setupLogger() {
-        // Over-ride: ${MAVEN_HOME}/conf/logging/simplelogger.properties
-        System.setProperty("org.slf4j.simpleLogger.showDateTime", "true");
-        System.setProperty("org.slf4j.simpleLogger.dateTimeFormat", "dd-MM-yy HH:mm:ss");
-        System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", logLevel);
-        System.setProperty("org.slf4j.simpleLogger.showShortLogName", "false");
-
-        _logger = org.slf4j.LoggerFactory.getLogger("");
+        _logger = LoggerFactory.getLogger("hawkular.qe.ui");
     }
     
     public WebDriver createLocalDriver() throws MalformedURLException {
