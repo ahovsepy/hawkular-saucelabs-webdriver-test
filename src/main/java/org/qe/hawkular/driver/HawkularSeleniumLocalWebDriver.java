@@ -15,12 +15,8 @@ import org.testng.annotations.BeforeSuite;
  */
 
 public class HawkularSeleniumLocalWebDriver {
-    protected static Logger _logger = null;
-    
-    @BeforeSuite
-    public void setupLogger() {
-        _logger = LoggerFactory.getLogger("hawkular.qe.ui");
-    }
+    public static String LOGGER_HAWKULAR_QE_UI = "hawkular.qe.ui";
+    protected static Logger _logger = LoggerFactory.getLogger(LOGGER_HAWKULAR_QE_UI);
     
     public WebDriver createLocalDriver() throws MalformedURLException {
         WebDriver localDriver = new FirefoxDriver();
