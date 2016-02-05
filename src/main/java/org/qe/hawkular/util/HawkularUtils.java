@@ -70,7 +70,7 @@ public class HawkularUtils extends HawkularBase {
 		} while (!isPresent && ((newTime-currentTime)/1000) < timeToWait);
 		         
 		if (!isPresent) {
-		    _logger.error("Timed out waiting for " + "\"" + text + "\"");
+		    _logger.error("Timed out waiting for '{}'", text);
 		    throw new NoSuchFieldException();
 		}
     }
