@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.qe.hawkular.base.HawkularBase;
 import org.testng.Assert;
 
 /**
@@ -13,10 +14,10 @@ import org.testng.Assert;
  *
  */
 
-public class HawkularUtils {
+public class HawkularUtils extends HawkularBase {
 
 	WebDriver driver;
-
+	
 	public HawkularUtils(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -69,7 +70,7 @@ public class HawkularUtils {
 		} while (!isPresent && ((newTime-currentTime)/1000) < timeToWait);
 		         
 		if (!isPresent) {
-		    System.out.println("Timed out waiting for " + "\"" + text + "\"");
+		    _logger.error("Timed out waiting for " + "\"" + text + "\"");
 		    throw new NoSuchFieldException();
 		}
     }

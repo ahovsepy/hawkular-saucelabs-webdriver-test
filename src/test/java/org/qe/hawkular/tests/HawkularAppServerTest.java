@@ -31,7 +31,7 @@ public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
     public void prepareUser() throws MalformedURLException {
         WebDriver driver = createLocalDriver();
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
         HawkularRegistrationPage registration = new HawkularRegistrationPage(
                 driver);
         registration.registerUserIfDoesNotExist(HawkularRegistrationPageConstants.username2, HawkularRegistrationPageConstants.password2, HawkularRegistrationPageConstants.confirmPassword2, HawkularRegistrationPageConstants.firstName2, HawkularRegistrationPageConstants.lastName2, HawkularRegistrationPageConstants.email2);
@@ -48,7 +48,7 @@ public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
         driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
         HawkularLoginPage loginPage = new HawkularLoginPage(driver);
         HawkularUtils util = new HawkularUtils(driver);
         util.assertTitle(HawkularLoginPageConstants.loginTitle);
@@ -72,7 +72,7 @@ public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
         driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
         HawkularLoginPage loginPage = new HawkularLoginPage(driver);
         HawkularUtils util = new HawkularUtils(driver);
         util.assertTitle(HawkularLoginPageConstants.loginTitle);
@@ -99,7 +99,7 @@ public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
         driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
         HawkularLoginPage loginPage = new HawkularLoginPage(driver);
         HawkularUtils util = new HawkularUtils(driver);
         util.assertTitle(HawkularLoginPageConstants.loginTitle);
