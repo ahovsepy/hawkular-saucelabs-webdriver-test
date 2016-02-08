@@ -34,7 +34,7 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
         HawkularRegistrationPage registration = new HawkularRegistrationPage(
                 driver);
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
         registration.registerUserIfDoesNotExist(
                 HawkularRegistrationPageConstants.username,
                 HawkularRegistrationPageConstants.password,
@@ -55,7 +55,7 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
         driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
 
         HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 
@@ -79,7 +79,7 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
         driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
 
         HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 
@@ -102,7 +102,7 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
         driver = createLocalDriver();
 
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
 
         HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 
@@ -128,7 +128,7 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
     public void hawkularUrlFilterByNameTest() throws Exception {
         driver = createLocalDriver();
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
 
         HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 
@@ -155,7 +155,7 @@ public class HawkularHomePageTest extends HawkularSeleniumLocalWebDriver {
     public void hawkularUrlFilterByStateTest() throws Exception {
         driver = createLocalDriver();
         driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-        System.out.println(driver.getTitle());
+        _logger.info(driver.getTitle());
 
         HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 

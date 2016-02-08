@@ -25,7 +25,7 @@ public class HawkularWarActionTest extends HawkularSeleniumLocalWebDriver {
 		WebDriver driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-		System.out.println(driver.getTitle());
+		_logger.info(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 

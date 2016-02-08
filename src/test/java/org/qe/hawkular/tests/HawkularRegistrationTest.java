@@ -38,7 +38,7 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-		System.out.println(driver.getTitle());
+		_logger.info(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 		loginPage.navigateToRegistration();
@@ -59,7 +59,7 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-		System.out.println(driver.getTitle());
+		_logger.info(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 		loginPage.navigateToRegistration();
@@ -79,7 +79,7 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-		System.out.println(driver.getTitle());
+		_logger.info(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 		loginPage.navigateToRegistration();
@@ -99,7 +99,7 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-		System.out.println(driver.getTitle());
+		_logger.info(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 		loginPage.navigateToRegistration();
@@ -119,7 +119,7 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-		System.out.println(driver.getTitle());
+		_logger.info(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 		loginPage.navigateToRegistration();
@@ -139,7 +139,7 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-		System.out.println(driver.getTitle());
+		_logger.info(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 		loginPage.navigateToRegistration();
@@ -159,7 +159,7 @@ public class HawkularRegistrationTest extends HawkularSeleniumLocalWebDriver {
 		driver = createLocalDriver();
 
 		driver.get(HawkularSeleniumWebDriver.hawkularUrl);
-		System.out.println(driver.getTitle());
+		_logger.info(driver.getTitle());
 
 		HawkularLoginPage loginPage = new HawkularLoginPage(driver);
 		loginPage.navigateToRegistration();
