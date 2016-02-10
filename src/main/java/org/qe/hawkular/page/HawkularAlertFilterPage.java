@@ -52,11 +52,11 @@ public class HawkularAlertFilterPage {
 
     public void verifyDescription() {
         HawkularUtils utils = new HawkularUtils(driver);
-        if (!driver.findElements(
-                HawkularAlertFilterConstants.verifyDescription)
+        if (!driver
+                .findElements(HawkularAlertFilterConstants.verifyDescription)
                 .isEmpty()) {
             driver.findElement(HawkularAlertFilterConstants.verifyDescription)
-            .click();
+                    .click();
             return;
         }
         utils.waitForElementPresent(HawkularAlertFilterConstants.nextLink);
@@ -66,18 +66,17 @@ public class HawkularAlertFilterPage {
 
     public void navigateToViewDetails() {
         HawkularUtils utils = new HawkularUtils(driver);
-        if (!driver.findElements(
-                HawkularAlertFilterConstants.viewDetailsLink)
+        if (!driver.findElements(HawkularAlertFilterConstants.viewDetailsLink)
                 .isEmpty()) {
             driver.findElement(HawkularAlertFilterConstants.viewDetailsLink)
-            .click();
+                    .click();
             return;
         }
-        utils.waitForElementPresent(HawkularAlertFilterConstants.nextLink);
+        Assert.assertTrue(utils.waitForElementPresent(HawkularAlertFilterConstants.nextLink));
         driver.findElement(HawkularAlertFilterConstants.nextLink).click();
         driver.findElement(HawkularAlertFilterConstants.viewDetailsLink)
-        .click();
-        
+                .click();
+
     }
 
     public void navigateToAlertTab() {
@@ -136,6 +135,27 @@ public class HawkularAlertFilterPage {
         driver.findElement(HawkularAlertFilterConstants.resolvedAlertCheckBox)
                 .click();
         util.waitForElementPresent(HawkularAlertFilterConstants.resolveStatus);
+
+    }
+
+    public void verifyFailedDeploymentAlertExists() {
+        HawkularUtils utils = new HawkularUtils(driver);
+        if (!driver.findElements(
+                HawkularAlertFilterConstants.failedAlertDescription).isEmpty()) {
+            driver.findElement(
+                    HawkularAlertFilterConstants.failedAlertDescription)
+                    .click();
+            return;
+        }
+        Assert.assertTrue(utils.waitForElementPresent(HawkularAlertFilterConstants.nextLink));
+        driver.findElement(HawkularAlertFilterConstants.nextLink).click();
+        Assert.assertTrue(utils.waitForElementPresent(HawkularAlertFilterConstants.failedAlertDescription));
+    }
+
+    public void verifyFailedDeploymentAlertDetails() {
+        HawkularUtils utils = new HawkularUtils(driver);
+        Assert.assertTrue(utils
+                .waitForElementPresent(HawkularAlertFilterConstants.failedDeploymentAlertDetailsLocator));
 
     }
 
