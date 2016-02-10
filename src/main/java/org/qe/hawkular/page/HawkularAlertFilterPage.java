@@ -72,7 +72,7 @@ public class HawkularAlertFilterPage {
                     .click();
             return;
         }
-        utils.waitForElementPresent(HawkularAlertFilterConstants.nextLink);
+        Assert.assertTrue(utils.waitForElementPresent(HawkularAlertFilterConstants.nextLink));
         driver.findElement(HawkularAlertFilterConstants.nextLink).click();
         driver.findElement(HawkularAlertFilterConstants.viewDetailsLink)
                 .click();
@@ -147,9 +147,9 @@ public class HawkularAlertFilterPage {
                     .click();
             return;
         }
-        utils.waitForElementPresent(HawkularAlertFilterConstants.nextLink);
+        Assert.assertTrue(utils.waitForElementPresent(HawkularAlertFilterConstants.nextLink));
         driver.findElement(HawkularAlertFilterConstants.nextLink).click();
-        utils.waitForElementPresent(HawkularAlertFilterConstants.failedAlertDescription);
+        Assert.assertTrue(utils.waitForElementPresent(HawkularAlertFilterConstants.failedAlertDescription));
     }
 
     public void verifyFailedDeploymentAlertDetails() {
