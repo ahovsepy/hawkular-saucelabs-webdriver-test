@@ -14,7 +14,9 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
-public class BrowsersAndOs {
+import org.qe.hawkular.base.HawkularBase;
+
+public class BrowsersAndOs extends HawkularBase {
 
     public static List<String> readBrowsersAndOsFromFile() {
 
@@ -28,7 +30,7 @@ public class BrowsersAndOs {
                     "src/test/resources/browserAndOs.properties");
             prop.load(input);
 
-            System.out.println("browsersAndOs.properties Loaded Succesfully");
+            _logger.info("browsersAndOs.properties Loaded Succesfully");
 
             Set<String> browsers = prop.stringPropertyNames();
             for (String browser : browsers) {
@@ -50,7 +52,7 @@ public class BrowsersAndOs {
     public static void main(String[] args) {
         
             String generatedUsername = "str"+(new Date().getTime());
-            System.out.println(generatedUsername);
+            _logger.info(generatedUsername);
         
         
     }

@@ -6,12 +6,13 @@ import junit.framework.Assert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.qe.hawkular.base.HawkularBase;
 import org.qe.hawkular.element.HawkularManagementConsolePageConstants;
 import org.qe.hawkular.util.HawkularUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.Keys;
 
-public class HawkularConsoleAddUrlPage {
+public class HawkularConsoleAddUrlPage extends HawkularBase {
 
     public final WebDriver driver;
     public static String urlPageText = "Add URL";
@@ -133,7 +134,7 @@ public class HawkularConsoleAddUrlPage {
         HawkularUtils util = new HawkularUtils(driver);
         Assert.assertTrue(util.waitForElementPresent(urlIPLocator));
         WebElement URLServerTraits = driver.findElement(urlTraits);
-        System.out.println("URL Server Traits are: "
+        _logger.info("URL Server Traits are: "
                 + URLServerTraits.getText());
         Assert.assertTrue(URLServerTraits.getText().contains("IP:"));
         Assert.assertTrue(URLServerTraits.getText().contains("Powered by:"));
@@ -186,7 +187,7 @@ public class HawkularConsoleAddUrlPage {
 
         HawkularUtils utils = new HawkularUtils(driver);
         Assert.assertTrue(utils.waitForElementPresent(urlHeadingLocator));
-        System.out.println("Test Pass Verify State Up");
+        _logger.info("Test Pass Verify State Up");
 
     }
 
@@ -205,7 +206,7 @@ public class HawkularConsoleAddUrlPage {
         HawkularUtils utils = new HawkularUtils(driver);
         Assert.assertTrue(utils
                 .waitForElementPresent(HawkularManagementConsolePageConstants.url2HeadingLocator));
-        System.out.println("Test Pass Verify State Down");
+        _logger.info("Test Pass Verify State Down");
 
     }
 
