@@ -11,6 +11,8 @@ public class HawkularAppServerPageConstants {
     public static final By appServerOverviewtabLink = By.linkText("Overview");
     public static final By appServerDeploymentsLink = By.linkText("Deployments");
     public static final By appServerJVMtabLink = By.linkText("JVM");
+    public static final By appserverPlatformTabLink= By.xpath("html/body/div[1]/div/div/div/hawkular-subtab/div/div/div[3]/div/ul/li[3]/a");
+    public static final By appserverTransactionsTabLink= By.xpath("html/body/div[1]/div/div/div/hawkular-subtab/div/div/div[3]/div/ul/li[6]/a");
     public static final By appServerDatasourcestabLink = By.linkText("Datasources");
     public static final By appServerDeploymentstabLocator = By.xpath("//*[text()='Deployment Status']");
     public static final By appServerWarFileLocator = By.xpath("//*[text()='hawkular-accounts.war']");
@@ -19,5 +21,6 @@ public class HawkularAppServerPageConstants {
     public static final By appServerRHASupportmyCasesLocator = By.xpath("//a[@href='/hawkular-ui/access/myCases']");
     public static final By overviewAddDeploymentLink = By.linkText("Add a Deployment");
     public static final By overviewAddDatasourceLink = By.linkText("Add a Datasource");
+    
    
 }
