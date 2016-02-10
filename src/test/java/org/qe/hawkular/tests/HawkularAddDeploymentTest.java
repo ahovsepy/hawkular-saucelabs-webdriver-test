@@ -93,7 +93,7 @@ public class HawkularAddDeploymentTest extends HawkularSeleniumLocalWebDriver {
     public void hawkularDeploymentAlertTest() throws Exception {
         _logger.info("Verifying alert settings/details for failed deployment alerts");
         adddeployment.verifyDeploymentAlertDetails();
-        adddeployment.verifyDefinitionsLink();
+        adddeployment.verifyAndClickDefinitionsLink();
         alertFilter.filter("Deployment Failure");
         alertFilter.verifyFailedDeploymentAlertExists();
         alertFilter.navigateToViewDetails();

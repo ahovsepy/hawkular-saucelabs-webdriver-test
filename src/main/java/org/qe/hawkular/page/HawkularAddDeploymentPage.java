@@ -1,8 +1,11 @@
 package org.qe.hawkular.page;
 
+import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.qe.hawkular.element.HawkularAddDeploymentConstants;
+import org.qe.hawkular.element.HawkularAlertFilterConstants;
 import org.qe.hawkular.util.HawkularUtils;
 
 public class HawkularAddDeploymentPage {
@@ -53,12 +56,14 @@ public class HawkularAddDeploymentPage {
 
     public void verifyDeploymentAlertDetails() {
         HawkularUtils utils = new HawkularUtils(driver);
-        utils.waitForElementPresent(HawkularAddDeploymentConstants.deploymentAlertText);
+        Assert.assertTrue(utils
+                .waitForElementPresent(HawkularAddDeploymentConstants.deploymentAlertText));        
     }
 
-    public void verifyDefinitionsLink() {
+    public void verifyAndClickDefinitionsLink() {
         HawkularUtils utils = new HawkularUtils(driver);
-        utils.waitForElementPresent(HawkularAddDeploymentConstants.deploymentAlertDefinitionsLink);
+        Assert.assertTrue(utils
+                .waitForElementPresent(HawkularAddDeploymentConstants.deploymentAlertDefinitionsLink));
         driver.findElement(
                 HawkularAddDeploymentConstants.deploymentAlertDefinitionsLink)
                 .click();
