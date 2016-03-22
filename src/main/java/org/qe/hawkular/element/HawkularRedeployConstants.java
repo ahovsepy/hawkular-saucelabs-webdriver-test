@@ -1,0 +1,18 @@
+package org.qe.hawkular.element;
+import org.openqa.selenium.By;
+public class HawkularRedeployConstants {
+
+	public static final By checkAllWars =  By.xpath("//th[contains(class,sorting)]/input[@type='checkbox']");
+	public static final By checkFirstWarLocator =  By
+		    .xpath("//*[contains(text(),'hawkular-pinger.war')]/../..//input");
+	public static final By selectAllWarsAction =  By.id("dropdownMenu1");
+//	public static final By selectWarAction =  By.id("dropdownMenu2");
+	public static final By selectWarAction =  By.id("add-dep");
+	public static final By selectRedeployWar =  By.linkText("Redeploy");
+	public static final By selectDisableWar =  By.linkText("Disable");
+	public static final By selectEnableWar =  By.linkText("Enable");
+	public static final By selectRemoveWar =  By.linkText("Remove");
+	public static final By verifySuccess = By.cssSelector("div.toast-message");
+	public static final By verifySucceeded = By.xpath("//*[contains(text(), 'succeeded')]");
+
+}
