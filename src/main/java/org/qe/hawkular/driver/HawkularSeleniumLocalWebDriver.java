@@ -6,6 +6,11 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+/**
+ * Selenium Local Driver to use when tests need to be executed locally and not on saucelabs.
+ *
+ */
+
 public class HawkularSeleniumLocalWebDriver {
     
     
