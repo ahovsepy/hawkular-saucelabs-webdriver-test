@@ -17,6 +17,11 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+/**
+ * Test case to navigate to app server and JVM/deployment tab of the app server
+ *
+ * @author Sunil Kondkar
+ */
 
 public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
 
@@ -50,8 +55,9 @@ public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
         addUrlPage.navigateToAppServersMenu();
         addUrlPage.verifyAppServersMenuNavigation();
         appServerPage.verifyLocalAppServerExists();
-        appServerPage.navigateTOLocalAppServer();
+        appServerPage.navigateToLocalAppServer();
         appServerPage.verifyAppServerJVMTabNavigation();
+        loginPage.logout();
         driver.quit();
         
     }
@@ -75,11 +81,35 @@ public class HawkularAppServerTest extends HawkularSeleniumLocalWebDriver {
         addUrlPage.navigateToAppServersMenu();
         addUrlPage.verifyAppServersMenuNavigation();
         appServerPage.verifyLocalAppServerExists();
-        appServerPage.navigateTOLocalAppServer();
+        appServerPage.navigateToLocalAppServer();
         appServerPage.verifyAppServerJVMTabNavigation();
-        appServerPage.navigateTODeploymentsTab();
+        appServerPage.navigateToDeploymentsTab();
         appServerPage.verifyAppServerDeploymentsTabNavigation();
         appServerPage.verifyAppServerWarExists();
+        driver.quit();
+        
+    }
+    
+    @Test
+    public void hawkularURLTraitsTest() throws Exception {
+        WebDriver driver = createLocalDriver();
+
+        driver.get(HawkularSeleniumWebDriver.hawkularUrl);
+        System.out.println(driver.getTitle());
+        HawkularLoginPage loginPage = new HawkularLoginPage(driver);
+        HawkularUtils util = new HawkularUtils(driver);
+        util.assertTitle(HawkularLoginPageConstants.loginTitle);
+        loginPage.loginAs(HawkularRegistrationPageConstants.username2,
+                HawkularRegistrationPageConstants.password2);
+
+        HawkularConsoleAddUrlPage addUrlPage = new HawkularConsoleAddUrlPage(
+                driver);
+        addUrlPage.verifyConsoleImagePresent();
+        addUrlPage.addURLIfDoesNotExist(HawkularManagementConsolePageConstants.testURL);
+        addUrlPage.verifyURLTraitsExists();
+        addUrlPage.deleteURL();
+        addUrlPage.verifyUrlDoesnotExist();
+        loginPage.logout();
         driver.quit();
         
     }
